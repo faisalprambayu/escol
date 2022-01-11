@@ -2,11 +2,11 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="<?= url('index');?>" class="logo d-flex align-items-center">
         <img src="assets/img/esschool.png" alt="">
         {{-- <span class="d-none d-lg-block">NiceAdmin</span> --}}
       </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
+      <i class="bi bi-list toggle-sidebar-btn" id='button-toggle'></i>
     </div><!-- End Logo -->
 
     <div class="search-bar">

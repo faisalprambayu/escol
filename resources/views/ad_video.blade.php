@@ -1,6 +1,6 @@
 @include('components.ad_head_up')
 
-<body class="">
+<body>
 
   @include('components.ad_header')
 
@@ -34,9 +34,8 @@
                         <th scope="col">#</th>
                         <th scope="col">No</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Start Date</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Previev</th>
                     </tr>
                     </thead>
                     <tbody>

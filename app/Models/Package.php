@@ -19,6 +19,7 @@ class Package extends Model
         'Price',
         'Discount',
         'Link',
+        'Deskripsi',
         'Image',
     ];
 

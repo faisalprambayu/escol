@@ -33,10 +33,11 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Start Date</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Diskon</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,7 +50,7 @@
                             </ul>
                         </td>
                         <th scope="row">1</th>
-                        <td>Brandon Jacob</td>
+                        <td>Matematika</td>
                         <td>Designer</td>
                         <td>28</td>
                         <td>2016-05-25</td>

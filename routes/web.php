@@ -62,7 +62,7 @@ Route::get('/team', function () {
 });
 
 Route::get('/video', function () {
-    return view('ad_vide');
+    return view('ad_video');
 });
 
 Route::get('/faq', function () {
@@ -72,5 +72,3 @@ Route::get('/faq', function () {
 Route::get('/footer', function () {
     return view('ad_footer');
 });
-
-

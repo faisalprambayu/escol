@@ -18,6 +18,7 @@ class CreatePackagesTable extends Migration
             $table->string('Name');
             $table->integer('Price');
             $table->string('Discount');
+            $table->string('Deskripsi');
             $table->string('Link');
             $table->string('Image');
             $table->timestamps();
