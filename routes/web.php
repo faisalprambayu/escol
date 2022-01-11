@@ -72,3 +72,5 @@ Route::get('/faq', function () {
 Route::get('/footer', function () {
     return view('ad_footer');
 });
+
+#
