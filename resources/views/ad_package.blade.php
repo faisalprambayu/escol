@@ -14,7 +14,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">General</li>
+          <li class="breadcrumb-item active">Package</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -65,7 +65,9 @@
                         <td><a href="<?= $datas['Deskripsi'] ?>"> <?= $datas['Link'] ?></a></td>
                         <td><?= $datas['Image'] ?></td>
                     </tr>
-                    <?php } ?>
+                    <?php } if ($no == 0) {
+                        echo ' <tr><th colspan="8" class="text-center" > Tidak Ada Data</th></tr>';
+                     }?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->

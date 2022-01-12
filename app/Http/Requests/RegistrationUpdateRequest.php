@@ -26,7 +26,7 @@ class RegistrationUpdateRequest extends FormRequest
         return [
             'Name' => ['required', 'string'],
             'Email' => ['required', 'string'],
-            'Handphone' => ['required', 'integer'],
+            'Handphone' => ['required', 'string'],
             'School_Origin' => ['required', 'string'],
             'Class' => ['required', 'integer'],
             'Major' => ['required', 'integer'],
