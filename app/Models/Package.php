@@ -18,8 +18,8 @@ class Package extends Model
         'Name',
         'Price',
         'Discount',
-        'Link',
         'Deskripsi',
+        'Link',
         'Image',
     ];
 

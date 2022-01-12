@@ -1,5 +1,8 @@
 <?php
 
+// namespace App\Routes;
+
+use App\Http\Controllers\PackageViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,9 +48,7 @@ Route::get('/event', function () {
     return view('ad_event');
 });
 
-Route::get('/package', function () {
-    return view('ad_package');
-});
+Route::get('/package', [PackageViewController::class, 'index']);
 
 Route::get('/registration', function () {
     return view('ad_registration');
@@ -72,5 +73,3 @@ Route::get('/faq', function () {
 Route::get('/footer', function () {
     return view('ad_footer');
 });
-
-

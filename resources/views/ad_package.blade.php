@@ -36,11 +36,19 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Diskon</th>
+                        <th scope="col">Deskripsi</th>
                         <th scope="col">Link</th>
                         <th scope="col">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
+
+                    <?php function Rupiah($angka){
+                        $hasil = "Rp " . number_format($angka,2,',','.');
+                        return $hasil;
+                    }
+                    $no = 0;
+                    foreach ($data as  $datas) { ?>
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -49,26 +57,15 @@
                                 <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row">1</th>
-                        <td>Matematika</td>
-                        <td>Designer</td>
-                        <td>28</td>
-                        <td>2016-05-25</td>
+                        <th scope="row"><?= ++$no ?></th>
+                        <td><?= $datas['Name'] ?></td>
+                        <td><?= Rupiah($datas['Price']) ?></td>
+                        <td><?= Rupiah($datas['Discount']) ?></td>
+                        <td><?= $datas['Deskripsi'] ?></td>
+                        <td><a href="<?= $datas['Deskripsi'] ?>"> <?= $datas['Link'] ?></a></td>
+                        <td><?= $datas['Image'] ?></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
-                            </ul>
-                        </td>
-                        <th scope="row">2</th>
-                        <td>Bridie Kessler</td>
-                        <td>Developer</td>
-                        <td>35</td>
-                        <td>2014-12-05</td>
-                    </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->
