@@ -1,6 +1,6 @@
 @include('components.ad_head_up')
 
-<body class="">
+<body>
 
   @include('components.ad_header')
 
@@ -9,12 +9,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>General Tables</h1>
+      <h1>Tabel Footer</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Event</li>
+          <li class="breadcrumb-item active">Footer</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -30,11 +30,11 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                    <tr>
+                    <tr >
                         <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Event</th>
-                        <th scope="col">Gambar</th>
+                        <th scope="col" class="text-center">No</th>
+                        <th scope="col" class="text-center">Logo</th>
+                        <th scope="col" class="text-center">Link</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,13 +49,14 @@
                                 <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row"><?=++$no?></th>
-                        <td><?= $datas['Name'] ?></td>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
+                        <th scope="row" class="text-center"><?= ++$no ?></th>
+                        <td class="text-center"><img src="<?= url('img/'.$datas['Logo'])?>" width="125px" alt="<?= $datas['Link'] ?>"></td>
+                        <td><?= $datas['Link'] ?></td>
                     </tr>
-                    <?php } if ($no == 0) {
-                        echo ' <tr><th colspan="4" class="text-center" > Tidak Ada Data</th></tr>';
-                     }?>
+                    <?php }
+                    if ($no == 0) {
+                       echo ' <tr><th colspan="4" class="text-center" > Tidak Ada Data</th></tr>';
+                    }?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->

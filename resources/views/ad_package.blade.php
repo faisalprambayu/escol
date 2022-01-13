@@ -63,7 +63,7 @@
                         <td><?= Rupiah($datas['Discount']) ?></td>
                         <td><?= $datas['Deskripsi'] ?></td>
                         <td><a href="<?= $datas['Deskripsi'] ?>"> <?= $datas['Link'] ?></a></td>
-                        <td><?= $datas['Image'] ?></td>
+                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="8" class="text-center" > Tidak Ada Data</th></tr>';

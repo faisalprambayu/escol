@@ -12,6 +12,7 @@ use App\Http\Controllers\RClassViewController;
 use App\Http\Controllers\RMajorViewController;
 use App\Http\Controllers\RPackageViewController;
 use App\Http\Controllers\FaqViewController;
+use App\Http\Controllers\FooterViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,9 +53,9 @@ Route::get('/admin', function () {
 //     return view('ad_faq');
 // });
 
-Route::get('/footer', function () {
-    return view('ad_footer');
-});
+// Route::get('/footer', function () {
+//     return view('ad_footer');
+// });
 
 // Route::get('/ref_package', function () {
 //     return view('ad_ref_package');
@@ -65,6 +66,7 @@ Route::get('/footer', function () {
 // });
 
 
+Route::get('/footer', [FooterViewController::class, 'index']);
 Route::get('/faq', [FaqViewController::class, 'index']);
 Route::get('/ref_package', [RPackageViewController::class, 'index']);
 Route::get('/ref_class', [RClassViewController::class, 'index']);

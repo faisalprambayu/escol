@@ -34,7 +34,7 @@
                         <th scope="col">#</th>
                         <th scope="col">No</th>
                         <th scope="col">Judul Layanan</th>
-                        <th scope="col">Gambar</th>
+                        <th scope="col" class="text-center">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,7 @@
                         </td>
                         <th scope="row"><?= ++$no ?></th>
                         <td><?= $datas['Title'] ?></td>
-                        <td><?= $datas['Image'] ?></td>
+                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Title'] ?>"></td>
                     </tr>
                     <?php }
                     if ($no == 0) {
