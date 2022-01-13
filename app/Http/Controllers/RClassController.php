@@ -19,6 +19,7 @@ class RClassController extends Controller
     {
         $rClasses = RClass::all();
 
+        // dump($rClasses);
         return new RClassCollection($rClasses);
     }
 

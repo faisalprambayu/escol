@@ -11,12 +11,19 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="active" href="index.html">Paket Belajar</a></li>
-          <li><a href="#">Program</a></li>
-          <li><a href="#">Fitur</a></li>
-          <li><a href="#">Artikel</a></li>
-          <li><a href="#">Karir</a></li>
-          <li><a href="#">Sahabat esschool.id</a></li>
+            <li class="dropdown"><a href="#"><span>Paket Belajar</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a href="#">Drop Down 1</a></li>
+                    <li><a href="#">Drop Down 2</a></li>
+                    <li><a href="#">Drop Down 3</a></li>
+                    <li><a href="#">Drop Down 4</a></li>
+                </ul>
+            </li>
+            <li><a href="/program">Program</a></li>
+            <li><a href="#">Fitur</a></li>
+            <li><a href="#">Artikel</a></li>
+            <li><a href="#">Karir</a></li>
+            <li><a href="#">Sahabat esschool.id</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

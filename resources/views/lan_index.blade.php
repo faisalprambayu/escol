@@ -14,7 +14,7 @@
                 <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
                     <h1>Belajar Bareng <span style="font-weight: bold">esschool.id</span></h1>
                     <h2>Partner belajar serumu yang menyesuaikan gaya belajar dan karaktermu.</h2>
-                  <a href="courses.html" class="btn-get-started">Get Started</a>
+                  <a href="#popular-courses" class="btn-get-started">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">

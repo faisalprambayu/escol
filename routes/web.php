@@ -25,6 +25,10 @@ Route::get('/index', function () {
     return view('lan_index');
 });
 
+Route::get('/program', function () {
+    return view('lan_program');
+});
+
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });
