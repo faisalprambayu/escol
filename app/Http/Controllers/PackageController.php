@@ -18,8 +18,8 @@ class PackageController extends Controller
     public function index(Request $request)
     {
         $packages = Package::all();
-
-        return new PackageCollection($packages);
+        $data = new PackageCollection($packages);
+        return $data;
     }
 
     /**

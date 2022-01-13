@@ -17,7 +17,7 @@ class CreateRegistrationsTable extends Migration
             $table->id();
             $table->string('Name');
             $table->string('Email');
-            $table->integer('Handphone');
+            $table->string('Handphone', 15);
             $table->string('School_Origin');
             $table->integer('Class');
             $table->integer('Major');

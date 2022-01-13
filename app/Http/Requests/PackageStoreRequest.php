@@ -27,6 +27,7 @@ class PackageStoreRequest extends FormRequest
             'Name' => ['required', 'string'],
             'Price' => ['required', 'integer'],
             'Discount' => ['required', 'string'],
+            'Deskripsi' => ['required', 'string'],
             'Link' => ['required', 'string'],
             'Image' => ['required', 'string'],
         ];
