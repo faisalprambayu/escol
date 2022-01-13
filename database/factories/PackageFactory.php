@@ -26,6 +26,7 @@ class PackageFactory extends Factory
             'Name' => $this->faker->word,
             'Price' => $this->faker->numberBetween(-10000, 10000),
             'Discount' => $this->faker->word,
+            'Deskripsi' => $this->faker->word,
             'Link' => $this->faker->word,
             'Image' => $this->faker->word,
         ];

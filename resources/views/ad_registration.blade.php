@@ -33,13 +33,19 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Start Date</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Handphone</th>
+                        <th scope="col">Asal Sekolah</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Major</th>
+                        <th scope="col">Package</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $no = 0;
+                    foreach ($data as  $datas) { ?>
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -48,26 +54,19 @@
                                 <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row">1</th>
-                        <td>Brandon Jacob</td>
-                        <td>Designer</td>
-                        <td>28</td>
-                        <td>2016-05-25</td>
+                        <th scope="row"><?=++$no?></th>
+                        <td><?= $datas['Name'] ?></td>
+                        <td><?= $datas['Email'] ?></td>
+                        <td><?= $datas['Handphone'] ?></td>
+                        <td><?= $datas['School_Origin'] ?></td>
+                        <td><?= $datas['Class'] ?></td>
+                        <td><?= $datas['Major'] ?></td>
+                        <td><?= $datas['Package'] ?></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
-                            </ul>
-                        </td>
-                        <th scope="row">2</th>
-                        <td>Bridie Kessler</td>
-                        <td>Developer</td>
-                        <td>35</td>
-                        <td>2014-12-05</td>
-                    </tr>
+                    <?php }
+                    if ($no == 0) {
+                       echo ' <tr><th colspan="9" class="text-center" > Tidak Ada Data</th></tr>';
+                    }?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->

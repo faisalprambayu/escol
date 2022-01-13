@@ -1,5 +1,13 @@
 <?php
 
+// namespace App\Routes;
+
+use App\Http\Controllers\PackageViewController;
+use App\Http\Controllers\EventViewController;
+use App\Http\Controllers\ServiceViewController;
+use App\Http\Controllers\TeamViewController;
+use App\Http\Controllers\VideoViewController;
+use App\Http\Controllers\RegistrationViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,29 +49,32 @@ Route::get('/ref_major', function () {
     return view('ad_ref_major');
 });
 
-Route::get('/event', function () {
-    return view('ad_event');
-});
+// Route::get('/event', function () {
+//     return view('ad_event');
+// });
 
-Route::get('/package', function () {
-    return view('ad_package');
-});
+Route::get('/event', [EventViewController::class, 'index']);
+Route::get('/package', [PackageViewController::class, 'index']);
+Route::get('/service', [ServiceViewController::class, 'index']);
+Route::get('/team', [TeamViewController::class, 'index']);
+Route::get('/video', [VideoViewController::class, 'index']);
+Route::get('/registration', [RegistrationViewController::class, 'index']);
 
-Route::get('/registration', function () {
-    return view('ad_registration');
-});
+// Route::get('/registration', function () {
+//     return view('ad_registration');
+// });
 
-Route::get('/service', function () {
-    return view('ad_service');
-});
+// Route::get('/service', function () {
+//     return view('ad_service');
+// });
 
-Route::get('/team', function () {
-    return view('ad_team');
-});
+// Route::get('/team', function () {
+//     return view('ad_team');
+// });
 
-Route::get('/video', function () {
-    return view('ad_video');
-});
+// Route::get('/video', function () {
+//     return view('ad_video');
+// });
 
 Route::get('/faq', function () {
     return view('ad_faq');

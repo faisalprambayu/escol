@@ -19,6 +19,7 @@ class PackageResource extends JsonResource
             'Name' => $this->Name,
             'Price' => $this->Price,
             'Discount' => $this->Discount,
+            'Deskripsi' => $this->Deskripsi,
             'Link' => $this->Link,
             'Image' => $this->Image,
         ];

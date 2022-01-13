@@ -30,15 +30,20 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">#</th>
                         <th scope="col">No</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Judul</th>
                         <th scope="col">Link</th>
-                        <th scope="col">Previev</th>
+                        <th scope="col">Video</th>
+                        <th scope="col">Text1</th>
+                        <th scope="col">Text2</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $no = 0;
+                    foreach ($data as  $datas) { ?>
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -47,26 +52,27 @@
                                 <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row">1</th>
-                        <td>Brandon Jacob</td>
-                        <td>Designer</td>
-                        <td>28</td>
-                        <td>2016-05-25</td>
+                        <th scope="row"><?= ++$no ?></th>
+                        <td><?= $datas['Title'] ?></td>
+                        <td><?= $datas['Link'] ?></td>
+                        <?php $PecahLink = explode("/",$datas['Link']);
+                        if($PecahLink[0] =='https:' && $PecahLink[2] =='youtu.be'){
+                            $link = $PecahLink[3];
+                        }
+                        elseif ($PecahLink[0] =='https:' && $PecahLink[2] =='www.youtube.com' && $PecahLink[3] =='embed'){
+                            $link = $PecahLink[4];
+                        }
+                        elseif ($PecahLink[0] =='https:' && $PecahLink[2] =='www.youtube.com') {
+                            $link = explode("=",$PecahLink[3])[1];
+                        }
+                        ?>
+                        <td><iframe width="160" height="90" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                        <td><?= $datas['Text1'] ?></td>
+                        <td><?= $datas['Text2'] ?></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
-                            </ul>
-                        </td>
-                        <th scope="row">2</th>
-                        <td>Bridie Kessler</td>
-                        <td>Developer</td>
-                        <td>35</td>
-                        <td>2014-12-05</td>
-                    </tr>
+                    <?php } if ($no == 0) {
+                        echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';
+                     } ?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->
