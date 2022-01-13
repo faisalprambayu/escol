@@ -20,7 +20,7 @@
                 </ul>
             </li>
             <li><a href="/program">Program</a></li>
-            <li><a href="#">Fitur</a></li>
+            <li><a href="/fitur">Fitur</a></li>
             <li><a href="#">Artikel</a></li>
             <li><a href="#">Karir</a></li>
             <li><a href="#">Sahabat esschool.id</a></li>

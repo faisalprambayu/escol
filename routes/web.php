@@ -37,6 +37,10 @@ Route::get('/program', function () {
     return view('lan_program');
 });
 
+Route::get('/fitur', function () {
+    return view('lan_fitur');
+});
+
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });
