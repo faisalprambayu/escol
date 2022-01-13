@@ -9,12 +9,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Table Video</h1>
+      <h1>Tabel FAQ</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Video</li>
+          <li class="breadcrumb-item active">FAQ</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -30,20 +30,17 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                    <tr class="text-center">
+                    <tr >
                         <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Judul</th>
-                        <th scope="col">Link</th>
-                        <th scope="col">Video</th>
-                        <th scope="col">Text1</th>
-                        <th scope="col">Text2</th>
+                        <th scope="col" class="text-center">No</th>
+                        <th scope="col" class="text-center">Pertanyaan</th>
+                        <th scope="col" class="text-center">Jawaban</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    $no = 0;
-                    foreach ($data as  $datas) { ?>
+                        <?php
+                        $no = 0;
+                        foreach ($data as  $datas) { ?>
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -52,27 +49,14 @@
                                 <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row"><?= ++$no ?></th>
-                        <td><?= $datas['Title'] ?></td>
-                        <td><?= $datas['Link'] ?></td>
-                        <?php $PecahLink = explode("/",$datas['Link']);
-                        if($PecahLink[0] =='https:' && $PecahLink[2] =='youtu.be'){
-                            $link = $PecahLink[3];
-                        }
-                        elseif ($PecahLink[0] =='https:' && $PecahLink[2] =='www.youtube.com' && $PecahLink[3] =='embed'){
-                            $link = $PecahLink[4];
-                        }
-                        elseif ($PecahLink[0] =='https:' && $PecahLink[2] =='www.youtube.com') {
-                            $link = explode("=",$PecahLink[3])[1];
-                        }
-                        ?>
-                        <td><iframe width="160" height="90" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-                        <td><?= $datas['Text1'] ?></td>
-                        <td><?= $datas['Text2'] ?></td>
+                        <th scope="row" class="text-center"><?= ++$no ?></th>
+                        <td><?= $datas['Question'] ?></td>
+                        <td><?= $datas['Answer'] ?></td>
                     </tr>
-                    <?php } if ($no == 0) {
-                        echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';
-                     } ?>
+                    <?php }
+                    if ($no == 0) {
+                       echo ' <tr><th colspan="4" class="text-center" > Tidak Ada Data</th></tr>';
+                    }?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->
