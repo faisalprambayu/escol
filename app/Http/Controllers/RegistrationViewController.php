@@ -9,9 +9,24 @@ class RegistrationViewController extends Controller
 {
     public function index()
     {
-        $request = Request::create('api/registration', 'GET');
-        $response = Route::dispatch($request);
-        $data = json_decode($response->content(), true)['data'];
+        $registration = Request::create('api/registration', 'GET');
+        $responseRegistration = Route::dispatch($registration);
+
+        $package = Request::create('api/r-package', 'GET');
+        $responsePackage = Route::dispatch($package);
+
+        $major = Request::create('api/r-major', 'GET');
+        $responseMajor = Route::dispatch($major);
+
+        $class = Request::create('api/r-class', 'GET');
+        $responseClass = Route::dispatch($class);
+        $data = [
+            'registration' => json_decode($responseRegistration->content(), true)['data'],
+            'package' => json_decode($responsePackage->content(), true)['data'],
+            'major' => json_decode($responseMajor->content(), true)['data'],
+            'class' => json_decode($responseClass->content(), true)['data'],
+        ];
+        // dd($data);
         return view('ad_registration', compact('data'));
     }
 }

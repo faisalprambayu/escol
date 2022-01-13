@@ -9,12 +9,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>General Tables</h1>
+      <h1>Tabel Pendaftaran</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">General</li>
+          <li class="breadcrumb-item active">Registration</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -45,7 +45,7 @@
                     <tbody>
                     <?php
                     $no = 0;
-                    foreach ($data as  $datas) { ?>
+                    foreach ($data['registration'] as $registrations) { ?>
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -55,13 +55,13 @@
                             </ul>
                         </td>
                         <th scope="row"><?=++$no?></th>
-                        <td><?= $datas['Name'] ?></td>
-                        <td><?= $datas['Email'] ?></td>
-                        <td><?= $datas['Handphone'] ?></td>
-                        <td><?= $datas['School_Origin'] ?></td>
-                        <td><?= $datas['Class'] ?></td>
-                        <td><?= $datas['Major'] ?></td>
-                        <td><?= $datas['Package'] ?></td>
+                        <td><?= $registrations['Name'] ?></td>
+                        <td><?= $registrations['Email'] ?></td>
+                        <td><?= $registrations['Handphone'] ?></td>
+                        <td><?= $registrations['School_Origin'] ?></td>
+                        <td><?php foreach ($data['class'] as $classs) { if($registrations['Class'] == $classs['id']) {echo $classs['Name'];} }?></td>
+                        <td><?php foreach ($data['major'] as $major) { if($registrations['Major'] == $major['id']) {echo $major['Name'];} }?></td>
+                        <td><?php foreach ($data['package'] as $package) { if($registrations['Package'] == $package['id']) {echo $package['Name'];} }?></td>
                     </tr>
                     <?php }
                     if ($no == 0) {
