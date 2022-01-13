@@ -32,6 +32,13 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/faq', function () {
+    return view('ad_faq');
+});
+
+Route::get('/footer', function () {
+    return view('ad_footer');
+});
 Route::get('/index', function () {
     return view('lan_index');
 });
@@ -41,7 +48,7 @@ Route::get('/admin', function () {
 });
 
 // Route::get('/ref_package', function () {
-//     return view('ad_ref_package');
+    //     return view('ad_ref_package');
 // });
 
 // Route::get('/ref_major', function () {
@@ -83,10 +90,3 @@ Route::get('/registration', [RegistrationViewController::class, 'index']);
 //     return view('ad_video');
 // });
 
-Route::get('/faq', function () {
-    return view('ad_faq');
-});
-
-Route::get('/footer', function () {
-    return view('ad_footer');
-});
