@@ -41,11 +41,11 @@ Route::apiResource('service', ServiceController::class);
 
 Route::apiResource('team', TeamController::class);
 
-Route::apiResource('r-package', RPackageController::class);
+Route::apiResource('r_package', RPackageController::class);
 
-Route::apiResource('r-major', RMajorController::class);
+Route::apiResource('r_major', RMajorController::class);
 
-Route::apiResource('r-class', RClassController::class);
+Route::apiResource('r_class', RClassController::class);
 
 Route::apiResource('video', VideoController::class);
 

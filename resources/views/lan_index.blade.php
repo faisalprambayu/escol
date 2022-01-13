@@ -14,7 +14,7 @@
                 <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
                     <h1>Belajar Bareng <span style="font-weight: bold">esschool.id</span></h1>
                     <h2>Partner belajar serumu yang menyesuaikan gaya belajar dan karaktermu.</h2>
-                  <a href="courses.html" class="btn-get-started">Get Started</a>
+                  <a href="#popular-courses" class="btn-get-started">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -150,96 +150,113 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
 
-        {{-- <div class="es-half-bg"> --}}
-            <div class="container" data-aos="fade-up">
-                {{-- <div class="es-feature bg-4" id="feature" name="feature"> --}}
-                    <header class="section-title">
-                        <h2>Keuntungan</h2>
-                        <p>Keuntungan yang kamu dapat</p>
-                    </header>
+    {{-- event --}}
 
-                    <div class="row gy-4">
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
 
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-box blue">
-                            <i class="bi-headphones icon"></i>
-                            <h3>Konsultasi</h3>
-                            <p>
+          <div class="section-title">
+            <h2>Event</h2>
+            <p>Event Seru Esschool.id</p>
+          </div>
 
-                            </p>
-                            <a href="/bidang/dakwahperibadatan" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div>
+          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
 
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-box orange">
-                            <i class="bi-broadcast icon"></i>
-                            <h3>Live Class</h3>
-                            <p>
-
-                            </p>
-                            <a href="/bidang/ekonomi" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-box green">
-                            <i class="bi-camera-video icon"></i>
-                            <h3>Sosial & Video</h3>
-                            <p>
-
-                            </p>
-                            <a href="/bidang/fundraising" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div>
-
-                        {{-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-box red">
-
-                            <i class="bi-graduation icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
-                            <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
-                            <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
-                            </svg></i>
-                            <h3>Pendidikan</h3>
-                            <p>
-
-                            </p>
-                            <a href="/bidang/pendidikan" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-box purple">
-                            <i class="bi bi-building icon"></i>
-                            <h3>Sarana dan Prasarana</h3>
-                            <p>
-
-                            </p>
-                            <a href="/bidang/saranaprasarana" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                        <div class="service-box pink">
-                            <i class="bi-instagram icon"></i>
-                            <h3>Sosial dan Multimedia</h3>
-                            <p>
-
-                            </p>
-                            <a href="/bidang/sosialmultimedia" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                        </div> --}}
-
-                    </div>
+              <div class="swiper-slide">
+                {{-- <div class="col-md-3" style="float:left"> --}}
+                    <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
                 {{-- </div> --}}
-            {{-- </div> --}}
-        </div>
+              </div><!-- End testimonial item -->
 
-    </section><!-- End Services Section -->
+              <div class="swiper-slide">
+                <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+              </div><!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
+              </div><!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
+              </div><!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+              </div><!-- End testimonial item -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+    <section id="service" class="service">
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  {{-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> --}}
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                  </div>
+                  {{-- <div class="carousel-item">
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
+                    </div>
+                  </div> --}}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </div>
+    </section>
+    {{-- end event --}}
 
 
     <!-- ======= Features Section ======= -->
@@ -504,25 +521,25 @@
                     Launch demo modal
                 </button> --}}
 
-                <img data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 500px" loading="lazy" src="https://www.ruangguru.com/hubfs/00%20-%20Homepage%20Ruangguru%202022/Section%20Kejar%20Cita-cita%20mu%20Testimoni%20Pengguna/video_banner_thumbnail.jpg" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
+                <img data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 60%;" loading="lazy" src="https://www.ruangguru.com/hubfs/00%20-%20Homepage%20Ruangguru%202022/Section%20Kejar%20Cita-cita%20mu%20Testimoni%20Pengguna/video_banner_thumbnail.jpg" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        {{-- <div class="modal-content "> --}}
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content d-flex justify-content-center align-items-center">
                             {{-- <div class="modal-header"> --}}
                             {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                             {{-- </div> --}}
-                            <div class="modal-body  d-flex justify-content-center align-items-center">
-                                <iframe width="630" height="355" src="https://www.youtube.com/embed/6Ge_ezzlo6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            {{-- <div class="modal-body  d-flex justify-content-center align-items-center"> --}}
+                                <iframe style="width: 630px; height: 355px; "  src="https://www.youtube.com/embed/6Ge_ezzlo6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                                 </iframe>
-                            </div>
+                            {{-- </div> --}}
                             {{-- <div class="modal-footer"> --}}
                             {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
                             {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                             {{-- </div> --}}
-                        {{-- </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
