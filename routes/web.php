@@ -8,6 +8,9 @@ use App\Http\Controllers\ServiceViewController;
 use App\Http\Controllers\TeamViewController;
 use App\Http\Controllers\VideoViewController;
 use App\Http\Controllers\RegistrationViewController;
+use App\Http\Controllers\RClassViewController;
+use App\Http\Controllers\RMajorViewController;
+use App\Http\Controllers\RPackageViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +32,13 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/faq', function () {
+    return view('ad_faq');
+});
+
+Route::get('/footer', function () {
+    return view('ad_footer');
+});
 Route::get('/index', function () {
     return view('lan_index');
 });
@@ -45,22 +55,18 @@ Route::get('/admin', function () {
     return view('ad_dashboard');
 });
 
-Route::get('/ref_package', function () {
-    return view('ad_ref_package');
-});
-
-Route::get('/ref_class', function () {
-    return view('ad_ref_class');
-});
-
-Route::get('/ref_major', function () {
-    return view('ad_ref_major');
-});
-
-// Route::get('/event', function () {
-//     return view('ad_event');
+// Route::get('/ref_package', function () {
+    //     return view('ad_ref_package');
 // });
 
+// Route::get('/ref_major', function () {
+//     return view('ad_ref_major');
+// });
+
+
+Route::get('/ref_package', [RPackageViewController::class, 'index']);
+Route::get('/ref_class', [RClassViewController::class, 'index']);
+Route::get('/ref_major', [RMajorViewController::class, 'index']);
 Route::get('/event', [EventViewController::class, 'index']);
 Route::get('/package', [PackageViewController::class, 'index']);
 Route::get('/service', [ServiceViewController::class, 'index']);
@@ -70,6 +76,14 @@ Route::get('/registration', [RegistrationViewController::class, 'index']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');
+// });
+
+// Route::get('/ref_class', function () {
+//     return view('ad_ref_class');
+// });
+
+// Route::get('/event', function () {
+//     return view('ad_event');
 // });
 
 // Route::get('/service', function () {
@@ -84,10 +98,3 @@ Route::get('/registration', [RegistrationViewController::class, 'index']);
 //     return view('ad_video');
 // });
 
-Route::get('/faq', function () {
-    return view('ad_faq');
-});
-
-Route::get('/footer', function () {
-    return view('ad_footer');
-});
