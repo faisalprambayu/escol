@@ -11,11 +11,13 @@
             Are you sure you want to delete this data?
         </div>
         <div class="modal-footer">
+            <?php if($data){?>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <form action="<?= url('api/r_major/2')?>" method="POST">
+          <form action="<?= url('api/r_major/'.$datas['id'])?>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
+        <?php }?>
         </div>
       </div>
     </div>
