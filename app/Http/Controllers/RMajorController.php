@@ -30,7 +30,8 @@ class RMajorController extends Controller
     {
         $rMajor = RMajor::create($request->validated());
 
-        return new RMajorResource($rMajor);
+        return redirect('ref_major');
+        // return new RMajorResource($rMajor);
     }
 
     /**
