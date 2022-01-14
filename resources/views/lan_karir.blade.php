@@ -9,7 +9,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-          <h2>Artikel Esschool.id</h2>
+          <h2>Karir di Esschool.id</h2>
       </div>
     </div>
     <!-- End Breadcrumbs -->
@@ -35,7 +35,7 @@
                     <p class="date">Jumat, 5 Januari 2022</p>
                   </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
+                  <h3><a href="article-details.html" class="stretched-link mt-auto">Karier Title</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
 
                 </div>
@@ -52,7 +52,7 @@
                     <p class="date">Jumat, 5 Januari 2022</p>
                   </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
+                  <h3><a href="article-details.html" class="stretched-link mt-auto">Karier Title</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
 
                 </div>
@@ -69,7 +69,7 @@
                     <p class="date">Jumat, 5 Januari 2022</p>
                   </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
+                  <h3><a href="article-details.html" class="stretched-link mt-auto">Karier Title</a></h3>
                   <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
 
                 </div>

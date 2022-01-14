@@ -21,9 +21,9 @@
             </li>
             <li><a href="/program">Program</a></li>
             <li><a href="/fitur">Fitur</a></li>
-            <li><a href="#">Artikel</a></li>
-            <li><a href="#">Karir</a></li>
-            <li><a href="#">Sahabat esschool.id</a></li>
+            <li><a href="/artikel">Artikel</a></li>
+            <li><a href="/karir">Karir</a></li>
+            <li><a href="/sahabat">Sahabat esschool.id</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
