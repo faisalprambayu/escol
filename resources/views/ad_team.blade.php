@@ -36,7 +36,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Title</th>
                         <th scope="col">Deskripsi</th>
-                        <th scope="col">Gambar</th>
+                        <th scope="col" class="text-center">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,7 +55,7 @@
                         <td><?= $datas['Name'] ?></td>
                         <td><?= $datas['Title'] ?></td>
                         <td><?= $datas['Description'] ?></td>
-                        <td><?= $datas['Image'] ?></td>
+                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="6" class="text-center" > Tidak Ada Data</th></tr>';

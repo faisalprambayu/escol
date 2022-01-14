@@ -11,6 +11,8 @@ use App\Http\Controllers\RegistrationViewController;
 use App\Http\Controllers\RClassViewController;
 use App\Http\Controllers\RMajorViewController;
 use App\Http\Controllers\RPackageViewController;
+use App\Http\Controllers\FaqViewController;
+use App\Http\Controllers\FooterViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,13 +34,6 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/faq', function () {
-    return view('ad_faq');
-});
-
-Route::get('/footer', function () {
-    return view('ad_footer');
-});
 Route::get('/index', function () {
     return view('lan_index');
 });
@@ -54,9 +49,16 @@ Route::get('/fitur', function () {
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });
+// Route::get('/faq', function () {
+//     return view('ad_faq');
+// });
+
+// Route::get('/footer', function () {
+//     return view('ad_footer');
+// });
 
 // Route::get('/ref_package', function () {
-    //     return view('ad_ref_package');
+//     return view('ad_ref_package');
 // });
 
 // Route::get('/ref_major', function () {
@@ -64,6 +66,8 @@ Route::get('/admin', function () {
 // });
 
 
+Route::get('/footer', [FooterViewController::class, 'index']);
+Route::get('/faq', [FaqViewController::class, 'index']);
 Route::get('/ref_package', [RPackageViewController::class, 'index']);
 Route::get('/ref_class', [RClassViewController::class, 'index']);
 Route::get('/ref_major', [RMajorViewController::class, 'index']);
@@ -97,4 +101,3 @@ Route::get('/registration', [RegistrationViewController::class, 'index']);
 // Route::get('/video', function () {
 //     return view('ad_video');
 // });
-
