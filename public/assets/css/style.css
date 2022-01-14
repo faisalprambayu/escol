@@ -923,6 +923,14 @@ section {
   font-size: 18px;
   color: #37423b;
 }
+/* tambahan */
+.courses .course-content .date {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(1, 41, 112, 0.6);
+    display: block;
+    margin-bottom: 10px;
+  }
 .courses .trainer {
   padding-top: 15px;
   border-top: 1px solid #eef0ef;
@@ -941,6 +949,77 @@ section {
   font-size: 18px;
   color: #657a6d;
 }
+
+/*--------------------------------------------------------------
+# Article
+--------------------------------------------------------------*/
+.article .article-item {
+    border-radius: 5px;
+    border: 1px solid #eef0ef;
+  }
+  .article .article-content {
+    padding: 15px;
+  }
+  .article .article-content h3 {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .article .article-content h3 a {
+    color: #37423b;
+    transition: 0.3s;
+  }
+  .article .article-content h3 a:hover {
+    color: var(--es-danger);
+  }
+  .article .article-content p {
+    font-size: 14px;
+    color: #777777;
+  }
+  .article .article-content h4 {
+    font-size: 14px;
+    background: var(--es-danger);
+    padding: 7px 14px;
+    color: #fff;
+    margin: 0;
+  }
+  .article .article-content .price {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: #37423b;
+  }
+  /* tambahan */
+  .article .article-content .date {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(1, 41, 112, 0.6);
+      display: block;
+      margin-bottom: 10px;
+    }
+.article .article-content .readmore {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1;
+    transition: 0.3s;
+}
+.article .article-content .post-title {
+    font-size: 24px;
+    color: #012970;
+    font-weight: 700;
+    margin-bottom: 18px;
+    position: relative;
+    transition: 0.3s;
+  }
+.article .article-content .readmore i {
+    line-height: 0;
+    margin-left: 4px;
+    font-size: 18px;
+}
+.article .article-content:hover .post-title {
+    color: #4154f1;
+  }
+
 
 /*--------------------------------------------------------------
 # Trainers

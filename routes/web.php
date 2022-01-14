@@ -46,6 +46,20 @@ Route::get('/fitur', function () {
     return view('lan_fitur');
 });
 
+Route::get('/artikel', function () {
+    return view('lan_artikel');
+});
+
+Route::get('/karir', function () {
+    return view('lan_karir');
+});
+
+Route::get('/sahabat', function () {
+    return view('lan_sahabat');
+});
+
+
+
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });

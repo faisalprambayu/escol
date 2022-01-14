@@ -27,6 +27,9 @@
             <div class="card-body" >
               <h5 class="card-title">Table with hoverable rows</h5>
 
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button>
+
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
@@ -48,7 +51,7 @@
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
                         <th scope="row"><?= ++$no;?></th>
@@ -67,6 +70,68 @@
             </div>
           </div>
         </div>
+
+         {{-- Pop up --}}
+        <!-- Modal -->
+
+        @include('components.ad_modal_delete')
+
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">General Form Elements</h5>
+
+                            <!-- General Form Elements -->
+                            <form>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Nama</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Title</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
+                                <div class="col-sm-9">
+                                  <input class="form-control" type="file" id="formFile">
+                                </div>
+                              </div>
+
+                            </form><!-- End General Form Elements -->
+
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
       </div>
     </section>
 
