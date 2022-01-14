@@ -12,7 +12,10 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-danger">Delete</button>
+          <form action="<?= url('api/r_major/2')?>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
         </div>
       </div>
     </div>
