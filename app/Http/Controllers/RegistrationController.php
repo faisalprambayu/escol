@@ -63,7 +63,8 @@ class RegistrationController extends Controller
     public function destroy(Request $request, Registration $registration)
     {
         $registration->delete();
+        return redirect('registration');
 
-        return response()->noContent();
+        // return response()->noContent();
     }
 }
