@@ -98,7 +98,7 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form name="add-registration" id="add-registration" method="post" action="{{url('api/registration')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
@@ -128,9 +128,10 @@
                                 <div class="col-sm-10">
                                   <select class="form-select" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
+                                    <?php foreach ($data['class'] as $class) {?> <option value="{{ $class['id'] }}">{{ $class['Name'] }}</option> <?php } ?>
+                                    {{-- <option value="1">One</option>
                                     <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="3">Three</option> --}}
                                   </select>
                                 </div>
                               </div>
@@ -139,9 +140,10 @@
                                 <div class="col-sm-10">
                                   <select class="form-select" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
+                                    <?php foreach ($data['major'] as $major) {?> <option value="{{ $major['id'] }}">{{ $major['Name'] }}</option> <?php } ?>
+                                    {{-- <option value="1">One</option>
                                     <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="3">Three</option> --}}
                                   </select>
                                 </div>
                               </div>
@@ -150,14 +152,15 @@
                                 <div class="col-sm-10">
                                   <select class="form-select" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
+                                    <?php foreach ($data['package'] as $package) {?> <option value="{{ $package['id'] }}">{{ $package['Name'] }}</option> <?php } ?>
+                                    {{-- <option value="1">One</option>
                                     <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="3">Three</option> --}}
                                   </select>
                                 </div>
                               </div>
 
-                            </form><!-- End General Form Elements -->
+                            {{-- </form><!-- End General Form Elements --> --}}
 
                           </div>
                         </div>
@@ -166,8 +169,9 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
             </div>
             </div>
         </div>

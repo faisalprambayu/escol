@@ -30,7 +30,7 @@ class RegistrationController extends Controller
     {
         $registration = Registration::create($request->validated());
 
-        return new RegistrationResource($registration);
+        return redirect('registration');
     }
 
     /**

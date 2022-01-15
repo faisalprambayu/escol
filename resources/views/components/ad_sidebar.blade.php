@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="/admin">
+        <a class="nav-link <?php if ((Request::segment(1))!="admin"){echo "collapsed";} ?>" href="/admin">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -39,7 +39,7 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link <?php if ((Request::segment(1))!="package"){echo "event";} ?>" href="/event">
+        <a class="nav-link <?php if ((Request::segment(1))!="event"){echo "collapsed";} ?>" href="/event">
           <i class="bi bi-calendar-event"></i>
           <span>Event</span>
         </a>
