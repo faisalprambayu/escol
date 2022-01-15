@@ -29,8 +29,8 @@ class VideoController extends Controller
     public function store(VideoStoreRequest $request)
     {
         $video = Video::create($request->validated());
-
-        return new VideoResource($video);
+        return redirect('video');
+        // return new VideoResource($video);
     }
 
     /**
@@ -63,7 +63,7 @@ class VideoController extends Controller
     public function destroy(Request $request, Video $video)
     {
         $video->delete();
-
-        return response()->noContent();
+        return redirect('video');
+        // return response()->noContent();
     }
 }

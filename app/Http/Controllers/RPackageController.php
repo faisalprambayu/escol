@@ -29,8 +29,8 @@ class RPackageController extends Controller
     public function store(RPackageStoreRequest $request)
     {
         $rPackage = RPackage::create($request->validated());
-
-        return new RPackageResource($rPackage);
+        return redirect('ref_package');
+        // return new RPackageResource($rPackage);
     }
 
     /**
@@ -63,7 +63,7 @@ class RPackageController extends Controller
     public function destroy(Request $request, RPackage $rPackage)
     {
         $rPackage->delete();
-
-        return response()->noContent();
+        return redirect('ref_package');
+        // return response()->noContent();
     }
 }

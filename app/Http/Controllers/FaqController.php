@@ -29,8 +29,8 @@ class FaqController extends Controller
     public function store(FaqStoreRequest $request)
     {
         $faq = Faq::create($request->validated());
-
-        return new FaqResource($faq);
+        return redirect('faq');
+        // return new FaqResource($faq);
     }
 
     /**
@@ -63,7 +63,8 @@ class FaqController extends Controller
     public function destroy(Request $request, Faq $faq)
     {
         $faq->delete();
+        return redirect('faq');
 
-        return response()->noContent();
+        // return response()->noContent();
     }
 }

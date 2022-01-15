@@ -29,8 +29,8 @@ class TeamController extends Controller
     public function store(TeamStoreRequest $request)
     {
         $team = Team::create($request->validated());
-
-        return new TeamResource($team);
+        return redirect('team');
+        // return new TeamResource($team);
     }
 
     /**
@@ -63,7 +63,7 @@ class TeamController extends Controller
     public function destroy(Request $request, Team $team)
     {
         $team->delete();
-
-        return response()->noContent();
+        return redirect('team');
+        // return response()->noContent();
     }
 }
