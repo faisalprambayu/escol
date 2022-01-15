@@ -64,7 +64,7 @@ class RMajorController extends Controller
     public function destroy(Request $request, RMajor $rMajor)
     {
         $rMajor->delete();
-
-        return response()->noContent();
+        return redirect('ref_major');
+        // return response()->noContent();
     }
 }
