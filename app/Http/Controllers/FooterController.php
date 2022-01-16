@@ -29,8 +29,8 @@ class FooterController extends Controller
     public function store(FooterStoreRequest $request)
     {
         $footer = Footer::create($request->validated());
-
-        return new FooterResource($footer);
+        return redirect('footer');
+        // return new FooterResource($footer);
     }
 
     /**
@@ -63,7 +63,7 @@ class FooterController extends Controller
     public function destroy(Request $request, Footer $footer)
     {
         $footer->delete();
-
-        return response()->noContent();
+        return redirect('footer');
+        // return response()->noContent();
     }
 }

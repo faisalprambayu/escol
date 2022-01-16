@@ -29,8 +29,8 @@ class PackageController extends Controller
     public function store(PackageStoreRequest $request)
     {
         $package = Package::create($request->validated());
-
-        return new PackageResource($package);
+        return redirect('package');
+        // return new PackageResource($package);
     }
 
     /**
@@ -63,7 +63,7 @@ class PackageController extends Controller
     public function destroy(Request $request, Package $package)
     {
         $package->delete();
-
-        return response()->noContent();
+        return redirect('package');
+        // return response()->noContent();
     }
 }

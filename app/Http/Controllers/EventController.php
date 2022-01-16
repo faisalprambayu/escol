@@ -29,8 +29,8 @@ class EventController extends Controller
     public function store(EventStoreRequest $request)
     {
         $event = Event::create($request->validated());
-
-        return new EventResource($event);
+        return redirect('event');
+        // return new EventResource($event);
     }
 
     /**
@@ -63,7 +63,7 @@ class EventController extends Controller
     public function destroy(Request $request, Event $event)
     {
         $event->delete();
-
-        return response()->noContent();
+        return redirect('event');
+        // return response()->noContent();
     }
 }

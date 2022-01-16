@@ -30,7 +30,7 @@ class RegistrationController extends Controller
     {
         $registration = Registration::create($request->validated());
 
-        return new RegistrationResource($registration);
+        return redirect('registration');
     }
 
     /**
@@ -63,7 +63,8 @@ class RegistrationController extends Controller
     public function destroy(Request $request, Registration $registration)
     {
         $registration->delete();
+        return redirect('registration');
 
-        return response()->noContent();
+        // return response()->noContent();
     }
 }

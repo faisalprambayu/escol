@@ -30,8 +30,8 @@ class RClassController extends Controller
     public function store(RClassStoreRequest $request)
     {
         $rClass = RClass::create($request->validated());
-
-        return new RClassResource($rClass);
+        return redirect('ref_class');
+        // return new RClassResource($rClass);
     }
 
     /**
@@ -64,7 +64,7 @@ class RClassController extends Controller
     public function destroy(Request $request, RClass $rClass)
     {
         $rClass->delete();
-
-        return response()->noContent();
+        return redirect('ref_class');
+        // return response()->noContent();
     }
 }

@@ -29,8 +29,8 @@ class ServiceController extends Controller
     public function store(ServiceStoreRequest $request)
     {
         $service = Service::create($request->validated());
-
-        return new ServiceResource($service);
+        return redirect('service');
+        // return new ServiceResource($service);
     }
 
     /**
@@ -63,7 +63,7 @@ class ServiceController extends Controller
     public function destroy(Request $request, Service $service)
     {
         $service->delete();
-
-        return response()->noContent();
+        return redirect('service');
+        // return response()->noContent();
     }
 }
