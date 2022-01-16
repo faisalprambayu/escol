@@ -17,7 +17,7 @@ class ServiceController extends Controller
      */
     public function index(Request $request)
     {
-        $services = Service::all();
+        $services = Service::orderBy('updated_at', 'DESC')->get();
 
         return new ServiceCollection($services);
     }

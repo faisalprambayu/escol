@@ -87,13 +87,17 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form name="add-r_package" id="add-r_package" method="post" action="{{url('api/r_package')}}">
                               <div class="row mb-3">
-                                <label for="inputText" class="col-sm-3 col-form-label">Jurusan</label>
+                                <label for="inputText" class="col-sm-3 col-form-label">Paket</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Name" required>
                                 </div>
                               </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -102,10 +106,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

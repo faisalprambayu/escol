@@ -17,7 +17,7 @@ class PackageController extends Controller
      */
     public function index(Request $request)
     {
-        $packages = Package::all();
+        $packages = Package::orderBy('updated_at', 'DESC')->get();
         $data = new PackageCollection($packages);
         return $data;
     }

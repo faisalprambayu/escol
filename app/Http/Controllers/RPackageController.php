@@ -17,7 +17,8 @@ class RPackageController extends Controller
      */
     public function index(Request $request)
     {
-        $rPackages = RPackage::all();
+        //supaya yg diedit naik ke atas
+        $rPackages = RPackage::orderBy('updated_at', 'DESC')->get();
 
         return new RPackageCollection($rPackages);
     }

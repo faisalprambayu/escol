@@ -52,7 +52,8 @@
                         </td>
                         <th scope="row"><?=++$no?></th>
                         <td><?= $datas['Name'] ?></td>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
+                        <td><img class="d-block w-50" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>" alt="First slide"></td>
+                        {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="4" class="text-center" > Tidak Ada Data</th></tr>';
@@ -85,19 +86,23 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/event')}}" >
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama Event</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Name">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
-                                  <input class="form-control" type="file" id="formFile">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -106,10 +111,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

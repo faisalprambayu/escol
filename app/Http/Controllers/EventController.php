@@ -7,7 +7,11 @@ use App\Http\Requests\EventUpdateRequest;
 use App\Http\Resources\EventCollection;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
+use App\Models\File;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class EventController extends Controller
 {
@@ -17,7 +21,7 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        $events = Event::all();
+        $events = Event::orderBy('updated_at', 'DESC')->get();
 
         return new EventCollection($events);
     }
@@ -26,11 +30,47 @@ class EventController extends Controller
      * @param \App\Http\Requests\EventStoreRequest $request
      * @return \App\Http\Resources\EventResource
      */
-    public function store(EventStoreRequest $request)
+    public function store(Request $request)
     {
-        $event = Event::create($request->validated());
-        return redirect('event');
-        // return new EventResource($event);
+        $validator = Validator::make($request->all(), [
+            'Name' => ['required'],
+            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $event = $request->all();
+            // dd($event);
+
+            if ($file = $request->file('Image')) {
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                $save = new Event([
+                    'Name' => $request->get('Name'),
+                    'Image' => $path
+                ]);
+                $save->save();
+            }
+
+            $response = [
+                'message' => 'Event Created',
+                'data' => $event
+            ];
+
+            // return response()->json($response, Response::HTTP_CREATED);
+            return redirect('event');
+
+        }
+        catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

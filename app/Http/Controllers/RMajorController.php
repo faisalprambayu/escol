@@ -17,7 +17,7 @@ class RMajorController extends Controller
      */
     public function index(Request $request)
     {
-        $rMajors = RMajor::all();
+        $rMajors = RMajor::orderBy('updated_at', 'DESC')->get();
 
         return new RMajorCollection($rMajors);
     }

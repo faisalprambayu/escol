@@ -17,7 +17,7 @@ class FaqController extends Controller
      */
     public function index(Request $request)
     {
-        $faqs = Faq::all();
+        $faqs = Faq::orderBy('updated_at', 'DESC')->get();
 
         return new FaqCollection($faqs);
     }

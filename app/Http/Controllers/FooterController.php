@@ -17,7 +17,7 @@ class FooterController extends Controller
      */
     public function index(Request $request)
     {
-        $footers = Footer::all();
+        $footers = Footer::orderBy('updated_at', 'DESC')->get();
 
         return new FooterCollection($footers);
     }

@@ -17,7 +17,7 @@ class RegistrationController extends Controller
      */
     public function index(Request $request)
     {
-        $registrations = Registration::all();
+        $registrations = Registration::orderBy('updated_at', 'DESC')->get();
 
         return new RegistrationCollection($registrations);
     }

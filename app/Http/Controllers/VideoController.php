@@ -17,7 +17,7 @@ class VideoController extends Controller
      */
     public function index(Request $request)
     {
-        $videos = Video::all();
+        $videos = Video::orderBy('updated_at', 'DESC')->get();
 
         return new VideoCollection($videos);
     }

@@ -17,7 +17,7 @@ class RClassController extends Controller
      */
     public function index(Request $request)
     {
-        $rClasses = RClass::all();
+        $rClasses = RClass::orderBy('updated_at', 'DESC')->get();
 
         // dump($rClasses);
         return new RClassCollection($rClasses);

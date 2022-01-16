@@ -17,7 +17,7 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
-        $teams = Team::all();
+        $teams = Team::orderBy('updated_at', 'DESC')->get();
 
         return new TeamCollection($teams);
     }
