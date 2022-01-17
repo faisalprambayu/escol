@@ -52,8 +52,8 @@ class RMajorController extends Controller
     public function update(RMajorUpdateRequest $request, RMajor $rMajor)
     {
         $rMajor->update($request->validated());
-
-        return new RMajorResource($rMajor);
+        return redirect('ref_major');
+        // return new RMajorResource($rMajor);
     }
 
     /**
