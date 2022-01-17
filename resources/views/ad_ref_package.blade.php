@@ -41,15 +41,16 @@
                     </thead>
                     <tbody>
 
-                    <?php
+                        <?php
                     $no = 0;
                     foreach ($data as  $datas) { ?>
+                        @include('components.ad_modal_delete')
                     <tr>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
                         <th scope="row"><?= ++$no ?></th>
@@ -70,7 +71,6 @@
         {{-- Pop up --}}
         <!-- Modal -->
 
-        @include('components.ad_modal_delete')
 
         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
