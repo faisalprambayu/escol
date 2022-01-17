@@ -8,7 +8,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Are you sure you want to delete this data ? {{$datas['Name']}}
+            Are you sure you want to delete this data ?
+            {{-- {{$datas['Name']}} --}}
         </div>
         <div class="modal-footer">
             <?php

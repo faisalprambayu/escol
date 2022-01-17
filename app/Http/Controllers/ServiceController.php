@@ -7,7 +7,10 @@ use App\Http\Requests\ServiceUpdateRequest;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Resources\ServiceResource;
 use App\Models\Service;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class ServiceController extends Controller
 {
@@ -26,11 +29,40 @@ class ServiceController extends Controller
      * @param \App\Http\Requests\ServiceStoreRequest $request
      * @return \App\Http\Resources\ServiceResource
      */
-    public function store(ServiceStoreRequest $request)
+    public function store(Request $request)
     {
-        $service = Service::create($request->validated());
-        return redirect('service');
-        // return new ServiceResource($service);
+        $validator = Validator::make($request->all(), [
+            'Title' => ['required'],
+            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $service = $request->all();
+            // dd($service);
+
+            if ($file = $request->file('Image')) {
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                $save = new Service([
+                    'Title' => $request->get('Title'),
+                    'Image' => $path
+                ]);
+                $save->save();
+            }
+            return redirect('service');
+
+        }
+        catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

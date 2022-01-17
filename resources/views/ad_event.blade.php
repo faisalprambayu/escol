@@ -32,9 +32,9 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Event</th>
+                        <th class="col-1">#</th>
+                        <th class="col-1">No</th>
+                        <th class="col-2">Nama Event</th>
                         <th scope="col">Gambar</th>
                     </tr>
                     </thead>

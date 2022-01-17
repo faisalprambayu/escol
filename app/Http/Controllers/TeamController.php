@@ -7,7 +7,10 @@ use App\Http\Requests\TeamUpdateRequest;
 use App\Http\Resources\TeamCollection;
 use App\Http\Resources\TeamResource;
 use App\Models\Team;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class TeamController extends Controller
 {
@@ -26,11 +29,44 @@ class TeamController extends Controller
      * @param \App\Http\Requests\TeamStoreRequest $request
      * @return \App\Http\Resources\TeamResource
      */
-    public function store(TeamStoreRequest $request)
+    public function store(Request $request)
     {
-        $team = Team::create($request->validated());
-        return redirect('team');
-        // return new TeamResource($team);
+        $validator = Validator::make($request->all(), [
+            'Name' => ['required'],
+            'Title' => ['required'],
+            'Description' => ['required'],
+            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $service = $request->all();
+            // dd($service);
+
+            if ($file = $request->file('Image')) {
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                $save = new Team([
+                    'Name' => $request->get('Name'),
+                    'Title' => $request->get('Title'),
+                    'Description' => $request->get('Description'),
+                    'Image' => $path
+                ]);
+                $save->save();
+            }
+            return redirect('team');
+
+        }
+        catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

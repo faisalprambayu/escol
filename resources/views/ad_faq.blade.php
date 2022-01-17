@@ -33,11 +33,11 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                        <tr >
-                            <th scope="col">#</th>
-                        <th scope="col" class="text-center">No</th>
-                        <th scope="col" class="text-center">Pertanyaan</th>
-                        <th scope="col" class="text-center">Jawaban</th>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Pertanyaan</th>
+                        <th scope="col">Jawaban</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,7 +53,7 @@
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row" class="text-center"><?= ++$no ?></th>
+                        <th scope="row"><?= ++$no ?></th>
                         <td><?= $datas['Question'] ?></td>
                         <td><?= $datas['Answer'] ?></td>
                     </tr>
@@ -88,19 +88,24 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form name="add-faq" id="add-faq" method="post" action="{{url('api/faq')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Pertanyaan</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Question">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Jawaban</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Answer">
                                 </div>
                               </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -109,10 +114,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

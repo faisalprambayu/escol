@@ -33,45 +33,46 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Harga</th>
-                        <th scope="col">Diskon</th>
-                        <th scope="col">Deskripsi</th>
-                        <th scope="col">Link</th>
-                        <th scope="col">Gambar</th>
-                    </tr>
+                        <tr>
+                            <th class="width-5">#</th>
+                            <th class="width-5">No</th>
+                            <th class="space">Nama</th>
+                            <th style="width: 15%;">Harga</th>
+                            <th style="width: 15%;">Diskon</th>
+                            <th class="space">Deskripsi</th>
+                            <th class="space">Link</th>
+                            <th class="space">Gambar</th>
+                        </tr>
                     </thead>
                     <tbody>
 
-                    <?php function Rupiah($angka){
-                        $hasil = "Rp " . number_format($angka,2,',','.');
-                        return $hasil;
-                    }
-                    $no = 0;
-                    foreach ($data as  $datas) { ?>
-                        @include('components.ad_modal_delete')
-                    <tr>
-                        <td>
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
-                            </ul>
-                        </td>
-                        <th scope="row"><?= ++$no ?></th>
-                        <td><?= $datas['Name'] ?></td>
-                        <td><?= Rupiah($datas['Price']) ?></td>
-                        <td><?= Rupiah($datas['Discount']) ?></td>
-                        <td><?= $datas['Deskripsi'] ?></td>
-                        <td><a href="<?= $datas['Deskripsi'] ?>"> <?= $datas['Link'] ?></a></td>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
-                    </tr>
-                    <?php } if ($no == 0) {
-                        echo ' <tr><th colspan="8" class="text-center" > Tidak Ada Data</th></tr>';
-                     }?>
+                        <?php function Rupiah($angka){
+                            $hasil = "Rp " . number_format($angka,2,',','.');
+                            return $hasil;
+                        }
+                        $no = 0;
+                        foreach ($data as  $datas) { ?>
+                            @include('components.ad_modal_delete')
+                        <tr>
+                            <td>
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
+                                </ul>
+                            </td>
+                            <th scope="row"><?= ++$no ?></th>
+                            <td class="space"><?= $datas['Name']?></td>
+                            <td class="space"><?= str_replace(' ','.',Rupiah($datas['Price']))?></td>
+                            <td class="space"><?= str_replace(' ','.',Rupiah($datas['Discount']))?></td>
+                            <td class="space"><?= $datas['Deskripsi'] ?></td>
+                            <td class="space"><a href="<?= $datas['Deskripsi'] ?>"> <?= $datas['Link'] ?></a></td>
+                            <td class="space"><img  width="300px" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>" ></td>
+                            {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
+                        </tr>
+                        <?php } if ($no == 0) {
+                            echo ' <tr><th colspan="8" class="text-center" > Tidak Ada Data</th></tr>';
+                        }?>
                     </tbody>
                 </table>
                 <!-- End Table with hoverable rows -->
@@ -99,43 +100,48 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form enctype="multipart/form-data" name="add-package" id="add-package" method="post" action="{{url('api/package')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nama Package</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Name">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Harga</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Price">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Diskon</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Discount">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Deskripsi">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Link</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Link">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
                                 <div class="col-sm-9">
-                                  <input class="form-control" type="file" id="formFile">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -144,10 +150,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

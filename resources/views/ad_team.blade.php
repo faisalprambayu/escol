@@ -39,7 +39,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Title</th>
                         <th scope="col">Deskripsi</th>
-                        <th scope="col" class="text-center">Gambar</th>
+                        <th scope="col">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +59,8 @@
                         <td><?= $datas['Name'] ?></td>
                         <td><?= $datas['Title'] ?></td>
                         <td><?= $datas['Description'] ?></td>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td>
+                        <td><img width="300px" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>"></td>
+                        {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="6" class="text-center" > Tidak Ada Data</th></tr>';
@@ -91,31 +92,36 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form enctype="multipart/form-data" name="add-team" id="add-team" method="post" action="{{url('api/team')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nama</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Name">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Title</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Title">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Description">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
                                 <div class="col-sm-9">
-                                  <input class="form-control" type="file" id="formFile">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -124,10 +130,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

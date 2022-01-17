@@ -33,7 +33,7 @@
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover">
                     <thead>
-                    <tr class="text-center">
+                    <tr>
                         <th scope="col">#</th>
                         <th scope="col">No</th>
                         <th scope="col">Judul</th>
@@ -70,7 +70,7 @@
                             $link = explode("=",$PecahLink[3])[1];
                         }
                         ?>
-                        <td><iframe width="160" height="90" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                        <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
                         <td><?= $datas['Text1'] ?></td>
                         <td><?= $datas['Text2'] ?></td>
                     </tr>
@@ -104,37 +104,41 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form name="add-video" id="add-video" method="post" action="{{url('api/video')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Judul</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Title">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Link</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Link">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Video</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Video">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Text1</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Text1">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Text2</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Text2">
                                 </div>
                               </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
                               {{-- <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
                                 <div class="col-sm-9">
@@ -149,10 +153,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

@@ -34,8 +34,8 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">No</th>
+                        <th class="col-2">#</th>
+                        <th class="col-2">No</th>
                         <th scope="col">Package</th>
                     </tr>
                     </thead>

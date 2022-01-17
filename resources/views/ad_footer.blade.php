@@ -35,9 +35,9 @@
                     <thead>
                     <tr >
                         <th scope="col">#</th>
-                        <th scope="col" class="text-center">No</th>
-                        <th scope="col" class="text-center">Logo</th>
-                        <th scope="col" class="text-center">Link</th>
+                        <th scope="col" >No</th>
+                        <th scope="col" >Logo</th>
+                        <th scope="col" >Link</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,8 +53,8 @@
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
-                        <th scope="row" class="text-center"><?= ++$no ?></th>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Logo'])?>" width="125px" alt="<?= $datas['Link'] ?>"></td>
+                        <th scope="row"><?= ++$no ?></th>
+                        <td><img src="<?= url('img/'.$datas['Logo'])?>" width="125px" alt="<?= $datas['Logo'] ?>"></td>
                         <td><?= $datas['Link'] ?></td>
                     </tr>
                     <?php }
@@ -88,11 +88,11 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form name="add-footer" id="add-footer" method="post" action="{{url('api/footer')}}">
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label">Logo</label>
                                     <div class="col-sm-10">
-                                      <select class="form-select" aria-label="Default select example">
+                                      <select class="form-select" aria-label="Default select example" name="Logo">
                                         <option selected>Open this select menu</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -103,9 +103,14 @@
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Link</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Link">
                                 </div>
                               </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -114,10 +119,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>

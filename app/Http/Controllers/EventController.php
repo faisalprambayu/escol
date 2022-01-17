@@ -57,10 +57,10 @@ class EventController extends Controller
                 $save->save();
             }
 
-            $response = [
-                'message' => 'Event Created',
-                'data' => $event
-            ];
+            // $response = [
+            //     'message' => 'Event Created',
+            //     'data' => $event
+            // ];
 
             // return response()->json($response, Response::HTTP_CREATED);
             return redirect('event');

@@ -34,10 +34,10 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Judul Layanan</th>
-                        <th scope="col" class="text-center">Gambar</th>
+                        <th class="col-1">#</th>
+                        <th class="col-1">No</th>
+                        <th class="col-2">Judul Layanan</th>
+                        <th scope="col">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,7 +55,8 @@
                         </td>
                         <th scope="row"><?= ++$no ?></th>
                         <td><?= $datas['Title'] ?></td>
-                        <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Title'] ?>"></td>
+                        <td><img class="d-block w-50" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>"></td>
+                        {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Title'] ?>"></td> --}}
                     </tr>
                     <?php }
                     if ($no == 0) {
@@ -88,19 +89,24 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form enctype="multipart/form-data" name="add-service" id="add-service" method="post" action="{{url('api/service')}}">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Judul Layanan</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control">
+                                  <input type="text" class="form-control" name="Title">
                                 </div>
                               </div>
                               <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
                                 <div class="col-sm-9">
-                                  <input class="form-control" type="file" id="formFile">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
 
                             </form><!-- End General Form Elements -->
 
@@ -109,10 +115,7 @@
 
                     </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
             </div>
         </div>
