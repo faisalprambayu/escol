@@ -140,7 +140,11 @@
                                   <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
-
+                              <div class="row mb-3">
+                                <div class="col-sm-2 col-form-label"></div>
+                                <div class="col-sm-10" id="newImage">
+                                </div>
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -269,6 +273,12 @@
                     let img = '<img class="d-block w-100" src="' + linkImage + '">';
                 oldImage.innerHTML = img;
             })
+            document.querySelector('#createModal').querySelector('#formFile').addEventListener('change', function (e) {
+            let newImage = document.querySelector('#createModal').querySelector('#newImage');
+            let linkImage = URL.createObjectURL(event.target.files[0]);
+            let img = '<img class="d-block w-100" src="' + linkImage + '">';
+            newImage.innerHTML = img;
+        })
 
         </script>
         @include('components.ad_modal_deletes')

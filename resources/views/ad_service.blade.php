@@ -103,6 +103,11 @@
                                 </div>
                               </div>
 
+                              <div class="row mb-3">
+                                <div class="col-sm-3 col-form-label"></div>
+                                <div class="col-sm-9" id="newImage">
+                                </div>
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -209,6 +214,12 @@
         let linkImage = URL.createObjectURL(event.target.files[0]);(e.target.files[0].name);
             let img = '<img class="d-block w-100" src="' + linkImage + '">';
         oldImage.innerHTML = img;
+    })
+    document.querySelector('#createModal').querySelector('#formFile').addEventListener('change', function (e) {
+        let newImage = document.querySelector('#createModal').querySelector('#newImage');
+        let linkImage = URL.createObjectURL(event.target.files[0]);
+        let img = '<img class="d-block w-100" src="' + linkImage + '">';
+        newImage.innerHTML = img;
     })
 
   </script>

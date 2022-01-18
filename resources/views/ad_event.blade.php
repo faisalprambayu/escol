@@ -100,6 +100,11 @@
                                   <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
                               </div>
+                              <div class="row mb-3">
+                                <div class="col-sm-2 col-form-label"></div>
+                                <div class="col-sm-10" id="newImage">
+                                </div>
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -143,7 +148,7 @@
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
+                                <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
                                   <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
@@ -151,7 +156,6 @@
                               <div class="row mb-3">
                                 <div class="col-sm-2 col-form-label"></div>
                                 <div class="col-sm-10" id="oldImage">
-
                                 </div>
                               </div>
                               <div class="modal-footer">
@@ -183,6 +187,7 @@
   <script>
     let tableData = document.querySelector('#tableData');
     tableData.addEventListener('click', function (e) {
+
         if (e.target.className == 'dropdown-item edit') {
             let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
             document.querySelector('#editModal').querySelector('#id').value = id;
@@ -199,10 +204,17 @@
     })
     document.querySelector('#editModal').querySelector('#formFile').addEventListener('change', function (e) {
         // document.querySelector('#oldImage');
+        // console.log(document.querySelector('#editModal').querySelector('#formFile').parentNode.parentNode);
         let oldImage = document.querySelector('#editModal').querySelector('#oldImage');
-        let linkImage = URL.createObjectURL(event.target.files[0]);(e.target.files[0].name);
+        let linkImage = URL.createObjectURL(event.target.files[0]);
             let img = '<img class="d-block w-100" src="' + linkImage + '">';
         oldImage.innerHTML = img;
+    })
+    document.querySelector('#createModal').querySelector('#formFile').addEventListener('change', function (e) {
+        let newImage = document.querySelector('#createModal').querySelector('#newImage');
+        let linkImage = URL.createObjectURL(event.target.files[0]);
+        let img = '<img class="d-block w-100" src="' + linkImage + '">';
+        newImage.innerHTML = img;
     })
 
 
