@@ -28,7 +28,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/admin.css" rel="stylesheet">
-
+<script>
+    var base_url = window.location.origin;
+</script>
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
