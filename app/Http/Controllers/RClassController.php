@@ -52,7 +52,7 @@ class RClassController extends Controller
     public function update(RClassUpdateRequest $request, RClass $rClass)
     {
         $rClass->update($request->validated());
-
+        return redirect('ref_class');
         return new RClassResource($rClass);
     }
 

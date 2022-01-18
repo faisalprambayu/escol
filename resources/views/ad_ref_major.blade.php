@@ -210,7 +210,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <script>
-    const tableData = document.querySelector('#tableData');
+    let tableData = document.querySelector('#tableData');
     tableData.addEventListener('click', function (e) {
         if (e.target.className == 'dropdown-item edit') {
             let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
@@ -220,15 +220,8 @@
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }
-        if (e.target.className == 'dropdown-item hapus') {
-            let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
-            let nama = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
-            let label = document.querySelector('#deleteModal').querySelector('#modal-body').innerHTML =  'Are you sure you want to delete data : '+nama;
-            document.querySelector('#delete').setAttribute("action", base_url+'/api/r_major/'+id);
-            var modalDelete = new bootstrap.Modal(document.getElementById('deleteModal'), {})
-            modalDelete.show()
-        }
-    } )
+    })
+
 </script>
 
 </body>

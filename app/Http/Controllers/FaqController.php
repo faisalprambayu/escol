@@ -51,8 +51,9 @@ class FaqController extends Controller
     public function update(FaqUpdateRequest $request, Faq $faq)
     {
         $faq->update($request->validated());
+        return redirect('faq');
 
-        return new FaqResource($faq);
+        // return new FaqResource($faq);
     }
 
     /**

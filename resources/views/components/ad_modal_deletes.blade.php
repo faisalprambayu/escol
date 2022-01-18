@@ -22,3 +22,44 @@
       </div>
     </div>
   </div>
+  <?php
+            if ((Request::segment(1))=="ref_major"){echo "<script>let target='r_major'</script>";}
+            elseif ((Request::segment(1))=="ref_class"){echo "<script>let target='r_class'</script>";}
+            elseif ((Request::segment(1))=="ref_package"){echo "<script>let target='r_package'</script>";}
+            elseif ((Request::segment(1))=="event"){echo "<script>let target='event'</script>";}
+            elseif ((Request::segment(1))=="package"){echo "<script>let target='package'</script>";}
+            elseif ((Request::segment(1))=="service"){echo "<script>let target='service'</script>";}
+            elseif ((Request::segment(1))=="team"){echo "<script>let target='team'</script>";}
+            elseif ((Request::segment(1))=="video"){echo "<script>let target='video'</script>";}
+            elseif ((Request::segment(1))=="faq"){echo "<script>let target='faq'</script>";}
+            elseif ((Request::segment(1))=="footer"){echo "<script>let target='footer'</script>";}
+            elseif ((Request::segment(1))=="registration"){echo "<script>let target='registration'</script>";}
+  ?>
+  <script>
+      if (tableData) {
+
+      }else{
+
+        let tableData = document.querySelector('#tableData');
+      }
+
+      tableData.addEventListener('click', function (e) {
+        if (e.target.className == 'dropdown-item hapus') {
+            // console.log(e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id'));
+            let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
+            let nama = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
+            let label = document.querySelector('#deleteModal').querySelector('#modal-body').innerHTML =  'Are you sure you want to delete data : <b>'+nama+'</b>';
+            document.querySelector('#delete').setAttribute("action", base_url+'/api/'+target+'/'+id);
+            var modalDelete = new bootstrap.Modal(document.getElementById('deleteModal'), {})
+            modalDelete.show()
+        }
+    } )
+  </script>
+  {{--
+    1. tambahin id="datatable" di table                 => id="tableData"
+    2. tambahin nama class di button (edit/hapus)       => class="dropdown-item hapus"
+    3. tambahin id data di table dengan display none    => <td class="id" style="display: none">{{$datas['id']}}</td>
+    4. tambahin partial view diluar foreach             => @include('components.ad_modal_deletes')
+
+
+     --}}

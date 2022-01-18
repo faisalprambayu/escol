@@ -56,9 +56,7 @@ class ServiceController extends Controller
                 $save->save();
             }
             return redirect('service');
-
-        }
-        catch (QueryException $e) {
+        } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
             ]);
@@ -80,11 +78,50 @@ class ServiceController extends Controller
      * @param \App\Models\Service $service
      * @return \App\Http\Resources\ServiceResource
      */
-    public function update(ServiceUpdateRequest $request, Service $service)
-    {
-        $service->update($request->validated());
+    // public function update(ServiceUpdateRequest $request, Service $service)
+    // {
+    //     $service->update($request->validated());
 
-        return new ServiceResource($service);
+    //     return new ServiceResource($service);
+    // }
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'Title' => ['required'],
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $package = $request->all();
+            // dd($package);
+
+            if ($file = $request->file('Image')) {
+                // dd($package);
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                Service::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
+                    'Image' => $path,
+                ]);
+            } else {
+                // dd($package);
+                Service::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
+                ]);
+            }
+            return redirect('service');
+        } catch (QueryException $e) {
+            // dd($e->errorInfo);
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**
