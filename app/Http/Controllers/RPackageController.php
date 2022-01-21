@@ -52,8 +52,8 @@ class RPackageController extends Controller
     public function update(RPackageUpdateRequest $request, RPackage $rPackage)
     {
         $rPackage->update($request->validated());
-
-        return new RPackageResource($rPackage);
+        return redirect('ref_package');
+        // return new RPackageResource($rPackage);
     }
 
     /**

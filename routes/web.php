@@ -58,8 +58,6 @@ Route::get('/sahabat', function () {
     return view('lan_sahabat');
 });
 
-
-
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });
@@ -78,7 +76,6 @@ Route::get('/admin', function () {
 // Route::get('/ref_major', function () {
 //     return view('ad_ref_major');
 // });
-
 
 Route::get('/footer', [FooterViewController::class, 'index']);
 Route::get('/faq', [FaqViewController::class, 'index']);

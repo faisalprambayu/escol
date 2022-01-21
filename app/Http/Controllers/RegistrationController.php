@@ -51,7 +51,7 @@ class RegistrationController extends Controller
     public function update(RegistrationUpdateRequest $request, Registration $registration)
     {
         $registration->update($request->validated());
-
+        return redirect('registration');
         return new RegistrationResource($registration);
     }
 

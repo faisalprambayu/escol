@@ -64,9 +64,7 @@ class EventController extends Controller
 
             // return response()->json($response, Response::HTTP_CREATED);
             return redirect('event');
-
-        }
-        catch (QueryException $e) {
+        } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
             ]);
@@ -88,11 +86,42 @@ class EventController extends Controller
      * @param \App\Models\Event $event
      * @return \App\Http\Resources\EventResource
      */
-    public function update(EventUpdateRequest $request, Event $event)
+    public function update(Request $request)
     {
-        $event->update($request->validated());
+        $validator = Validator::make($request->all(), [
+            'Name' => ['required'],
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
 
-        return new EventResource($event);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $package = $request->all();
+            // dd($package);
+
+            if ($file = $request->file('Image')) {
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                Event::where('id', $request->get('id'))->update([
+                    'Name' => $request->get('Name'),
+                    'Image' => $path,
+                ]);
+            } else {
+                Event::where('id', $request->get('id'))->update([
+                    'Name' => $request->get('Name'),
+                ]);
+            }
+            // $save->save();
+            return redirect('event');
+        } catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

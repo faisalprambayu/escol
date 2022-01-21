@@ -31,7 +31,7 @@
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button>
 
                 <!-- Table with hoverable rows -->
-                <table class="table table-hover">
+                <table class="table table-hover" id="tableData">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -47,13 +47,14 @@
                     <?php
                     $no = 0;
                     foreach ($data as  $datas) { ?>
-                        @include('components.ad_modal_delete')
+
                     <tr>
+                        <td class="id" style="display: none">{{$datas['id']}}</td>
                         <td>
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
+                                <li><a class="dropdown-item edit" href="#"><i style="color: green" class="bi-pencil-fill"></i>Edit</a></li>
+                                <li><a class="dropdown-item hapus" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal{{$datas['id']}}"><i style="color: red" class="bi-trash-fill"></i>Delete</a></li>
                             </ul>
                         </td>
                         <th scope="row"><?= ++$no ?></th>
@@ -157,6 +158,77 @@
             </div>
             </div>
         </div>
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">General Form Elements</h5>
+
+                            <!-- General Form Elements -->
+                            <form name="edit-video" id="edit-video" method="post">
+                                <input type="hidden" name="id" value="" id="id">
+                                <input type="hidden" name="_method" value="PUT">
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Judul</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="Title" id="Title">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Link</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="Link" id="Link">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Video</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="Video" rows="5"disabled></textarea>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Text1</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="Text1" id="Text1">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Text2</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" name="Text2" id="Text2">
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                              {{-- <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
+                                <div class="col-sm-9">
+                                  <input class="form-control" type="file" id="formFile">
+                                </div>
+                              </div> --}}
+
+                            </form><!-- End General Form Elements -->
+
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+        @include('components.ad_modal_deletes')
 
       </div>
     </section>
@@ -167,7 +239,31 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <script>
+    let tableData = document.querySelector('#tableData');
+    tableData.addEventListener('click', function (e) {
+        if (e.target.className == 'dropdown-item edit') {
+            console.log(e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6]);
+            let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
+            document.querySelector('#editModal').querySelector('#id').value = id;
+            let Title = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
+            document.querySelector('#editModal').querySelector('#Title').value = Title;
+            let Link = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            document.querySelector('#editModal').querySelector('#Link').value = Link;
+            let Video = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
+            document.querySelector('#editModal').querySelector('#Video').innerHTML = Video;
+            let Text1 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            document.querySelector('#editModal').querySelector('#Text1').value = Text1;
+            let Text2 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
+            document.querySelector('#editModal').querySelector('#Text2').value = Text2;
 
+            document.querySelector('#edit-video').setAttribute("action", base_url+'/api/video/'+id);
+            var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
+            myModal.show()
+        }
+    })
+
+</script>
 </body>
 
 </html>

@@ -8,8 +8,8 @@ use App\Http\Resources\TeamCollection;
 use App\Http\Resources\TeamResource;
 use App\Models\Team;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TeamController extends Controller
@@ -60,9 +60,7 @@ class TeamController extends Controller
                 $save->save();
             }
             return redirect('team');
-
-        }
-        catch (QueryException $e) {
+        } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
             ]);
@@ -84,11 +82,47 @@ class TeamController extends Controller
      * @param \App\Models\Team $team
      * @return \App\Http\Resources\TeamResource
      */
-    public function update(TeamUpdateRequest $request, Team $team)
+    public function update(Request $request)
     {
-        $team->update($request->validated());
+        $validator = Validator::make($request->all(), [
+            'Name' => ['required'],
+            'Title' => ['required'],
+            'Description' => ['required'],
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
 
-        return new TeamResource($team);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $service = $request->all();
+            // dd($service);
+
+            if ($file = $request->file('Image')) {
+                $path = $file->store('public/files');
+                $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                Team::where('id', $request->get('id'))->update([
+                    'Name' => $request->get('Name'),
+                    'Title' => $request->get('Title'),
+                    'Description' => $request->get('Description'),
+                    'Image' => $path
+                ]);
+            } else {
+                Team::where('id', $request->get('id'))->update([
+                    'Name' => $request->get('Name'),
+                    'Title' => $request->get('Title'),
+                    'Description' => $request->get('Description'),
+                ]);
+            }
+            return redirect('team');
+        } catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

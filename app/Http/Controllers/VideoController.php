@@ -51,7 +51,7 @@ class VideoController extends Controller
     public function update(VideoUpdateRequest $request, Video $video)
     {
         $video->update($request->validated());
-
+        return redirect('video');
         return new VideoResource($video);
     }
 
