@@ -49,8 +49,10 @@ class PackageController extends Controller
             // dd($package);
 
             if ($file = $request->file('Image')) {
-                $path = $file->store('public/files');
                 $name = $file->getClientOriginalName();
+                $file->move('resource/package', $name);
+                // $path = $file->store('public/files');
+                // $name = $file->getClientOriginalName();
 
                 //store your file into directory and db
                 $save = new Package([
@@ -59,7 +61,7 @@ class PackageController extends Controller
                     'Discount' => $request->get('Discount'),
                     'Deskripsi' => $request->get('Deskripsi'),
                     'Link' => $request->get('Link'),
-                    'Image' => $path
+                    'Image' => $name
                 ]);
                 $save->save();
             }
@@ -115,8 +117,10 @@ class PackageController extends Controller
             // dd($package);
 
             if ($file = $request->file('Image')) {
-                $path = $file->store('public/files');
                 $name = $file->getClientOriginalName();
+                $file->move('resource/package', $name);
+                // $path = $file->store('public/files');
+                // $name = $file->getClientOriginalName();
 
                 //store your file into directory and db
                 Package::where('id', $request->get('id'))->update([
@@ -125,7 +129,7 @@ class PackageController extends Controller
                     'Discount' => $request->get('Discount'),
                     'Deskripsi' => $request->get('Deskripsi'),
                     'Link' => $request->get('Link'),
-                    'Image' => $path,
+                    'Image' => $name,
                 ]);
             } else {
                 Package::where('id', $request->get('id'))->update([
