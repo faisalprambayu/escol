@@ -49,7 +49,7 @@ class PackageController extends Controller
             // dd($package);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/package', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();
@@ -117,7 +117,7 @@ class PackageController extends Controller
             // dd($package);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/package', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();

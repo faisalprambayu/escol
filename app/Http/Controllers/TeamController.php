@@ -47,7 +47,7 @@ class TeamController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/team', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();
@@ -102,7 +102,7 @@ class TeamController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/team', $name);
 
                 //store your file into directory and db

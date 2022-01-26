@@ -45,7 +45,7 @@ class ServiceController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/service', $name);
                 // $path = $file->store('public/files');
 
@@ -102,7 +102,7 @@ class ServiceController extends Controller
 
             if ($file = $request->file('Image')) {
                 // dd($package);
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/service', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();

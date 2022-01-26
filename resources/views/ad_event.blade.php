@@ -54,7 +54,7 @@
                         </td>
                         <th scope="row"><?=++$no?></th>
                         <td><?= $datas['Name'] ?></td>
-                        <td><img class="d-block w-75" src="{{url('resource/event/'.$datas['Image'])}}?>" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
+                        <td><img class="d-block w-75" src="{{url('resource/event/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {

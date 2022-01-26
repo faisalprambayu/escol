@@ -32,6 +32,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        // dd(time());
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
@@ -46,7 +47,7 @@ class EventController extends Controller
             // dd($event);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name = time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/event', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();
@@ -104,7 +105,7 @@ class EventController extends Controller
             // dd($package);
 
             if ($file = $request->file('Image')) {
-                $name = $file->getClientOriginalName();
+                $name = time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/event', $name);
 
                 //store your file into directory and db
