@@ -70,7 +70,7 @@
                             <td class="space" style="display: none"><?= $datas['Discount'] ?></td>
                             <td class="space"><?= $datas['Deskripsi'] ?></td>
                             <td class="space"><a href="<?= $datas['Link'] ?>"> <?= $datas['Link'] ?></a></td>
-                            <td class="space"><img class="d-block w-75" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>" ></td>
+                            <td class="space"><img class="d-block w-75" src="{{url('resource/package/'.$datas['Image'])}}" ></td>
                             {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                         </tr>
                         <?php } if ($no == 0) {

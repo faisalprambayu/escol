@@ -59,7 +59,7 @@
                         <td><?= $datas['Name'] ?></td>
                         <td><?= $datas['Title'] ?></td>
                         <td><?= $datas['Description'] ?></td>
-                        <td><img width="300px" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>"></td>
+                        <td><img width="300px" src="{{url('resource/team/'.$datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {

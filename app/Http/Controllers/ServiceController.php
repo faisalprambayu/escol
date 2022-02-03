@@ -45,13 +45,14 @@ class ServiceController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $path = $file->store('public/files');
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/service', $name);
+                // $path = $file->store('public/files');
 
                 //store your file into directory and db
                 $save = new Service([
                     'Title' => $request->get('Title'),
-                    'Image' => $path
+                    'Image' => $name
                 ]);
                 $save->save();
             }
@@ -101,13 +102,15 @@ class ServiceController extends Controller
 
             if ($file = $request->file('Image')) {
                 // dd($package);
-                $path = $file->store('public/files');
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/service', $name);
+                // $path = $file->store('public/files');
+                // $name = $file->getClientOriginalName();
 
                 //store your file into directory and db
                 Service::where('id', $request->get('id'))->update([
                     'Title' => $request->get('Title'),
-                    'Image' => $path,
+                    'Image' => $name,
                 ]);
             } else {
                 // dd($package);

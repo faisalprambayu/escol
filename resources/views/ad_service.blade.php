@@ -55,7 +55,7 @@
                         </td>
                         <th scope="row"><?= ++$no ?></th>
                         <td><?= $datas['Title'] ?></td>
-                        <td><img class="d-block w-50" src="storage/files/<?= str_replace('public/files/', '', $datas['Image'])?>"></td>
+                        <td><img class="d-block w-50" src="{{url('resource/service/'.$datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Title'] ?>"></td> --}}
                     </tr>
                     <?php }

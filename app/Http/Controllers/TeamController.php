@@ -47,15 +47,17 @@ class TeamController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $path = $file->store('public/files');
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/team', $name);
+                // $path = $file->store('public/files');
+                // $name = $file->getClientOriginalName();
 
                 //store your file into directory and db
                 $save = new Team([
                     'Name' => $request->get('Name'),
                     'Title' => $request->get('Title'),
                     'Description' => $request->get('Description'),
-                    'Image' => $path
+                    'Image' => $name
                 ]);
                 $save->save();
             }
@@ -100,15 +102,15 @@ class TeamController extends Controller
             // dd($service);
 
             if ($file = $request->file('Image')) {
-                $path = $file->store('public/files');
-                $name = $file->getClientOriginalName();
+                $name =  time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/team', $name);
 
                 //store your file into directory and db
                 Team::where('id', $request->get('id'))->update([
                     'Name' => $request->get('Name'),
                     'Title' => $request->get('Title'),
                     'Description' => $request->get('Description'),
-                    'Image' => $path
+                    'Image' => $name
                 ]);
             } else {
                 Team::where('id', $request->get('id'))->update([
