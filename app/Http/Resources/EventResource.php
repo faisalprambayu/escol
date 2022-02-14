@@ -18,6 +18,9 @@ class EventResource extends JsonResource
             'id' => $this->id,
             'Name' => $this->Name,
             'Image' => $this->Image,
+            'Description' => $this->Description,
+            'EventDate' => $this->EventDate,
+            'Link' => $this->Link,
         ];
     }
 }

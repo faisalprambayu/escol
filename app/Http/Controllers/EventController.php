@@ -36,6 +36,9 @@ class EventController extends Controller
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'Description' => ['required'],
+            'EventDate' => ['required'],
+            'Link' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -55,7 +58,10 @@ class EventController extends Controller
                 //store your file into directory and db
                 $save = new Event([
                     'Name' => $request->get('Name'),
-                    'Image' => $name
+                    'Image' => $name,
+                    'Description' => $request->get('Description'),
+                    'EventDate' => $request->get('EventDate'),
+                    'Link' => $request->get('Link'),
                 ]);
                 $save->save();
             }

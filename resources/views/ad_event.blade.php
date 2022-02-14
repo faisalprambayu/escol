@@ -32,10 +32,13 @@
                 <table class="table table-hover" id="tableData">
                     <thead>
                     <tr>
-                        <th class="col-1">#</th>
-                        <th class="col-1">No</th>
-                        <th class="col-2">Nama Event</th>
-                        <th scope="col">Gambar</th>
+                        <th class="width-5">#</th>
+                        <th class="width-5">No</th>
+                        <th class="space">Nama Event</th>
+                        <th class="space">Deskripsi</th>
+                        <th style="width: 15%;">Tanggal Event</th>
+                        <th class="space">Link</th>
+                        <th class="space">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,8 +56,11 @@
                             </ul>
                         </td>
                         <th scope="row"><?=++$no?></th>
-                        <td><?= $datas['Name'] ?></td>
-                        <td><img class="d-block w-75" src="{{url('resource/event/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
+                        <td class="space"><?= $datas['Name'] ?></td>
+                        <td class="space"><?= $datas['Description'] ?></td>
+                        <td class="space"><?= $datas['EventDate'] ?></td>
+                        <td class="space"><a href="<?= $datas['Link'] ?>"><?= $datas['Link'] ?></a></td>
+                        <td class="space"><img class="d-block w-75" src="{{url('resource/event/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {
@@ -98,6 +104,24 @@
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
                                   <input class="form-control" type="file" id="formFile" name="Image">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="Description">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Tanggal Event</label>
+                                <div class="col-sm-10">
+                                  <input type="date" class="form-control" name="EventDate">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Link</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="Link">
                                 </div>
                               </div>
                               <div class="row mb-3">

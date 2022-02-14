@@ -3,7 +3,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       {{-- <h1 class="logo me-auto"><a href="index.html">Mentor</a></h1> --}}
-      <a href="/index" class="navbar-brand es-logo">
+      <a href="/" class="navbar-brand es-logo">
         <img src="img/esschool.png" width="200px" height="auto">
       </a>
       <!-- Uncomment below if you prefer to use an image logo -->

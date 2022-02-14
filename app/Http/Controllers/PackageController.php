@@ -63,6 +63,7 @@ class PackageController extends Controller
                     'Link' => $request->get('Link'),
                     'Image' => $name
                 ]);
+                // dd($save);
                 $save->save();
             }
 

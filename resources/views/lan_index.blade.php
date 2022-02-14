@@ -164,98 +164,39 @@
           <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
 
+                <?php
+                $no = 0;
+                foreach ($data['event'] as $datas) { ?>
               <div class="swiper-slide">
                 {{-- <div class="col-md-3" style="float:left"> --}}
-                    <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
+                    <div class="card" >
+                        <img class="card-img-top" style="width: 100%;
+                        height: 30vw;
+                        object-fit: cover;" src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $datas['Name'] ?></h5>
+                            <p class="card-text"><?= $datas['Description'] ?></p>
+                            <div style="font-weight: 600; margin-bottom: 10px">
+                                <i class="bi-calendar-check" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                                <?= $datas['EventDate'] ?>
+                            </div>
+                            <div style="font-weight: 600; margin-bottom: 20px">
+                                <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                                <?= $datas['Link'] ?>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
+                        </div>
+
+                    </div>
                 {{-- </div> --}}
               </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-              </div><!-- End testimonial item -->
-
+              <?php }?>
             </div>
             <div class="swiper-pagination"></div>
           </div>
 
         </div>
     </section><!-- End Testimonials Section -->
-
-    <section id="service" class="service">
-        <div class="container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  {{-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> --}}
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                  </div>
-                  {{-- <div class="carousel-item">
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-1.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-3.jpg" alt="First slide">
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <img class="d-block w-100" src="assets/img/course-2.jpg" alt="First slide">
-                    </div>
-                  </div> --}}
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-        </div>
-    </section>
     {{-- end event --}}
 
 
@@ -352,83 +293,45 @@
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="course-item">
-              <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Web Development</h4>
-                  <p class="price">$169</p>
-                </div>
+            <?php function Rupiah($angka){
+                $hasil = "Rp " . number_format($angka,2,',','.');
+                return $hasil;
+            }
+            foreach ($data['package'] as  $datas) { ?>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/GracePrimayanti.jpeg" class="img-fluid" alt="">
-                    <span>Grace</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                    <div class="course-item">
+                        <img src="{{url('resource/package/'.$datas['Image'])}}" class="img-fluid" alt="...">
+                        <div class="course-content">
+                        <div class="d-flex justify-content-between align-items-right mb-3">
+                            {{-- <h4>Web Development</h4> --}}
+                            <h4>Harga Paket</h4>
+                            <p class="price">{{ str_replace(' ','.',Rupiah($datas['Price'])) }}</p>
+                        </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="course-item">
-              <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Marketing</h4>
-                  <p class="price">$250</p>
-                </div>
+                        <h3><a href="course-details.html">{{$datas["Name"]}}</a></h3>
+                        <div style="height:120px;width:100%;border:0px solid #ccc;overflow:auto;">
+                            {{$datas["Deskripsi"]}}
+                        </div>
+                        <a href="#" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
+                        {{-- <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p> --}}
+                        <div class="trainer d-flex justify-content-between align-items-center">
+                            <div class="trainer-profile d-flex align-items-center">
+                            <img src="assets/img/trainers/GracePrimayanti.jpeg" class="img-fluid" alt="">
+                            <span>Grace</span>
+                            </div>
+                            <div class="trainer-rank d-flex align-items-center">
+                            <i class="bx bx-user"></i>&nbsp;50
+                            &nbsp;&nbsp;
+                            {{-- <i class="bx bx-heart"></i>&nbsp;65 --}}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div> <!-- End Course Item-->
+                <?php }?>
 
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/SriWahyuni.jpeg" class="img-fluid" alt="">
-                    <span>Sri Wahyuni</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="course-item">
-              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Content</h4>
-                  <p class="price">$180</p>
-                </div>
-
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/SriWahyuni.jpeg" class="img-fluid" alt="">
-                    <span>Sri Wahyuni</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
 
         </div>
 
@@ -546,7 +449,102 @@
           </div>
 
         </div>
-      </section><!-- End Trainers Section -->
+    </section><!-- End Trainers Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What are they saying</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/trainers/SriWahyuni.jpeg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/trainers/SriWahyuni.jpeg" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
 
   </main><!-- End #main -->
 

@@ -17,6 +17,9 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('Name');
             $table->string('Image');
+            $table->string('Description');
+            $table->date('EventDate');
+            $table->string('Link');
             $table->timestamps();
         });
     }

@@ -25,6 +25,9 @@ class EventFactory extends Factory
         return [
             'Name' => $this->faker->word,
             'Image' => $this->faker->word,
+            'Description' => $this->faker->word,
+            'EventDate' => $this->faker->word,
+            'Link' => $this->faker->word,
         ];
     }
 }

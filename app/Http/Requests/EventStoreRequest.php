@@ -26,6 +26,9 @@ class EventStoreRequest extends FormRequest
         return [
             'Name' => ['required', 'string'],
             'Image' => ['required', 'string'],
+            'Description' => ['required', 'string'],
+            'EventDate' => ['required', 'date'],
+            'Link' => ['required', 'string'],
         ];
     }
 }

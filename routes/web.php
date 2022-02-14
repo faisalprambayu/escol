@@ -13,6 +13,7 @@ use App\Http\Controllers\RMajorViewController;
 use App\Http\Controllers\RPackageViewController;
 use App\Http\Controllers\FaqViewController;
 use App\Http\Controllers\FooterViewController;
+use App\Http\Controllers\LandingViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,17 +27,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('lan_home');
-});
+// Route::get('/', function () {
+//     return view('lan_index');
+// });
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('lan_index');
-});
+// Route::get('/index', function () {
+//     return view('lan_index');
+// });
 
 Route::get('/program', function () {
     return view('lan_program');
@@ -77,6 +78,7 @@ Route::get('/admin', function () {
 //     return view('ad_ref_major');
 // });
 
+
 Route::get('/footer', [FooterViewController::class, 'index']);
 Route::get('/faq', [FaqViewController::class, 'index']);
 Route::get('/ref_package', [RPackageViewController::class, 'index']);
@@ -88,6 +90,8 @@ Route::get('/service', [ServiceViewController::class, 'index']);
 Route::get('/team', [TeamViewController::class, 'index']);
 Route::get('/video', [VideoViewController::class, 'index']);
 Route::get('/registration', [RegistrationViewController::class, 'index']);
+
+Route::get('/', [LandingViewController::class, 'index']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');
