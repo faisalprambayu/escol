@@ -30,6 +30,10 @@ class RegistrationController extends Controller
     {
         $registration = Registration::create($request->validated());
 
+        // $routeName = Request::route()->getName();
+        if(app('router')->getRoutes()->match(app('request')->create(url()->previous()))->uri == '/'){
+            return redirect('/');
+        }
         return redirect('registration');
     }
 

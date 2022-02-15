@@ -14,7 +14,7 @@
                 <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
                     <h1>Belajar Bareng <span style="font-weight: bold">esschool.id</span></h1>
                     <h2>Partner belajar serumu yang menyesuaikan gaya belajar dan karaktermu.</h2>
-                  <a href="#popular-courses" class="btn-get-started">Get Started</a>
+                  <a class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
@@ -25,9 +25,102 @@
 
   </section><!-- End Hero -->
 
+  <!-- ======= Modal Registration ======= -->
+  <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        {{-- <h5 class="modal-title" id="exampleModalLabel">Create Event</h5> --}}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-lg-12">
 
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">General Form Elements</h5>
+
+                    <!-- General Form Elements -->
+                    <form name="add-registration" id="add-registration" method="post" action="{{url('api/registration')}}">
+                      <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="Name">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" name="Email">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Handphone</label>
+                        <div class="col-sm-10">
+                          <input type="number" min="0" class="form-control" name="Handphone">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Asal Sekolah</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="School_Origin">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Class</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" aria-label="Default select example" name="Class">
+                            <option selected>-Pilih-</option>
+                            <?php foreach ($data['class'] as $class) {?> <option value="{{ $class['id'] }}">{{ $class['Name'] }}</option> <?php } ?>
+                            {{-- <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option> --}}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Major</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" aria-label="Default select example" name="Major">
+                            <option selected>-Pilih-</option>
+                            <?php foreach ($data['major'] as $major) {?> <option value="{{ $major['id'] }}">{{ $major['Name'] }}</option> <?php } ?>
+                            {{-- <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option> --}}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Package</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" aria-label="Default select example" name="Package">
+                            <option selected>-Pilih-</option>
+                            <?php foreach ($data['package'] as $package) {?> <option value="{{ $package['id'] }}">{{ $package['Name'] }}</option> <?php } ?>
+                            {{-- <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option> --}}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form><!-- End General Form Elements -->
+                    </div>
+
+
+                  </div>
+                </div>
+
+            </div>
+        </div>
+
+    {{-- </form> --}}
+    </div>
+    </div>
+</div>
+<!-- ======= End Modal Registration ======= -->
   <main id="main">
-
     {{-- <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -170,9 +263,7 @@
               <div class="swiper-slide">
                 {{-- <div class="col-md-3" style="float:left"> --}}
                     <div class="card" >
-                        <img class="card-img-top" style="width: 100%;
-                        height: 30vw;
-                        object-fit: cover;" src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
+                        <img class="card-img-top"  src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $datas['Name'] ?></h5>
                             <p class="card-text"><?= $datas['Description'] ?></p>
@@ -343,71 +434,28 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/GracePrimayanti.jpeg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Grace Primayanti</h4>
-                <span>Teacher Matematika</span>
-                <p>
-                  Sarjana Ganda Pendidikan Matematika Corban University, USA
-                </p>
-                <p>
-                    S1 Pendidikan Matematika Pelita Harapan University Tangerang
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php
+            foreach ($data['team'] as  $datas) { ?>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/SriWahyuni.jpeg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sri Wahyuni</h4>
-                <span>Teacher Fisika</span>
-                <p>
-                    Awardee LPDP S2 Pendidikan Fisika UPI
-                </p>
-                <p>
-                    S1 Pendidikan Matematika UNNES
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                    <img src="{{url('resource/team/'.$datas['Image'])}}" class="img-fluid" alt="">
+                    <div class="member-content">
+                        <h4><?= $datas['Name'] ?></h4>
+                        <span><?= $datas['Title'] ?></span>
+                        <p>
+                            <?= $datas['Description'] ?>
+                        </p>
+                        {{-- <div class="social">
+                        <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div> --}}
+                    </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/SriWahyuni.jpeg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sri Wahyuni</h4>
-                <span>Teacher Fisika</span>
-                <p>
-                    Awardee LPDP S2 Pendidikan Fisika UPI
-                </p>
-                <p>
-                    S1 Pendidikan Matematika UNNES
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+            <?php }?>
         </div>
 
       </div>
@@ -456,88 +504,32 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>What are they saying</p>
+          <h2>Testimoni</h2>
+          <p>APA YANG MEREKA KATAKAN</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
+            <?php
+            foreach ($data['testimonial'] as  $datas) { ?>
+
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
-                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
-                  <h3>Saul Goodman</h3>
-                  <h4>Ceo &amp; Founder</h4>
+                  <img src="{{url('resource/testimonial/'.$datas['Image'])}}" class="testimonial-img" alt="">
+                  <h3><?= $datas['Name'] ?></h3>
+                  <h4><?= $datas['Title'] ?></h4>
                   <p>
                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <?= $datas['Testimonial'] ?>
                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                   </p>
                 </div>
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/trainers/SriWahyuni.jpeg" class="testimonial-img" alt="">
-                  <h3>Sara Wilsson</h3>
-                  <h4>Designer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/trainers/SriWahyuni.jpeg" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="assets/img/trainers/GracePrimayanti.jpeg" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            <?php } ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -545,6 +537,40 @@
       </div>
     </section><!-- End Testimonials Section -->
 
+    <div class="es-faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>FAQ</h2>
+                <p>Paling sering ditanya</p>
+              </div>
+            {{-- <h1 class="es-text-danger pb-5">Paling sering ditanya</h1> --}}
+
+            <div class="d-flex flex-column" style="height:490px;width:100%;border:0px solid #ccc;overflow:auto;">
+                <?php
+                foreach ($data['faq'] as  $datas) { ?>
+
+                <a data-bs-toggle="collapse" href="#faq<?= $datas['id'] ?>" role="button" aria-expanded="false" aria-controls="faq<?= $datas['id'] ?>" class="es-collapse collapsed">
+                    <div class="card border-0 es-card">
+                        <div class="card-body">
+                            <div class="container" style="margin-top: 10px; ">
+                                <p>
+                                    <?= $datas['Question'] ?>
+                                </p>
+
+                                <div class="collapse" id="faq<?= $datas['id'] ?>">
+                                    <p>
+                                        <?= $datas['Answer'] ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 
   </main><!-- End #main -->
 

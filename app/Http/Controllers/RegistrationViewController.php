@@ -12,7 +12,9 @@ class RegistrationViewController extends Controller
         $registration = Request::create('api/registration', 'GET');
         $responseRegistration = Route::dispatch($registration);
 
-        $package = Request::create('api/r_package', 'GET');
+        // $package = Request::create('api/r_package', 'GET');
+        // $responsePackage = Route::dispatch($package);
+        $package = Request::create('api/package', 'GET');
         $responsePackage = Route::dispatch($package);
 
         $major = Request::create('api/r_major', 'GET');

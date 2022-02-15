@@ -10,6 +10,7 @@ use App\Http\Controllers\RMajorController;
 use App\Http\Controllers\RPackageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,5 @@ Route::apiResource('video', VideoController::class);
 Route::apiResource('faq', FaqController::class);
 
 Route::apiResource('footer', FooterController::class);
+
+Route::apiResource('testimonial', TestimonialController::class);

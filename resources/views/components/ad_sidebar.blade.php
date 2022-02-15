@@ -74,6 +74,13 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="testimonial"){echo "collapsed";} ?>" href="/testimonial">
+          <i class="bi bi-chat"></i>
+          <span>Testimonial</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="video"){echo "collapsed";} ?>" href="/video">
           <i class="bi bi-camera-video"></i>
           <span>Video</span>

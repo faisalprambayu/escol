@@ -14,6 +14,7 @@ use App\Http\Controllers\RPackageViewController;
 use App\Http\Controllers\FaqViewController;
 use App\Http\Controllers\FooterViewController;
 use App\Http\Controllers\LandingViewController;
+use App\Http\Controllers\TestimonialViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +36,9 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-// Route::get('/index', function () {
-//     return view('lan_index');
-// });
+Route::get('/index', function () {
+    return view('lan_home');
+});
 
 Route::get('/program', function () {
     return view('lan_program');
@@ -90,6 +91,7 @@ Route::get('/service', [ServiceViewController::class, 'index']);
 Route::get('/team', [TeamViewController::class, 'index']);
 Route::get('/video', [VideoViewController::class, 'index']);
 Route::get('/registration', [RegistrationViewController::class, 'index']);
+Route::get('/testimonial', [TestimonialViewController::class, 'index']);
 
 Route::get('/', [LandingViewController::class, 'index']);
 

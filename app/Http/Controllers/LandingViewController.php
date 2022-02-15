@@ -27,6 +27,15 @@ class LandingViewController extends Controller
         $package = Request::create('api/package', 'GET');
         $responsePackage = Route::dispatch($package);
 
+        $team = Request::create('api/team', 'GET');
+        $responseTeam = Route::dispatch($team);
+
+        $testimonial = Request::create('api/testimonial', 'GET');
+        $responseTestimonial = Route::dispatch($testimonial);
+
+        $faq = Request::create('api/faq', 'GET');
+        $responseFaq = Route::dispatch($faq);
+
         // $data = [
         //     'registration' => json_decode($responseRegistration->content(), true)['data'],
         // ];
@@ -37,6 +46,9 @@ class LandingViewController extends Controller
             'class' => json_decode($responseClass->content(), true)['data'],
             'event' => json_decode($responseEvent->content(), true)['data'],
             'package' => json_decode($responsePackage->content(), true)['data'],
+            'team' => json_decode($responseTeam->content(), true)['data'],
+            'testimonial' => json_decode($responseTestimonial->content(), true)['data'],
+            'faq' => json_decode($responseFaq->content(), true)['data'],
         ];
         // dd($data);
         return view('lan_index', compact('data'));
