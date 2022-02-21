@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\TestimonialCollection;
-use App\Http\Resources\TestimonialResource;
-use App\Models\Testimonial;
+use App\Http\Resources\CareerCollection;
+use App\Http\Resources\CareerResource;
+use App\Models\Career;
 use App\Models\File;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
-class TestimonialController extends Controller
+class CareerController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \App\Http\Resources\TestimonialCollection
+     * @return \App\Http\Resources\CareerCollection
      */
     public function index(Request $request)
     {
-        $testimonials = Testimonial::orderBy('updated_at', 'DESC')->get();
-        // dd($testimonials);
-        return new TestimonialCollection($testimonials);
+        $careers = Career::orderBy('updated_at', 'DESC')->get();
+        // dd($careers);
+        return new CareerCollection($careers);
     }
 
     /**
@@ -33,8 +33,8 @@ class TestimonialController extends Controller
         // dd(time());
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
-            'Title' => ['required'],
-            'Testimonial' => ['required'],
+            'Date' => ['required'],
+            'Description' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -43,20 +43,20 @@ class TestimonialController extends Controller
         }
 
         try {
-            $testimonial = $request->all();
+            $careers = $request->all();
             // dd($event);
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/testimonial', $name);
+                $file->move('resource/career', $name);
                 // $path = $file->store('public/files');
                 // $name = $file->getClientOriginalName();
 
                 //store your file into directory and db
-                $save = new Testimonial([
+                $save = new Career([
                     'Name' => $request->get('Name'),
-                    'Title' => $request->get('Title'),
-                    'Testimonial' => $request->get('Testimonial'),
+                    'Date' => $request->get('Date'),
+                    'Description' => $request->get('Description'),
                     'Image' => $name,
                 ]);
                 $save->save();
@@ -68,7 +68,7 @@ class TestimonialController extends Controller
             // ];
 
             // return response()->json($response, Response::HTTP_CREATED);
-            return redirect('testimonial');
+            return redirect('career');
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -81,9 +81,9 @@ class TestimonialController extends Controller
      * @param \App\Models\Event $event
      * @return \App\Http\Resources\EventResource
      */
-    public function show(Request $request, Testimonial $testimonial)
+    public function show(Request $request, Career $career)
     {
-        return new TestimonialResource($testimonial);
+        return new CareerResource($career);
     }
 
     /**
@@ -93,10 +93,11 @@ class TestimonialController extends Controller
      */
     public function update(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
-            'Title' => ['required'],
-            'Testimonial' => ['required'],
+            'Date' => ['required'],
+            'Description' => ['required'],
             // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -105,29 +106,30 @@ class TestimonialController extends Controller
         }
 
         try {
-            $testimonial = $request->all();
+            $career = $request->all();
             // dd($package);
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/testimonial', $name);
+                $file->move('resource/program', $name);
 
                 //store your file into directory and db
-                Testimonial::where('id', $request->get('id'))->update([
+                Career::where('id', $request->get('id'))->update([
                     'Name' => $request->get('Name'),
-                    'Title' => $request->get('Title'),
-                    'Testimonial' => $request->get('Testimonial'),
+                    'Date' => $request->get('Date'),
+                    'Description' => $request->get('Description'),
                     'Image' => $name,
                 ]);
             } else {
-                Testimonial::where('id', $request->get('id'))->update([
+                // dd("masuk");
+                Career::where('id', $request->get('id'))->update([
                     'Name' => $request->get('Name'),
-                    'Title' => $request->get('Title'),
-                    'Testimonial' => $request->get('Testimonial'),
+                    'Date' => $request->get('Date'),
+                    'Description' => $request->get('Description'),
                 ]);
             }
             // $save->save();
-            return redirect('testimonial');
+            return redirect('career');
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -140,10 +142,10 @@ class TestimonialController extends Controller
      * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Testimonial $testimonial)
+    public function destroy(Request $request, Career $career)
     {
-        $testimonial->delete();
-        return redirect('testimonial');
+        $career->delete();
+        return redirect('career');
         // return response()->noContent();
     }
 }

@@ -8,16 +8,7 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Table Video</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Video</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+    @include('components.ad_breadcrumb', ['title' => "Video Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Video"])
 
     <section class="section">
       <div class="row">

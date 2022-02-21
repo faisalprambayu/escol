@@ -25,56 +25,28 @@
 
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
+            <?php
+            foreach ($data['article'] as  $datas) { ?>
+
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
               <div class="article-item">
                   <div class="post-img">
-                      <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
+                      <img src="{{url('resource/article/'.$datas['Image'])}}" class="img-fluid" alt="...">
                   </div>
                 <div class="article-content">
                   <div class="d-flex justify-content-between align-items-center mb-3">
-                    <p class="date">Jumat, 5 Januari 2022</p>
+                    <p class="date"><?= date('l, j F Y', strtotime( $datas['Date'])) ?></p>
                   </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
-                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                  <h3><a href="article-details.html" class="stretched-link mt-auto"><?= $datas['Name'] ?></a></h3>
+                  <p><?= $datas['Description'] ?></p>
 
                 </div>
               </div>
             </div> <!-- End Course Item-->
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="article-item">
-                  <div class="post-img">
-                      <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-                  </div>
-                <div class="article-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <p class="date">Jumat, 5 Januari 2022</p>
-                  </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
-                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-
-                </div>
-              </div>
-            </div> <!-- End Course Item-->
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="article-item">
-                  <div class="post-img">
-                      <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-                  </div>
-                <div class="article-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <p class="date">Jumat, 5 Januari 2022</p>
-                  </div>
-
-                  <h3><a href="article-details.html" class="stretched-link mt-auto">Article Title</a></h3>
-                  <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-
-                </div>
-              </div>
-            </div> <!-- End Course Item-->
+            <?php } ?>
 
           </div>
 

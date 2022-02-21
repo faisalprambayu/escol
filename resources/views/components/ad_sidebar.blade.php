@@ -38,6 +38,21 @@
 
       <li class="nav-heading">Pages</li>
 
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="article"){echo "collapsed";} ?>" href="/article">
+            <i class="bi bi-newspaper"></i>
+          <span>Article</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="career"){echo "collapsed";} ?>" href="/career">
+        <i class="bi bi-activity"></i>
+          <span>Career</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
       <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="event"){echo "collapsed";} ?>" href="/event">
           <i class="bi bi-calendar-event"></i>
@@ -46,9 +61,38 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="faq"){echo "collapsed";} ?>" href="/faq">
+          <i class="bi bi-question-circle"></i>
+          <span>Faq</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      {{-- <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="footer"){echo "collapsed";} ?>" href="/footer">
+          <i class="bi bi-align-bottom"></i>
+          <span>Footer</span>
+        </a>
+      </li><!-- End Profile Page Nav --> --}}
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="friend"){echo "collapsed";} ?>" href="/friend">
+            <i class="bi bi-person-plus-fill"></i>
+          <span>Friend</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+
+      <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="package"){echo "collapsed";} ?>" href="/package">
           <i class="bi bi-box"></i>
           <span>Package</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="programs"){echo "collapsed";} ?>" href="/programs">
+            <i class="bi bi-person-lines-fill"></i>
+          <span>Program</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -84,20 +128,6 @@
         <a class="nav-link <?php if ((Request::segment(1))!="video"){echo "collapsed";} ?>" href="/video">
           <i class="bi bi-camera-video"></i>
           <span>Video</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link <?php if ((Request::segment(1))!="faq"){echo "collapsed";} ?>" href="/faq">
-          <i class="bi bi-question-circle"></i>
-          <span>Faq</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link <?php if ((Request::segment(1))!="footer"){echo "collapsed";} ?>" href="/footer">
-          <i class="bi bi-align-bottom"></i>
-          <span>Footer</span>
         </a>
       </li><!-- End Profile Page Nav -->
 

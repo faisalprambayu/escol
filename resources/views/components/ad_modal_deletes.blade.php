@@ -34,6 +34,11 @@
             elseif ((Request::segment(1))=="faq"){echo "<script>let target='faq'</script>";}
             elseif ((Request::segment(1))=="footer"){echo "<script>let target='footer'</script>";}
             elseif ((Request::segment(1))=="registration"){echo "<script>let target='registration'</script>";}
+            elseif ((Request::segment(1))=="testimonial"){echo "<script>let target='testimonial'</script>";}
+            elseif ((Request::segment(1))=="programs"){echo "<script>let target='program'</script>";}
+            elseif ((Request::segment(1))=="career"){echo "<script>let target='career'</script>";}
+            elseif ((Request::segment(1))=="friend"){echo "<script>let target='friend'</script>";}
+            elseif ((Request::segment(1))=="article"){echo "<script>let target='article'</script>";}
   ?>
   <script>
       if (tableData) {

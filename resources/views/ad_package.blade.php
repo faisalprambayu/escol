@@ -8,16 +8,7 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>General Tables</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Package</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+    @include('components.ad_breadcrumb', ['title' => "Package Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Package"])
 
     <section class="section">
       <div class="row">

@@ -8,16 +8,7 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>General Tables</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Team</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+    @include('components.ad_breadcrumb', ['title' => "Team Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Team"])
 
     <section class="section">
       <div class="row">
@@ -34,12 +25,12 @@
                 <table class="table table-hover" id="tableData">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Deskripsi</th>
-                        <th scope="col">Gambar</th>
+                        <th class="space">#</th>
+                        <th class="space">No</th>
+                        <th class="space">Nama</th>
+                        <th class="space">Title</th>
+                        <th class="space">Deskripsi</th>
+                        <th style="width: 20%">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +50,7 @@
                         <td><?= $datas['Name'] ?></td>
                         <td><?= $datas['Title'] ?></td>
                         <td><?= $datas['Description'] ?></td>
-                        <td><img width="300px" src="{{url('resource/team/'.$datas['Image'])}}"></td>
+                        <td><img class="d-block w-75" src="{{url('resource/team/'.$datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {

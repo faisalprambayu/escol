@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RClassController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\RMajorController;
@@ -55,3 +59,11 @@ Route::apiResource('faq', FaqController::class);
 Route::apiResource('footer', FooterController::class);
 
 Route::apiResource('testimonial', TestimonialController::class);
+
+Route::apiResource('program', ProgramController::class);
+
+Route::apiResource('career', CareerController::class);
+
+Route::apiResource('friend', FriendController::class);
+
+Route::apiResource('article', ArticleController::class);

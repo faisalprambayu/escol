@@ -8,16 +8,7 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Tabel Footer</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Footer</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+    @include('components.ad_breadcrumb', ['title' => "Event Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Event"])
 
     <section class="section">
       <div class="row">

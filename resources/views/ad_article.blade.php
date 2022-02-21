@@ -8,7 +8,7 @@
 
   <main id="main" class="main">
 
-    @include('components.ad_breadcrumb', ['title' => "Testimonial Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Testimonial"])
+    @include('components.ad_breadcrumb', ['title' => "Article Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Article"])
 
     <section class="section">
         <div class="row">
@@ -25,9 +25,9 @@
                     <tr>
                         <th class="width-5">#</th>
                         <th class="width-5">No</th>
-                        <th class="space">Nama</th>
-                        <th class="space">Title</th>
-                        <th class="space">Testimonial</th>
+                        <th class="space">Nama Artikel</th>
+                        <th class="space">Tanggal</th>
+                        <th class="space">Deskripsi</th>
                         <th style="width: 20%">Gambar</th>
                     </tr>
                     </thead>
@@ -47,9 +47,9 @@
                         </td>
                         <th scope="row"><?=++$no?></th>
                         <td class="space"><?= $datas['Name'] ?></td>
-                        <td class="space"><?= $datas['Title'] ?></td>
-                        <td class="space"><?= $datas['Testimonial'] ?></td>
-                        <td class="space"><img class="d-block w-75" src="{{url('resource/testimonial/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
+                        <td class="space"><?= $datas['Date'] ?></td>
+                        <td class="space"><?= $datas['Description'] ?></td>
+                        <td class="space"><img class="d-block w-75" src="{{url('resource/article/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {
@@ -71,7 +71,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Testimonial</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Artikel</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -82,39 +82,39 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/testimonial')}}" >
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Name">
+                            <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/article')}}" >
+                                <div class="row mb-3">
+                                   <label for="inputText" class="col-sm-2 col-form-label">Nama Artikel</label>
+                                    <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="Name">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Title</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Title">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Date</label>
+                                    <div class="col-sm-10">
+                                      <input type="date" class="form-control" name="Date">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Testimoni</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Testimonial">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="Description">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
-                                <div class="col-sm-10">
-                                  <input class="form-control" type="file" id="formFile" name="Image">
+                                <div class="row mb-3">
+                                    <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" type="file" id="formFile" name="Image">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col-sm-2 col-form-label"></div>
-                                <div class="col-sm-10" id="newImage">
+                                <div class="row mb-3">
+                                    <div class="col-sm-2 col-form-label"></div>
+                                    <div class="col-sm-10" id="newImage">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
 
                             </form><!-- End General Form Elements -->
@@ -133,7 +133,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -149,9 +149,21 @@
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Nama Event</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Nama Artikel</label>
                                 <div class="col-sm-10">
                                   <input type="text" class="form-control" name="Name" id="Name">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Date</label>
+                                <div class="col-sm-10">
+                                  <input type="date" class="form-control" name="Date" id="Date">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="Description" id="Description">
                                 </div>
                               </div>
                               <div class="row mb-3">
@@ -200,10 +212,14 @@
             document.querySelector('#editModal').querySelector('#id').value = id;
             let Name = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
             document.querySelector('#editModal').querySelector('#Name').value = Name;
-            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            let Date = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            document.querySelector('#editModal').querySelector('#Date').value = Date;
+            let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
+            document.querySelector('#editModal').querySelector('#Description').value = Description;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/event/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/article/update/');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }
