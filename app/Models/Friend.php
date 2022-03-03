@@ -19,6 +19,7 @@ class Friend extends Model
         'Date',
         'Description',
         'Image',
+        'Text',
     ];
 
     /**

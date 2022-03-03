@@ -19,6 +19,7 @@ class Article extends Model
         'Date',
         'Description',
         'Image',
+        'Text',
     ];
 
     /**

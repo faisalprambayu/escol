@@ -19,6 +19,7 @@ class Career extends Model
         'Date',
         'Description',
         'Image',
+        'Text',
     ];
 
     /**

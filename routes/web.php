@@ -108,8 +108,11 @@ Route::get('/article', [ArticleViewController::class, 'index']);
 Route::get('/', [LandingViewController::class, 'index']);
 Route::get('/program', [LandingProgramViewController::class, 'index']);
 Route::get('/artikel', [LandingArticleViewController::class, 'index']);
+Route::get('/artikel/{id}', [LandingArticleViewController::class, 'detail']);
 Route::get('/karir', [LandingCareerViewController::class, 'index']);
+Route::get('/karir/{id}', [LandingCareerViewController::class, 'detail']);
 Route::get('/sahabat', [LandingFriendViewController::class, 'index']);
+Route::get('/sahabat/{id}', [LandingFriendViewController::class, 'detail']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');

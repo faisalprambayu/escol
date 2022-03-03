@@ -3,8 +3,8 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       {{-- <h1 class="logo me-auto"><a href="index.html">Mentor</a></h1> --}}
-      <a href="/" class="navbar-brand es-logo">
-        <img src="img/esschool.png" width="200px" height="auto">
+      <a  href="/" class="navbar-brand es-logo">
+        <img src="<?= url('img/esschool.png'); ?>" width="170px" height="auto">
       </a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -20,10 +20,10 @@
                 </ul>
             </li>
             <li><a href="/program">Program</a></li>
-            <li><a href="/fitur">Fitur</a></li>
-            <li><a href="/artikel">Artikel</a></li>
+            {{-- <li><a href="/fitur">Fitur</a></li> --}}
+            {{-- <li><a href="/artikel">Artikel</a></li>
             <li><a href="/karir">Karir</a></li>
-            <li><a href="/sahabat">Sahabat esschool.id</a></li>
+            <li><a href="/sahabat">Sahabat esschool.id</a></li> --}}
 
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -47,7 +47,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      {{-- <a href="courses.html" class="get-started-btn">Get Started</a> --}}
+      <a href="" data-bs-toggle="modal" data-bs-target="#createModal" class="get-started-btn">Get Started</a>
 
     </div>
   </header><!-- End Header -->

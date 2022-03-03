@@ -23,12 +23,13 @@
                 <table class="table table-hover" id="tableData">
                     <thead>
                     <tr>
-                        <th class="width-5">#</th>
-                        <th class="width-5">No</th>
-                        <th class="space">Nama Artikel</th>
-                        <th class="space">Tanggal</th>
-                        <th class="space">Deskripsi</th>
-                        <th style="width: 20%">Gambar</th>
+                        <th style="width: 10px;">#</th>
+                        <th style="width: 10px;">No</th>
+                        <th style="width: 100px;">Nama Artikel</th>
+                        <th style="width: 100px;">Tanggal</th>
+                        <th style="width: 200px;">Deskripsi</th>
+                        <th style="width: 200px;">Isi</th>
+                        <th style="width: 200px;">Gambar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -49,7 +50,9 @@
                         <td class="space"><?= $datas['Name'] ?></td>
                         <td class="space"><?= $datas['Date'] ?></td>
                         <td class="space"><?= $datas['Description'] ?></td>
+                        <td class="space"><?= substr($datas['Text'], 0, 100) . '...' ?></td>
                         <td class="space"><img class="d-block w-75" src="{{url('resource/article/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
+                        <td class="space" style="display:none;"><?= $datas['Text'] ?></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
                     <?php } if ($no == 0) {
@@ -102,6 +105,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Isi</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" name="Text" style="height: 100px"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="file" id="formFile" name="Image">
@@ -109,7 +118,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-2 col-form-label"></div>
-                                    <div class="col-sm-10" id="newImage">
+                                    <div class="col-sm-5" id="newImage">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -167,6 +176,12 @@
                                 </div>
                               </div>
                               <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Isi</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" name="Text" id="Text" style="height: 100px"></textarea>
+                                </div>
+                            </div>
+                              <div class="row mb-3">
                                 <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
                                   <input class="form-control" type="file" id="formFile" name="Image">
@@ -174,7 +189,7 @@
                               </div>
                               <div class="row mb-3">
                                 <div class="col-sm-2 col-form-label"></div>
-                                <div class="col-sm-10" id="oldImage">
+                                <div class="col-sm-5" id="oldImage">
                                 </div>
                               </div>
                               <div class="modal-footer">
@@ -216,7 +231,9 @@
             document.querySelector('#editModal').querySelector('#Date').value = Date;
             let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
             document.querySelector('#editModal').querySelector('#Description').value = Description;
-            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            let Text = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[7].innerHTML;
+            document.querySelector('#editModal').querySelector('#Text').value = Text;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
             document.querySelector('#edit-event').setAttribute("action", base_url+'/api/article/update/');

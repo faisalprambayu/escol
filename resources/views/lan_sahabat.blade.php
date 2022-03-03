@@ -38,7 +38,7 @@
                     <p class="date"><?= date('l, j F Y', strtotime( $datas['Date'])) ?></p>
                   </div>
 
-                  <h3><a href="article-details.html" class="stretched-link mt-auto"><?= $datas['Name'] ?></a></h3>
+                  <h3><a href="/sahabat/{{$datas['id']}}" class="stretched-link mt-auto"><?= $datas['Name'] ?></a></h3>
                   <p><?= $datas['Description'] ?></p>
 
                 </div>

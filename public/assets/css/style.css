@@ -606,7 +606,7 @@ section {
 .why-us .content {
   padding: 30px;
   background: var(--es-danger);
-  border-radius: 4px;
+  border-radius: 20px;
   color: #fff;
 }
 .why-us .content h3 {
@@ -638,6 +638,7 @@ section {
   padding: 40px 30px;
   width: 100%;
   border: 1px solid #eef0ef;
+  border-radius: 20px;
 }
 .why-us .icon-boxes .icon-box i {
   font-size: 32px;
@@ -861,6 +862,7 @@ section {
   padding: 20px;
   transition: 0.3s;
   border: 1px solid #eef0ef;
+  border-radius: 10px;
 }
 .features .icon-box i {
   font-size: 32px;
@@ -889,9 +891,13 @@ section {
 # Courses
 --------------------------------------------------------------*/
 .courses .course-item {
-  border-radius: 5px;
+  border-radius: 20px;
   border: 1px solid #eef0ef;
 }
+.courses .course-item img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 .courses .course-content {
   padding: 15px;
 }
@@ -954,8 +960,12 @@ section {
 # Article
 --------------------------------------------------------------*/
 .article .article-item {
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid #eef0ef;
+  }
+  .article .article-item img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .article .article-content {
     padding: 15px;
@@ -1018,7 +1028,7 @@ section {
 }
 .article .article-content:hover .post-title {
     color: #4154f1;
-  }
+}
 
 
 /*--------------------------------------------------------------
@@ -1029,9 +1039,12 @@ section {
   margin-bottom: 20px;
   background: #fff;
   border: 1px solid #eef0ef;
+  border-radius: 20px;
 }
 .trainers .member img {
   margin: -1px -1px 30px -1px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .trainers .member .member-content {
   padding: 0 20px 30px 20px;
@@ -1084,6 +1097,7 @@ section {
   border: 1px solid #eef0ef;
   position: relative;
   background: #fff;
+  border-radius: 10px;
 }
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
@@ -1202,6 +1216,50 @@ section {
   color: #657a6d;
 }
 
+/* course-details side-bar */
+.course-details .sidebar {
+    padding: 30px;
+    margin: 0 0 60px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.course-details .sidebar .sidebar-title {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 0 0 0;
+    margin: 0 0 15px 0;
+    color: #012970;
+    position: relative;
+}
+.course-details .sidebar .sidebar-item {
+    margin-bottom: 30px;
+}
+.course-details .sidebar .recent-posts .post-item + .post-item {
+    margin-top: 15px;
+}
+.course-details .sidebar .recent-posts img {
+    width: 80px;
+    float: left;
+}
+.course-details .sidebar .recent-posts h4 {
+    font-size: 15px;
+    margin-left: 95px;
+    font-weight: bold;
+}
+.course-details .sidebar .recent-posts h4 a {
+    color: #012970;
+    transition: 0.3s;
+}
+.course-details .sidebar .recent-posts h4 a:hover {
+    color: #4154f1;
+}
+.course-details .sidebar .recent-posts time {
+    display: block;
+    margin-left: 95px;
+    font-style: italic;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
 /*--------------------------------------------------------------
 # Cource Details Tabs
 --------------------------------------------------------------*/
@@ -1256,6 +1314,8 @@ section {
   }
 }
 
+
+
 /*--------------------------------------------------------------
 # Events
 --------------------------------------------------------------*/
@@ -1264,6 +1324,7 @@ section {
   padding: 0 30px;
   margin-bottom: 60px;
   position: relative;
+  border-radius: 20px;
 }
 .events .card-img {
   width: calc(100% + 60px);

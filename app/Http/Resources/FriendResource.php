@@ -20,6 +20,7 @@ class FriendResource extends JsonResource
             'Date' => $this->Date,
             'Description' => $this->Description,
             'Image' => $this->Image,
+            'Text' => $this->Text,
         ];
     }
 }

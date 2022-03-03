@@ -36,6 +36,7 @@ class ArticleController extends Controller
             'Date' => ['required'],
             'Description' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'Text' => ['required'],
         ]);
 
         if ($validator->fails()) {
@@ -58,6 +59,7 @@ class ArticleController extends Controller
                     'Date' => $request->get('Date'),
                     'Description' => $request->get('Description'),
                     'Image' => $name,
+                    'Text' => $request->get('Text'),
                 ]);
                 $save->save();
             }
@@ -98,6 +100,7 @@ class ArticleController extends Controller
             'Name' => ['required'],
             'Date' => ['required'],
             'Description' => ['required'],
+            'Text' => ['required'],
             // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -119,6 +122,7 @@ class ArticleController extends Controller
                     'Date' => $request->get('Date'),
                     'Description' => $request->get('Description'),
                     'Image' => $name,
+                    'Text' => $request->get('Text'),
                 ]);
             } else {
                 // dd("masuk");
@@ -126,6 +130,7 @@ class ArticleController extends Controller
                     'Name' => $request->get('Name'),
                     'Date' => $request->get('Date'),
                     'Description' => $request->get('Description'),
+                    'Text' => $request->get('Text'),
                 ]);
             }
             // $save->save();

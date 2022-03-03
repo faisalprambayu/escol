@@ -27,6 +27,7 @@ class CareerFactory extends Factory
             'Date' => $this->faker->word,
             'Description' => $this->faker->word,
             'Image' => $this->faker->word,
+            'Text' => $this->faker->word,
         ];
     }
 }
