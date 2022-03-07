@@ -36,6 +36,9 @@ class LandingViewController extends Controller
         $faq = Request::create('api/faq', 'GET');
         $responseFaq = Route::dispatch($faq);
 
+        $banner = Request::create('api/banner', 'GET');
+        $response_banner = Route::dispatch($banner);
+
         // $data = [
         //     'registration' => json_decode($responseRegistration->content(), true)['data'],
         // ];
@@ -49,6 +52,7 @@ class LandingViewController extends Controller
             'team' => json_decode($responseTeam->content(), true)['data'],
             'testimonial' => json_decode($responseTestimonial->content(), true)['data'],
             'faq' => json_decode($responseFaq->content(), true)['data'],
+            'banner' => json_decode($response_banner->content(), true)['data'],
         ];
         // dd($data);
         return view('lan_index', compact('data'));

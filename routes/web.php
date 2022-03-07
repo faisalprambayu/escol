@@ -3,6 +3,7 @@
 // namespace App\Routes;
 
 use App\Http\Controllers\ArticleViewController;
+use App\Http\Controllers\BannerViewController;
 use App\Http\Controllers\CareerViewController;
 use App\Http\Controllers\PackageViewController;
 use App\Http\Controllers\EventViewController;
@@ -104,6 +105,7 @@ Route::get('/programs', [ProgramViewController::class, 'index']);
 Route::get('/career', [CareerViewController::class, 'index']);
 Route::get('/friend', [FriendViewController::class, 'index']);
 Route::get('/article', [ArticleViewController::class, 'index']);
+Route::get('/banner', [BannerViewController::class, 'index']);
 
 Route::get('/', [LandingViewController::class, 'index']);
 Route::get('/program', [LandingProgramViewController::class, 'index']);

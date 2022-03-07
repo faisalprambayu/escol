@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 col-md-5 footer-contact">
+          <div class="col-lg-5 col-md-6 footer-contact">
             <h3>esschool.id</h3>
             <p>
                 Jl. Desa Tangkil RT 06/RW 01 No. 123 Kel.Cinagara, <br>
@@ -16,7 +16,7 @@
             </p>
           </div>
 
-          <div class="col-lg-4 col-md-3 footer-links">
+          {{-- <div class="col-lg-4 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Paket Belajar</a></li>
@@ -25,16 +25,19 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Artikel</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Karir</a></li>
             </ul>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4 col-md-4 footer-links">
-            <h4>Our Services</h4>
+          <div class="col-lg-5 col-md-6 footer-links">
+            <h4>Lebih dekat dengan esschool.id</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Beasiswa Esscholarship</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/karir">We Are Hiring</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Syarat dan Ketentuan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/sahabat">Sobat Esschool.id</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/artikel">Artikel</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Kebijakan Privasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Faq</a></li>
             </ul>
           </div>
 

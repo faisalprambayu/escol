@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
@@ -67,3 +68,5 @@ Route::apiResource('career', CareerController::class);
 Route::apiResource('friend', FriendController::class);
 
 Route::apiResource('article', ArticleController::class);
+
+Route::apiResource('banner', BannerController::class);

@@ -11,12 +11,12 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#master-data" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i>
           <span>Master Data</span>
           <i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="master-data" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/ref_package">
               <i class="bi bi-circle "></i><span>Package</span>
@@ -35,6 +35,31 @@
         </ul>
       </li><!-- End Tables Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#page" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i>
+          <span>Page</span>
+          <i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="page" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/admin">
+              <i class="bi bi-circle "></i><span>Main</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Product 1</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Product 2</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
 
       <li class="nav-heading">Pages</li>
 
@@ -45,6 +70,14 @@
           <span>Article</span>
         </a>
       </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="banner"){echo "collapsed";} ?>" href="/banner">
+            <i class="bi bi-card-heading"></i>
+          <span>Banner</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
 
       <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="career"){echo "collapsed";} ?>" href="/career">

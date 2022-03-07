@@ -7,117 +7,31 @@
 
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-content-center align-items-center">
+  <?php
+  foreach ($data['banner'] as $datas) { ?>
+  <section id="hero" class="d-flex justify-content-center align-items-center" style=" width: 100%;
+  height: 80vh; background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
+  background-size: cover;
+  position: relative;">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 d-flex flex-column justify-content-center">
                 <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
-                    <h1>Belajar Bareng <span style="font-weight: bold">esschool.id</span></h1>
-                    <h2>Partner belajar serumu yang menyesuaikan gaya belajar dan karaktermu.</h2>
+                    <h1><?= $datas['Name'] ?></h1>
+                    <h2><?= $datas['Description'] ?></h2>
                   <a href="" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
-             <img src="assets/img/output-onlinepngtools.png" class="img-fluid" alt="">
+             <img src="{{url('resource/banner/'.$datas['Image'])}}" class="img-fluid" alt="">
             </div>
         </div>
     </div>
 
   </section><!-- End Hero -->
+  <?php } ?>
 
-    <!-- ======= Modal Registration ======= -->
-    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            {{-- <h5 class="modal-title" id="exampleModalLabel">Create Event</h5> --}}
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="col-lg-12">
-
-                    <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Registrasi Esschool</h5>
-
-                        <!-- General Form Elements -->
-                        <form name="add-registration" id="add-registration" method="post" action="{{url('api/registration')}}">
-                        <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                            <input type="email" class="form-control" name="Email">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Handphone</label>
-                            <div class="col-sm-10">
-                            <input type="number" min="0" class="form-control" name="Handphone">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Asal Sekolah</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="School_Origin">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Class</label>
-                            <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example" name="Class">
-                                <option selected>-Pilih-</option>
-                                <?php foreach ($data['class'] as $class) {?> <option value="{{ $class['id'] }}">{{ $class['Name'] }}</option> <?php } ?>
-                                {{-- <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option> --}}
-                            </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Major</label>
-                            <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example" name="Major">
-                                <option selected>-Pilih-</option>
-                                <?php foreach ($data['major'] as $major) {?> <option value="{{ $major['id'] }}">{{ $major['Name'] }}</option> <?php } ?>
-                                {{-- <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option> --}}
-                            </select>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Package</label>
-                            <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example" name="Package">
-                                <option selected>-Pilih-</option>
-                                <?php foreach ($data['package'] as $package) {?> <option value="{{ $package['id'] }}">{{ $package['Name'] }}</option> <?php } ?>
-                                {{-- <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option> --}}
-                            </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form><!-- End General Form Elements -->
-                        </div>
-
-
-                    </div>
-                    </div>
-
-                </div>
-            </div>
-
-        {{-- </form> --}}
-        </div>
-    </div>
+   @include('components.lan_modal')
 </div>
 <!-- ======= End Modal Registration ======= -->
   <main id="main">
@@ -406,7 +320,7 @@
                         </div>
                         <a href="#" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
                         {{-- <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p> --}}
-                        <div class="trainer d-flex justify-content-between align-items-center">
+                        {{-- <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">
                             <img src="assets/img/trainers/GracePrimayanti.jpeg" class="img-fluid" alt="">
                             <span>Grace</span>
@@ -414,9 +328,9 @@
                             <div class="trainer-rank d-flex align-items-center">
                             <i class="bx bx-user"></i>&nbsp;50
                             &nbsp;&nbsp;
-                            {{-- <i class="bx bx-heart"></i>&nbsp;65 --}}
+                            <i class="bx bx-heart"></i>&nbsp;65
                             </div>
-                        </div>
+                        </div> --}}
                         </div>
                     </div>
                 </div> <!-- End Course Item-->
