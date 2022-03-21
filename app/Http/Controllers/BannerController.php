@@ -8,6 +8,7 @@ use App\Models\Banner;
 use App\Models\File;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,7 +20,18 @@ class BannerController extends Controller
      */
     public function index(Request $request)
     {
-        $banners = Banner::orderBy('updated_at', 'DESC')->get();
+        // dd($request->path());
+        if ($request->path() == "essclusive/banner" || $request->path() == "essclusive") {
+            $banners = Banner::where('filter_page',2)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esspecial/banner" || $request->path() == "esspecial"){
+            $banners = Banner::where('filter_page',3)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esstream/banner" || $request->path() == "esstream"){
+            $banners = Banner::where('filter_page',4)->orderBy('updated_at', 'DESC')->get();
+        }else{
+            $banners = Banner::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
+        }
+
+        // dd($banners);
         return new BannerCollection($banners);
     }
 
@@ -44,6 +56,18 @@ class BannerController extends Controller
         try {
             $banners = $request->all();
             // dd($banners);
+            //beda banner tiap page
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+            if ($referer == "/essclusive/banner") {
+                $filter_page = 2;
+            }else if($referer == "/esspecial/banner"){
+                $filter_page = 3;
+            }else if($referer == "/esstream/banner"){
+                $filter_page = 4;
+            }else{
+                $filter_page = 1;
+            }
+
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
@@ -54,17 +78,27 @@ class BannerController extends Controller
                 $fileb->move('resource/banner', $nameb);
             }
 
+
              //store your file into directory and db
              $save = new Banner([
                 'Name' => $request->get('Name'),
                 'Description' => $request->get('Description'),
                 'Image' => $name,
                 'Background' => $nameb,
+                'Filter_page' => $filter_page,
             ]);
-            $save->save();
             // dd($save);
+            $save->save();
 
-            return redirect('banner');
+            if ($referer == "/essclusive/banner") {
+                return redirect('essclusive/banner');
+            }else if($referer == "/esspecial/banner"){
+                return redirect('esspecial/banner');
+            }else if($referer == "/esstream/banner"){
+                return redirect('esstream/banner');
+            }else{
+                return redirect('banner');
+            }
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -102,7 +136,14 @@ class BannerController extends Controller
 
         try {
             $banner = $request->all();
-            // dd($banner);
+            $origin = $request->server()["HTTP_ORIGIN"];
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+            $origin_referer = $origin . $referer;
+            // dd($referer);
+            // dd($request->server()["HTTP_ORIGIN"]);
+            // dd($request->server()['HTTP_REFERER']);
+            //beda banner tiap page
+            // dd($request->url());
 
             if ($fileb = $request->file('Background')) {
                 $nameb = time() . '-' . $fileb->getClientOriginalName();
@@ -134,7 +175,16 @@ class BannerController extends Controller
                 ]);
             }
             // $save->save();
-            return redirect('banner');
+            if ($referer == "/essclusive/banner") {
+                return redirect('essclusive/banner');
+            }else if($referer == "/esspecial/banner"){
+                return redirect('esspecial/banner');
+            }else if($referer == "/esstream/banner"){
+                return redirect('esstream/banner');
+            }else{
+                return redirect('banner');
+            }
+
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -150,7 +200,19 @@ class BannerController extends Controller
     public function destroy(Request $request, Banner $banner)
     {
         $banner->delete();
-        return redirect('banner');
+
+        $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+
+        if ($referer == "/essclusive/banner") {
+            return redirect('essclusive/banner');
+        }else if($referer == "/esspecial/banner"){
+            return redirect('esspecial/banner');
+        }else if($referer == "/esstream/banner"){
+            return redirect('esstream/banner');
+        }else{
+            return redirect('banner');
+        }
+
         // return response()->noContent();
     }
 }

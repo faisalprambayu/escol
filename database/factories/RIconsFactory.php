@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\RIcon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Service;
 
-class ServiceFactory extends Factory
+class RIconFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Service::class;
+    protected $model = RIcon::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,9 @@ class ServiceFactory extends Factory
     public function definition()
     {
         return [
-            'Title' => $this->faker->word,
-            'Image' => $this->faker->word,
+            'Name' => $this->faker->word,
             'Icon' => $this->faker->word,
-            'filter_page' => $this->faker->word,
+            'Color' => $this->faker->word,
         ];
     }
 }

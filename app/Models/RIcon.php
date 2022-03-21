@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class RIcon extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,9 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'Title',
-        'Image',
+        'Name',
         'Icon',
-        'Filter_page',
+        'Color',
     ];
 
     /**

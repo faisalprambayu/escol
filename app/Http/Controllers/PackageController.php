@@ -20,7 +20,16 @@ class PackageController extends Controller
      */
     public function index(Request $request)
     {
-        $packages = Package::orderBy('updated_at', 'DESC')->get();
+        if ($request->path() == "essclusive/package" || $request->path() == "essclusive") {
+            $packages = Package::where('filter_page',2)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esspecial/package" || $request->path() == "esspecial"){
+            $packages = Package::where('filter_page',3)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esstream/package" || $request->path() == "esstream"){
+            $packages = Package::where('filter_page',4)->orderBy('updated_at', 'DESC')->get();
+        }else{
+            $packages = Package::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
+        }
+
         $data = new PackageCollection($packages);
         return $data;
     }
@@ -47,6 +56,16 @@ class PackageController extends Controller
         try {
             $package = $request->all();
             // dd($package);
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+            if ($referer == "/essclusive/package") {
+                $filter_page = 2;
+            }else if($referer == "/esspecial/package"){
+                $filter_page = 3;
+            }else if($referer == "/esstream/package"){
+                $filter_page = 4;
+            }else{
+                $filter_page = 1;
+            }
 
             if ($file = $request->file('Image')) {
                 $name =  time() . '-' . $file->getClientOriginalName();
@@ -61,13 +80,23 @@ class PackageController extends Controller
                     'Discount' => $request->get('Discount'),
                     'Deskripsi' => $request->get('Deskripsi'),
                     'Link' => $request->get('Link'),
-                    'Image' => $name
+                    'Image' => $name,
+                    'Filter_page' => $filter_page
                 ]);
                 // dd($save);
                 $save->save();
             }
 
-            return redirect('package');
+            if ($referer == "/essclusive/package") {
+                return redirect('essclusive/package');
+            }else if($referer == "/esspecial/package"){
+                return redirect('esspecial/package');
+            }else if($referer == "/esstream/package"){
+                return redirect('esstream/package');
+            }else{
+                return redirect('package');
+            }
+
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -116,6 +145,7 @@ class PackageController extends Controller
         try {
             $package = $request->all();
             // dd($package);
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
 
             if ($file = $request->file('Image')) {
                 $name =  time() . '-' . $file->getClientOriginalName();
@@ -142,7 +172,15 @@ class PackageController extends Controller
                 ]);
             }
             // $save->save();
-            return redirect('package');
+            if ($referer == "/essclusive/package") {
+                return redirect('essclusive/package');
+            }else if($referer == "/esspecial/package"){
+                return redirect('esspecial/package');
+            }else if($referer == "/esstream/package"){
+                return redirect('esstream/package');
+            }else{
+                return redirect('package');
+            }
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -158,7 +196,18 @@ class PackageController extends Controller
     public function destroy(Request $request, Package $package)
     {
         $package->delete();
-        return redirect('package');
+
+        $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+
+        if ($referer == "/essclusive/package") {
+            return redirect('essclusive/package');
+        }else if($referer == "/esspecial/package"){
+            return redirect('esspecial/package');
+        }else if($referer == "/esstream/package"){
+            return redirect('esstream/package');
+        }else{
+            return redirect('package');
+        }
         // return response()->noContent();
     }
 }

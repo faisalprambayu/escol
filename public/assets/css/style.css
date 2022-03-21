@@ -644,7 +644,7 @@ section {
   font-size: 32px;
   padding: 18px;
   color: var(--es-danger);
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   background: #ecf9f0;
   border-radius: 50px;
 }
@@ -880,12 +880,12 @@ section {
   color: #37423b;
   transition: 0.3s;
 }
-.features .icon-box:hover {
+/* .features .icon-box:hover {
   border-color: var(--es-danger);
 }
 .features .icon-box:hover h3 a {
   color: var(--es-danger);
-}
+} */
 
 /*--------------------------------------------------------------
 # Courses

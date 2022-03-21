@@ -102,50 +102,61 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Kenapa memilih esschool.id?</h3>
+              <h3> {{$data['why'][0]['Name']}} </h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                {{$data['why'][0]['Description']}}
               </p>
               <div class="text-center">
                 <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>
+
           <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
+                    <?php foreach ($data['icon'] as $icons) { if($data['why'][1]['Icon'] == $icons['id']) {?>
+                        <div style="margin-bottom: 30px;">
+                            <?= $icons['Icon'] ?>
+                        </div>
+                    <?php }} ?>
                     <h4>
-                        Gaya Belajar Sesuai Karaktermu
+                        {{$data['why'][1]['Name']}}
                     </h4>
                     <p>
-                        Esscarrior, kamu bisa mendapatkan layanan dengan gaya belajar yang sesuai dengan kepribadianmu. Karena pengajar kami akan berinteraksi dengan kamu secara individual. Kamu juga bisa mengetahui karaktermu melalui tes dan konsultasi kepribadian.
+                        {{$data['why'][1]['Description']}}
                     </p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
+                    <?php foreach ($data['icon'] as $icons) { if($data['why'][2]['Icon'] == $icons['id']) {?>
+                        <div style="margin-bottom: 30px;">
+                            <?= $icons['Icon'] ?>
+                        </div>
+                    <?php }} ?>
                     <h4>
-                        Merdeka Belajar Sesuai Keinginanmu
+                        {{$data['why'][2]['Name']}}
                     </h4>
                     <p>
-                        Esscarrior, kamu bisa bebas memilih kapan dan di mana kamu mau belajar. Selain itu kamu juga bebas menentukan apa yang ingin kamu pelajari. Memahami konsep, mengaplikasikan materi, serta menguji pemahaman kamu dengan ribuan soal dan
-                        pembahasan.
+                        {{$data['why'][2]['Description']}}
                     </p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
+                    <?php foreach ($data['icon'] as $icons) { if($data['why'][3]['Icon'] == $icons['id']) {?>
+                        <div style="margin-bottom: 30px;">
+                            <?= $icons['Icon'] ?>
+                        </div>
+                    <?php }} ?>
                     <h4>
-                        Pendamping Belajar Sesuai Kebutuhanmu
+                        {{$data['why'][3]['Name']}}
                     </h4>
                     <p>
-                        Esscarrior, kamu akan belajar bersama pengajar profesional lulusan dari perguruan tinggi ternama dan memiliki pengalaman mengajar sesuai bidangnya. Kamu juga bisa memberitahu kepada kami, pengajar seperti apa yang kamu inginkan.
+                        {{$data['why'][3]['Description']}}
                     </p>
                   </div>
                 </div>
@@ -451,40 +462,41 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <div class="es-faq" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>FAQ</h2>
-                <p>Paling sering ditanya</p>
-              </div>
-            {{-- <h1 class="es-text-danger pb-5">Paling sering ditanya</h1> --}}
+    {{-- <section id="faq" class="faq">
+        <div class="es-faq" id="faqs">
+            <div class="container">
+                <div class="section-title">
+                    <h2>FAQ</h2>
+                    <p>Paling sering ditanya</p>
+                  </div>
 
-            <div class="d-flex flex-column" style="height:490px;width:100%;border:0px solid #ccc;overflow:auto;">
-                <?php
-                foreach ($data['faq'] as  $datas) { ?>
+                <div class="d-flex flex-column" style="height:490px;width:100%;border:0px solid #ccc;overflow:auto;">
+                    <?php
+                    foreach ($data['faq'] as  $datas) { ?>
 
-                <a data-bs-toggle="collapse" href="#faq<?= $datas['id'] ?>" role="button" aria-expanded="false" aria-controls="faq<?= $datas['id'] ?>" class="es-collapse collapsed">
-                    <div class="card border-0 es-card">
-                        <div class="card-body">
-                            <div class="container" style="margin-top: 10px; ">
-                                <p>
-                                    <?= $datas['Question'] ?>
-                                </p>
-
-                                <div class="collapse" id="faq<?= $datas['id'] ?>">
+                    <a data-bs-toggle="collapse" href="#faqs<?= $datas['id'] ?>" role="button" aria-expanded="false" aria-controls="faqs<?= $datas['id'] ?>" class="es-collapse collapsed">
+                        <div class="card border-0 es-card">
+                            <div class="card-body">
+                                <div class="container" style="margin-top: 10px; ">
                                     <p>
-                                        <?= $datas['Answer'] ?>
+                                        <?= $datas['Question'] ?>
                                     </p>
+
+                                    <div class="collapse" id="faqs<?= $datas['id'] ?>">
+                                        <p>
+                                            <?= $datas['Answer'] ?>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </div>
-    </div>
+    </section> --}}
 
   </main><!-- End #main -->
 

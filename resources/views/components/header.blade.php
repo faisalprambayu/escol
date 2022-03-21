@@ -13,10 +13,9 @@
         <ul>
             <li class="dropdown"><a href="#"><span>Paket Belajar</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                    <li><a href="#">Drop Down 1</a></li>
-                    <li><a href="#">Drop Down 2</a></li>
-                    <li><a href="#">Drop Down 3</a></li>
-                    <li><a href="#">Drop Down 4</a></li>
+                    <a href="/essclusive"><img src="<?= url('img/logo_produk/essclusive.jpeg'); ?>" width="70" style="margin-right: 10px;">Essclusive</a>
+                    <a href="/esspecial"><img src="<?= url('img/logo_produk/esspecial.jpeg'); ?>" width="70" style="margin-right: 10px;">Esspecial</a>
+                    <a href="/esstream"><img src="<?= url('img/logo_produk/esstream.jpeg'); ?>" width="70" style="margin-right: 10px;">Esstream</a>
                 </ul>
             </li>
             <li><a href="/program">Program</a></li>

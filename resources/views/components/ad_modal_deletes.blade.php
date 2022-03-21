@@ -28,6 +28,7 @@
             elseif ((Request::segment(1))=="ref_package"){echo "<script>let target='r_package'</script>";}
             elseif ((Request::segment(1))=="event"){echo "<script>let target='event'</script>";}
             elseif ((Request::segment(1))=="package"){echo "<script>let target='package'</script>";}
+            elseif ((Request::segment(2))=="package"){echo "<script>let target='package'</script>";}
             elseif ((Request::segment(1))=="service"){echo "<script>let target='service'</script>";}
             elseif ((Request::segment(1))=="team"){echo "<script>let target='team'</script>";}
             elseif ((Request::segment(1))=="video"){echo "<script>let target='video'</script>";}

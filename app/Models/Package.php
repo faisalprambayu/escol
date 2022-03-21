@@ -21,6 +21,7 @@ class Package extends Model
         'Deskripsi',
         'Link',
         'Image',
+        'Filter_page',
     ];
 
     /**

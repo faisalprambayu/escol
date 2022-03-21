@@ -20,7 +20,15 @@ class ServiceController extends Controller
      */
     public function index(Request $request)
     {
-        $services = Service::orderBy('updated_at', 'DESC')->get();
+        if ($request->path() == "essclusive/service" || $request->path() == "essclusive") {
+            $services = Service::where('filter_page',2)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esspecial/service" || $request->path() == "esspecial"){
+            $services = Service::where('filter_page',3)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "esstream/service" || $request->path() == "esstream"){
+            $services = Service::where('filter_page',4)->orderBy('updated_at', 'DESC')->get();
+        }else{
+            $services = Service::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
+        }
 
         return new ServiceCollection($services);
     }
@@ -33,7 +41,8 @@ class ServiceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'Title' => ['required'],
-            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'Icon' => ['required'],
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -44,19 +53,46 @@ class ServiceController extends Controller
             $service = $request->all();
             // dd($service);
 
-            if ($file = $request->file('Image')) {
-                $name =  time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/service', $name);
-                // $path = $file->store('public/files');
+            // if ($file = $request->file('Image')) {
+            //     $name =  time() . '-' . $file->getClientOriginalName();
+            //     $file->move('resource/service', $name);
+            //     // $path = $file->store('public/files');
 
-                //store your file into directory and db
-                $save = new Service([
-                    'Title' => $request->get('Title'),
-                    'Image' => $name
-                ]);
-                $save->save();
+            //     //store your file into directory and db
+            //     $save = new Service([
+            //         'Title' => $request->get('Title'),
+            //         'Image' => $name
+            //     ]);
+            //     $save->save();
+            // }
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+            if ($referer == "/essclusive/service") {
+                $filter_page = 2;
+            }else if($referer == "/esspecial/service"){
+                $filter_page = 3;
+            }else if($referer == "/esstream/service"){
+                $filter_page = 4;
+            }else{
+                $filter_page = 1;
             }
-            return redirect('service');
+
+            $save = new Service([
+                'Title' => $request->get('Title'),
+                'Icon' => $request->get('Icon'),
+                'Filter_page' => $filter_page,
+            ]);
+            $save->save();
+
+            if ($referer == "/essclusive/service") {
+                return redirect('essclusive/service');
+            }else if($referer == "/esspecial/service"){
+                return redirect('esspecial/service');
+            }else if($referer == "/esstream/service"){
+                return redirect('esstream/service');
+            }else{
+                return redirect('service');
+            }
+
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -89,6 +125,7 @@ class ServiceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'Title' => ['required'],
+            'Icon' => ['required'],
             // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -98,27 +135,41 @@ class ServiceController extends Controller
 
         try {
             $package = $request->all();
+            $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
             // dd($package);
 
-            if ($file = $request->file('Image')) {
-                // dd($package);
-                $name =  time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/service', $name);
-                // $path = $file->store('public/files');
-                // $name = $file->getClientOriginalName();
+            // if ($file = $request->file('Image')) {
+            //     // dd($package);
+            //     $name =  time() . '-' . $file->getClientOriginalName();
+            //     $file->move('resource/service', $name);
+            //     // $path = $file->store('public/files');
+            //     // $name = $file->getClientOriginalName();
 
-                //store your file into directory and db
-                Service::where('id', $request->get('id'))->update([
-                    'Title' => $request->get('Title'),
-                    'Image' => $name,
-                ]);
-            } else {
-                // dd($package);
-                Service::where('id', $request->get('id'))->update([
-                    'Title' => $request->get('Title'),
-                ]);
+            //     //store your file into directory and db
+            //     Service::where('id', $request->get('id'))->update([
+            //         'Title' => $request->get('Title'),
+            //         'Image' => $name,
+            //     ]);
+            // } else {
+            //     // dd($package);
+            //     Service::where('id', $request->get('id'))->update([
+            //         'Title' => $request->get('Title'),
+            //     ]);
+            // }
+            Service::where('id', $request->get('id'))->update([
+                'Title' => $request->get('Title'),
+                'Icon' => $request->get('Icon'),
+            ]);
+            if ($referer == "/essclusive/service") {
+                return redirect('essclusive/service');
+            }else if($referer == "/esspecial/service"){
+                return redirect('esspecial/service');
+            }else if($referer == "/esstream/service"){
+                return redirect('esstream/service');
+            }else{
+                return redirect('service');
             }
-            return redirect('service');
+
         } catch (QueryException $e) {
             // dd($e->errorInfo);
             return response()->json([
@@ -135,7 +186,18 @@ class ServiceController extends Controller
     public function destroy(Request $request, Service $service)
     {
         $service->delete();
-        return redirect('service');
+
+        $referer = str_replace($request->server()["HTTP_ORIGIN"],"",$request->server()["HTTP_REFERER"]);
+        if ($referer == "/essclusive/service") {
+            return redirect('essclusive/service');
+        }else if($referer == "/esspecial/service"){
+            return redirect('esspecial/service');
+        }else if($referer == "/esstream/service"){
+            return redirect('esstream/service');
+        }else{
+            return redirect('service');
+        }
+
         // return response()->noContent();
     }
 }

@@ -13,13 +13,11 @@ class CreateBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('whies', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
             $table->string('Description');
-            $table->string('Image');
-            $table->string('Background');
-            $table->integer('filter_page');
+            $table->string('Icon');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('r_icons');
     }
 }

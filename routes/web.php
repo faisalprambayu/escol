@@ -19,11 +19,17 @@ use App\Http\Controllers\FooterViewController;
 use App\Http\Controllers\FriendViewController;
 use App\Http\Controllers\LandingArticleViewController;
 use App\Http\Controllers\LandingCareerViewController;
+use App\Http\Controllers\LandingEssclusiveViewController;
+use App\Http\Controllers\LandingEsspecialViewController;
+use App\Http\Controllers\LandingEsstreamViewController;
+use App\Http\Controllers\LandingFaqViewController;
 use App\Http\Controllers\LandingFriendViewController;
 use App\Http\Controllers\LandingProgramViewController;
 use App\Http\Controllers\LandingViewController;
 use App\Http\Controllers\ProgramViewController;
+use App\Http\Controllers\RIconViewController;
 use App\Http\Controllers\TestimonialViewController;
+use App\Http\Controllers\WhyViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,6 +78,16 @@ Route::get('/fitur', function () {
 Route::get('/admin', function () {
     return view('ad_dashboard');
 });
+
+// Route::get('/essclusive/admin', function () {
+//     return view('ad_dashboard');
+// });
+// Route::get('/esspecial/admin', function () {
+//     return view('ad_dashboard');
+// });
+// Route::get('/esstream/admin', function () {
+//     return view('ad_dashboard');
+// });
 // Route::get('/faq', function () {
 //     return view('ad_faq');
 // });
@@ -106,6 +122,21 @@ Route::get('/career', [CareerViewController::class, 'index']);
 Route::get('/friend', [FriendViewController::class, 'index']);
 Route::get('/article', [ArticleViewController::class, 'index']);
 Route::get('/banner', [BannerViewController::class, 'index']);
+Route::get('/ref_icon', [RIconViewController::class, 'index']);
+Route::get('/why', [WhyViewController::class, 'index']);
+
+Route::get('/essclusive/banner', [BannerViewController::class, 'index']);
+Route::get('/esspecial/banner', [BannerViewController::class, 'index']);
+Route::get('/esstream/banner', [BannerViewController::class, 'index']);
+Route::get('/essclusive/why', [WhyViewController::class, 'index']);
+Route::get('/esspecial/why', [WhyViewController::class, 'index']);
+Route::get('/esstream/why', [WhyViewController::class, 'index']);
+Route::get('/essclusive/package', [PackageViewController::class, 'index']);
+Route::get('/esspecial/package', [PackageViewController::class, 'index']);
+Route::get('/esstream/package', [PackageViewController::class, 'index']);
+Route::get('/essclusive/service', [ServiceViewController::class, 'index']);
+Route::get('/esspecial/service', [ServiceViewController::class, 'index']);
+Route::get('/esstream/service', [ServiceViewController::class, 'index']);
 
 Route::get('/', [LandingViewController::class, 'index']);
 Route::get('/program', [LandingProgramViewController::class, 'index']);
@@ -115,6 +146,10 @@ Route::get('/karir', [LandingCareerViewController::class, 'index']);
 Route::get('/karir/{id}', [LandingCareerViewController::class, 'detail']);
 Route::get('/sahabat', [LandingFriendViewController::class, 'index']);
 Route::get('/sahabat/{id}', [LandingFriendViewController::class, 'detail']);
+Route::get('/essclusive', [LandingEssclusiveViewController::class, 'index']);
+Route::get('/esspecial', [LandingEsspecialViewController::class, 'index']);
+Route::get('/esstream', [LandingEsstreamViewController::class, 'index']);
+Route::get('/faqs', [LandingFaqViewController::class, 'index']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');

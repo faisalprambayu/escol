@@ -22,6 +22,7 @@ class CreatePackagesTable extends Migration
             $table->string('Deskripsi');
             $table->string('Link');
             $table->string('Image');
+            $table->integer('filter_page');
             $table->timestamps();
         });
     }

@@ -11,12 +11,14 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RClassController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\RIconController;
 use App\Http\Controllers\RMajorController;
 use App\Http\Controllers\RPackageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\WhyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -70,3 +72,7 @@ Route::apiResource('friend', FriendController::class);
 Route::apiResource('article', ArticleController::class);
 
 Route::apiResource('banner', BannerController::class);
+
+Route::apiResource('r_icon', RIconController::class);
+
+Route::apiResource('why', WhyController::class);

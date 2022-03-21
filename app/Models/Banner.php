@@ -19,6 +19,7 @@ class Banner extends Model
         'Description',
         'Image',
         'Background',
+        'Filter_page',
     ];
 
     /**
