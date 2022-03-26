@@ -17,6 +17,7 @@ use App\Http\Controllers\RPackageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\TextController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\WhyController;
 use Illuminate\Http\Request;
@@ -76,3 +77,6 @@ Route::apiResource('banner', BannerController::class);
 Route::apiResource('r_icon', RIconController::class);
 
 Route::apiResource('why', WhyController::class);
+
+Route::apiResource('text', TextController::class);
+

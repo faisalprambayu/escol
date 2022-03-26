@@ -18,7 +18,7 @@
             <div class="card-body" >
               <h5 class="card-title">Table with hoverable rows</h5>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button>
+                {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button> --}}
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover" id="tableData">
                     <thead>

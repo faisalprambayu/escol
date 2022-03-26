@@ -33,10 +33,10 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Beasiswa Esscholarship</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/karir">We Are Hiring</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Syarat dan Ketentuan</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/syarat">Syarat dan Ketentuan</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/sahabat">Sobat Esschool.id</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/artikel">Artikel</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Kebijakan Privasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/privasi">Kebijakan Privasi</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/faqs">Faq</a></li>
             </ul>
           </div>

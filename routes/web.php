@@ -29,6 +29,7 @@ use App\Http\Controllers\LandingViewController;
 use App\Http\Controllers\ProgramViewController;
 use App\Http\Controllers\RIconViewController;
 use App\Http\Controllers\TestimonialViewController;
+use App\Http\Controllers\TextViewController;
 use App\Http\Controllers\WhyViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -124,6 +125,8 @@ Route::get('/article', [ArticleViewController::class, 'index']);
 Route::get('/banner', [BannerViewController::class, 'index']);
 Route::get('/ref_icon', [RIconViewController::class, 'index']);
 Route::get('/why', [WhyViewController::class, 'index']);
+Route::get('/text', [TextViewController::class, 'index']);
+Route::get('/privacy', [TextViewController::class, 'index']);
 
 Route::get('/essclusive/banner', [BannerViewController::class, 'index']);
 Route::get('/esspecial/banner', [BannerViewController::class, 'index']);
@@ -150,6 +153,8 @@ Route::get('/essclusive', [LandingEssclusiveViewController::class, 'index']);
 Route::get('/esspecial', [LandingEsspecialViewController::class, 'index']);
 Route::get('/esstream', [LandingEsstreamViewController::class, 'index']);
 Route::get('/faqs', [LandingFaqViewController::class, 'index']);
+Route::get('/syarat', [TextViewController::class, 'landing']);
+Route::get('/privasi', [TextViewController::class, 'privasi']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');

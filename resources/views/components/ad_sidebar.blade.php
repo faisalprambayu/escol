@@ -166,6 +166,13 @@
 
       <?php if ((Request::segment(1))!="essclusive" && (Request::segment(1))!="esspecial" && (Request::segment(1))!="esstream"){ ?>
 
+        <li class="nav-item">
+            <a class="nav-link <?php if ((Request::segment(1))!="privacy"){echo "collapsed";} ?>" href="/privacy">
+                <i class="bi bi-chat"></i>
+                <span>Privacy Policy</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
       <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="programs"){echo "collapsed";} ?>" href="/programs">
             <i class="bi bi-person-lines-fill"></i>
@@ -207,6 +214,13 @@
         <a class="nav-link <?php if ((Request::segment(1))!="team"){echo "collapsed";} ?>" href="/team">
           <i class="bi bi-people-fill"></i>
           <span>Team</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="text"){echo "collapsed";} ?>" href="/text">
+          <i class="bi bi-chat"></i>
+          <span>Terms and Conditions</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
