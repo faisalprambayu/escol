@@ -168,7 +168,7 @@
 
         <li class="nav-item">
             <a class="nav-link <?php if ((Request::segment(1))!="privacy"){echo "collapsed";} ?>" href="/privacy">
-                <i class="bi bi-chat"></i>
+                <i class="bi bi-lock"></i>
                 <span>Privacy Policy</span>
             </a>
         </li><!-- End Profile Page Nav -->
@@ -210,6 +210,14 @@
 
       <?php if ((Request::segment(1))!="essclusive" && (Request::segment(1))!="esspecial" && (Request::segment(1))!="esstream"){ ?>
 
+        <li class="nav-item">
+            <a class="nav-link <?php if ((Request::segment(1))!="scholarship"){echo "collapsed";} ?>" href="/scholarship">
+                <i class="bi bi-mortarboard"></i>
+              <span>Scholarship</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+
       <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="team"){echo "collapsed";} ?>" href="/team">
           <i class="bi bi-people-fill"></i>
@@ -219,8 +227,8 @@
 
       <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="text"){echo "collapsed";} ?>" href="/text">
-          <i class="bi bi-chat"></i>
-          <span>Terms and Conditions</span>
+            <i class="bi bi-envelope-exclamation"></i>
+            <span>Terms and Conditions</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -228,6 +236,13 @@
         <a class="nav-link <?php if ((Request::segment(1))!="testimonial"){echo "collapsed";} ?>" href="/testimonial">
           <i class="bi bi-chat"></i>
           <span>Testimonial</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="user"){echo "collapsed";} ?>" href="/user">
+            <i class="bi bi-person-circle"></i>
+            <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
 

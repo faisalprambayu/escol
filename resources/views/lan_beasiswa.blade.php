@@ -9,7 +9,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-          <h2>Sahabat Esschool.id</h2>
+          <h2>Beasiswa Esschool.id</h2>
       </div>
     </div>
     <!-- End Breadcrumbs -->
@@ -26,19 +26,19 @@
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
             <?php
-            foreach ($data['friend'] as  $datas) { ?>
+            foreach ($data['scholarship'] as  $datas) { ?>
 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
               <div class="article-item">
                   <div class="post-img">
-                      <img src="{{url('resource/friend/'.$datas['Image'])}}" class="img-fluid" alt="...">
+                      <img src="{{url('resource/scholarship/'.$datas['Image'])}}" class="img-fluid" alt="...">
                   </div>
                 <div class="article-content">
                   <div class="d-flex justify-content-between align-items-center mb-3">
                     <p class="date"><?= date('l, j F Y', strtotime( $datas['Date'])) ?></p>
                   </div>
 
-                  <h3><a href="/sahabat/{{$datas['id']}}" class="stretched-link mt-auto"><?= $datas['Name'] ?></a></h3>
+                  <h3><a href="/beasiswa/{{$datas['id']}}" class="stretched-link mt-auto"><?= $datas['Name'] ?></a></h3>
                   <p><?= $datas['Description'] ?></p>
 
                 </div>

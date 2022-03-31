@@ -29,6 +29,7 @@ class ServiceController extends Controller
         }else{
             $services = Service::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
         }
+        // dd($services);
 
         return new ServiceCollection($services);
     }
@@ -80,6 +81,7 @@ class ServiceController extends Controller
                 'Title' => $request->get('Title'),
                 'Icon' => $request->get('Icon'),
                 'Filter_page' => $filter_page,
+                'Description' => $request->get('Description'),
             ]);
             $save->save();
 
@@ -159,6 +161,7 @@ class ServiceController extends Controller
             Service::where('id', $request->get('id'))->update([
                 'Title' => $request->get('Title'),
                 'Icon' => $request->get('Icon'),
+                'Description' => $request->get('Description'),
             ]);
             if ($referer == "/essclusive/service") {
                 return redirect('essclusive/service');

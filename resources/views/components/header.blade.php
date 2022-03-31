@@ -13,9 +13,71 @@
         <ul>
             <li class="dropdown"><a href="#"><span>Paket Belajar</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                    <a href="/essclusive"><img src="<?= url('img/logo_produk/essclusive.jpeg'); ?>" width="70" style="margin-right: 10px;">Essclusive</a>
-                    <a href="/esspecial"><img src="<?= url('img/logo_produk/esspecial.jpeg'); ?>" width="70" style="margin-right: 10px;">Esspecial</a>
-                    <a href="/esstream"><img src="<?= url('img/logo_produk/esstream.jpeg'); ?>" width="70" style="margin-right: 10px;">Esstream</a>
+                    <div class="row">
+                        <a href="/essclusive">
+                            <div class="col-3">
+                                <img src="<?= url('img/logo_produk/essclusive.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
+                                max-width: 70px;
+                                height: auto;">
+                            </div>
+                            <div class="col">
+                                <div style="margin-left: -10px;">Essclusive</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            {{-- <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p> --}}
+                        </div>
+                        <div class="col" style="margin-top: -10px;">
+                            <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="/esspecial">
+                            <div class="col-3">
+                                <img src="<?= url('img/logo_produk/esspecial.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
+                                max-width: 70px;
+                                height: auto;">
+                            </div>
+                            <div class="col">
+                                <div style="margin-left: -10px;">
+                                    Esspecial
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            {{-- <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p> --}}
+                        </div>
+                        <div class="col" style="margin-top: -7%;">
+                            <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <a href="/esstream">
+                            <div class="col-3">
+                                <img src="<?= url('img/logo_produk/esstream.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
+                                max-width: 70px;
+                                height: auto;">
+                            </div>
+                            <div class="col">
+                                <div style="margin-left: -10px;">
+                                    Esstream
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            {{-- <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p> --}}
+                        </div>
+                        <div class="col" style="margin-top: -7%;">
+                            <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p>
+                        </div>
+                    </div>
                 </ul>
             </li>
             <li><a href="/program">Program</a></li>

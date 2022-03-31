@@ -250,6 +250,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
   border-radius: 4px;
+  width: 400px;
 }
 .navbar .dropdown ul li {
   min-width: 200px;
@@ -365,6 +366,8 @@ h1, h2, h3, h4, h5, h6 {
   visibility: visible;
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  width: 300px;
+
 }
 .navbar-mobile .dropdown ul li {
   min-width: 200px;
@@ -856,27 +859,33 @@ section {
 .features {
   padding-top: 60px;
 }
-.features .icon-box {
+.features .icon-box{
+    padding: 20px;
+    transition: 0.3s;
+    border: 1px solid #eef0ef;
+    border-radius: 10px;
+}
+.features .icon-box .dalam {
   display: flex;
   align-items: center;
-  padding: 20px;
+  /* padding: 20px;
   transition: 0.3s;
   border: 1px solid #eef0ef;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
-.features .icon-box i {
+.features .icon-box .dalam i {
   font-size: 32px;
   padding-right: 10px;
   line-height: 1;
 }
-.features .icon-box h3 {
+.features .icon-box .dalam h3 {
   font-weight: 700;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 16px;
 }
-.features .icon-box h3 a {
+.features .icon-box .dalam h3 a {
   color: #37423b;
   transition: 0.3s;
 }

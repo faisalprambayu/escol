@@ -200,7 +200,7 @@
                                 <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
                                 <?= $datas['Link'] ?>
                             </div>
-                            <a href="https://wa.me/6281382673264/?text=Halo esschool.id!" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
+                            <a href="https://wa.me/6281382673264/?text=Halo esschool.id! Saya ingin tahu tentang Event <?= $datas['Name'] ?> yang dilaksanakan pada <?= $datas['EventDate'] ?>" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
                         </div>
 
                     </div>
@@ -329,7 +329,7 @@
                         <div style="height:120px;width:100%;border:0px solid #ccc;overflow:auto;">
                             {{$datas["Deskripsi"]}}
                         </div>
-                        <a href="#" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
                         {{-- <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p> --}}
                         {{-- <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">

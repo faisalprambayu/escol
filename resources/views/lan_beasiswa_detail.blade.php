@@ -7,7 +7,7 @@
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs" data-aos="fade-in">
             <div class="container">
-                <h2>Detail Sahabat Esschool.id</h2>
+                <h2>Detail Beasiswa Esschool.id</h2>
             </div>
         </div>
         <!-- End Breadcrumbs -->
@@ -18,10 +18,10 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-                    <img style="border-radius: 10px;" src="{{url('resource/friend/'.$data['friend']['Image'])}}" class="img-fluid" alt="">
-                    <h3><?= $data['friend']['Name'] ?></h3>
+                    <img style="border-radius: 10px;" src="{{url('resource/scholarship/'.$data['scholarship']['Image'])}}" class="img-fluid" alt="">
+                    <h3><?= $data['scholarship']['Name'] ?></h3>
                     <p>
-                        <?= $data['friend']['Text'] ?>
+                        <?= $data['scholarship']['Text'] ?>
                     </p>
                     </div>
                     <div class="col-lg-4">
@@ -36,7 +36,7 @@
                             foreach ($data['list'] as  $datas) { ?>
 
                             <div class="post-item clearfix">
-                              <img src="{{url('resource/friend/'.$datas['Image'])}}" alt="">
+                              <img src="{{url('resource/scholarship/'.$datas['Image'])}}" alt="">
                               <h4><a href="/artikel/{{$datas['id']}}"><?= $datas['Name'] ?></a></h4>
                               <time datetime="2020-01-01"><?= date('l, j F Y', strtotime( $datas['Date'])) ?></time>
                             </div>

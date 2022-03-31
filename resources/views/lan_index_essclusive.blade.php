@@ -131,12 +131,19 @@
 
             <div class="col-lg-3 col-md-4">
                 <div class="icon-box">
-                    <?php foreach ($data['icon'] as $icons) { if($datas['Icon'] == $icons['id']) {?>
-                        <div style="color: <?= $icons['Color'] ?>;">
-                            <?= $icons['Icon'] ?>
-                        </div>
-                    <?php }} ?>
-                    <h3><?= $datas['Title'] ?></h3>
+                    <div class="dalam">
+                        <?php foreach ($data['icon'] as $icons) { if($datas['Icon'] == $icons['id']) {?>
+                            <div style="color: <?= $icons['Color'] ?>;">
+                                <?= $icons['Icon'] ?>
+                            </div>
+                        <?php }} ?>
+                        <h3><?= $datas['Title'] ?></h3>
+                    </div>
+                    <div class="luar">
+                        @if ($datas['Description'])
+                            <p style="padding-top: 30px;"><?= $datas['Description'] ?></p>
+                        @endif
+                    </div>
                 </div>
             </div>
 
@@ -184,7 +191,7 @@
                         <div style="height:120px;width:100%;border:0px solid #ccc;overflow:auto;">
                             {{$datas["Deskripsi"]}}
                         </div>
-                        <a href="#" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%; margin: 30px 0px 30px 0px;">Pilih Paket</a>
                         {{-- <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p> --}}
                         {{-- <div class="trainer d-flex justify-content-between align-items-center">
                             <div class="trainer-profile d-flex align-items-center">

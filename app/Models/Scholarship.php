@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Scholarship extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,11 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'Title',
-        'Image',
-        'Icon',
-        'Filter_page',
+        'Name',
+        'Date',
         'Description',
+        'Image',
+        'Text',
     ];
 
     /**

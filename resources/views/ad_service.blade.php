@@ -29,6 +29,7 @@
                         <th class="col-1">No</th>
                         <th class="col-2">Judul Layanan</th>
                         <th scope="col">Icon</th>
+                        <th scope="col">Deskripsi</th>
                         {{-- <th scope="col">Gambar</th> --}}
                     </tr>
                     </thead>
@@ -49,8 +50,9 @@
                         <td><?= $datas['Title'] ?></td>
                         <?php foreach ($data['icon'] as $icons) { if($datas['Icon'] == $icons['id']) {?>
                             <td style="display: none">{{$icons['id'];}}</td>
-                            <td style="color: <?= $icons['Color'] ?>;"><?= $icons['Icon'] ?></td>
+                            <td style="color: <?= $icons['Color'] ?>; font-size : 36px;"><?= $icons['Icon'] ?></td>
                         <?php }} ?>
+                        <td><?= $datas['Description'] ?></td>
                         {{-- <td><img class="d-block w-50" src="{{url('resource/service/'.$datas['Image'])}}"></td> --}}
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Title'] ?>"></td> --}}
                     </tr>
@@ -99,6 +101,12 @@
                                     <option selected>-Pilih-</option>
                                     <?php foreach ($data['icon'] as $icons) {?> <option value="{{ $icons['id'] }}">{{ $icons['Name'] }}</option> <?php } ?>
                                   </select>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
+                                <div class="col-sm-9">
+                                  <textarea type="text" class="form-control" name="Description"></textarea>
                                 </div>
                               </div>
                               {{-- <div class="row mb-3">
@@ -163,6 +171,12 @@
                                   </select>
                                 </div>
                               </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
+                                <div class="col-sm-9">
+                                  <textarea type="text" class="form-control" name="Description" id="Description"></textarea>
+                                </div>
+                              </div>
                               {{-- <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
                                 <div class="col-sm-9">
@@ -214,6 +228,8 @@
             document.querySelector('#editModal').querySelector('#Title').value = Title;
             let Icon = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
             document.querySelector('#editModal').querySelector('#Icon').value = Icon;
+            let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            document.querySelector('#editModal').querySelector('#Description').value = Description;
             // let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
             // document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 

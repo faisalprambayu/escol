@@ -31,7 +31,7 @@
             <h4>Lebih dekat dengan esschool.id</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Beasiswa Esscholarship</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/beasiswa">Beasiswa Esscholarship</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/karir">We Are Hiring</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/syarat">Syarat dan Ketentuan</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="/sahabat">Sobat Esschool.id</a></li>

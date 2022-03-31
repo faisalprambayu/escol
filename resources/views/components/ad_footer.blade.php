@@ -1,7 +1,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Esschool.id</span></strong>. All Rights Reserved
     </div>
 
   </footer><!-- End Footer -->
@@ -19,7 +19,7 @@
   <script src="<?= url('assets/vendor/aos/aos.js');?>"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="<?= url('assets/js/main.js');?>"></script>
   <script>
       let button = document.querySelector('#button-toggle');
       button.addEventListener('click',function () {

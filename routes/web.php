@@ -25,11 +25,15 @@ use App\Http\Controllers\LandingEsstreamViewController;
 use App\Http\Controllers\LandingFaqViewController;
 use App\Http\Controllers\LandingFriendViewController;
 use App\Http\Controllers\LandingProgramViewController;
+use App\Http\Controllers\LandingScholarshipViewController;
 use App\Http\Controllers\LandingViewController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProgramViewController;
 use App\Http\Controllers\RIconViewController;
+use App\Http\Controllers\ScholarshipViewController;
 use App\Http\Controllers\TestimonialViewController;
 use App\Http\Controllers\TextViewController;
+use App\Http\Controllers\UserViewController;
 use App\Http\Controllers\WhyViewController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,7 +82,7 @@ Route::get('/fitur', function () {
 
 Route::get('/admin', function () {
     return view('ad_dashboard');
-});
+})->middleware('auth');
 
 // Route::get('/essclusive/admin', function () {
 //     return view('ad_dashboard');
@@ -106,27 +110,32 @@ Route::get('/admin', function () {
 // });
 
 
-Route::get('/footer', [FooterViewController::class, 'index']);
-Route::get('/faq', [FaqViewController::class, 'index']);
-Route::get('/ref_package', [RPackageViewController::class, 'index']);
-Route::get('/ref_class', [RClassViewController::class, 'index']);
-Route::get('/ref_major', [RMajorViewController::class, 'index']);
-Route::get('/event', [EventViewController::class, 'index']);
-Route::get('/package', [PackageViewController::class, 'index']);
-Route::get('/service', [ServiceViewController::class, 'index']);
-Route::get('/team', [TeamViewController::class, 'index']);
-Route::get('/video', [VideoViewController::class, 'index']);
-Route::get('/registration', [RegistrationViewController::class, 'index']);
-Route::get('/testimonial', [TestimonialViewController::class, 'index']);
-Route::get('/programs', [ProgramViewController::class, 'index']);
-Route::get('/career', [CareerViewController::class, 'index']);
-Route::get('/friend', [FriendViewController::class, 'index']);
-Route::get('/article', [ArticleViewController::class, 'index']);
-Route::get('/banner', [BannerViewController::class, 'index']);
-Route::get('/ref_icon', [RIconViewController::class, 'index']);
-Route::get('/why', [WhyViewController::class, 'index']);
-Route::get('/text', [TextViewController::class, 'index']);
-Route::get('/privacy', [TextViewController::class, 'index']);
+Route::get('/footer', [FooterViewController::class, 'index'])->middleware('auth');
+Route::get('/faq', [FaqViewController::class, 'index'])->middleware('auth');
+Route::get('/ref_package', [RPackageViewController::class, 'index'])->middleware('auth');
+Route::get('/ref_class', [RClassViewController::class, 'index'])->middleware('auth');
+Route::get('/ref_major', [RMajorViewController::class, 'index'])->middleware('auth');
+Route::get('/event', [EventViewController::class, 'index'])->middleware('auth');
+Route::get('/package', [PackageViewController::class, 'index'])->middleware('auth');
+Route::get('/service', [ServiceViewController::class, 'index'])->middleware('auth');
+Route::get('/team', [TeamViewController::class, 'index'])->middleware('auth');
+Route::get('/video', [VideoViewController::class, 'index'])->middleware('auth');
+Route::get('/registration', [RegistrationViewController::class, 'index'])->middleware('auth');
+Route::get('/testimonial', [TestimonialViewController::class, 'index'])->middleware('auth');
+Route::get('/programs', [ProgramViewController::class, 'index'])->middleware('auth');
+Route::get('/career', [CareerViewController::class, 'index'])->middleware('auth');
+Route::get('/friend', [FriendViewController::class, 'index'])->middleware('auth');
+Route::get('/article', [ArticleViewController::class, 'index'])->middleware('auth');
+Route::get('/banner', [BannerViewController::class, 'index'])->middleware('auth');
+Route::get('/ref_icon', [RIconViewController::class, 'index'])->middleware('auth');
+Route::get('/why', [WhyViewController::class, 'index'])->middleware('auth');
+Route::get('/text', [TextViewController::class, 'index'])->middleware('auth');
+Route::get('/privacy', [TextViewController::class, 'index'])->middleware('auth');
+Route::get('/scholarship', [ScholarshipViewController::class, 'index'])->middleware('auth');
+Route::get('/user', [UserViewController::class, 'index'])->middleware('auth');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'aunticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/essclusive/banner', [BannerViewController::class, 'index']);
 Route::get('/esspecial/banner', [BannerViewController::class, 'index']);
@@ -155,6 +164,8 @@ Route::get('/esstream', [LandingEsstreamViewController::class, 'index']);
 Route::get('/faqs', [LandingFaqViewController::class, 'index']);
 Route::get('/syarat', [TextViewController::class, 'landing']);
 Route::get('/privasi', [TextViewController::class, 'privasi']);
+Route::get('/beasiswa', [LandingScholarshipViewController::class, 'index']);
+Route::get('/beasiswa/{id}', [LandingScholarshipViewController::class, 'detail']);
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');

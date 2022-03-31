@@ -40,6 +40,7 @@
             elseif ((Request::segment(1))=="career"){echo "<script>let target='career'</script>";}
             elseif ((Request::segment(1))=="friend"){echo "<script>let target='friend'</script>";}
             elseif ((Request::segment(1))=="article"){echo "<script>let target='article'</script>";}
+            elseif ((Request::segment(1))=="user"){echo "<script>let target='user'</script>";}
   ?>
   <script>
       if (tableData) {
