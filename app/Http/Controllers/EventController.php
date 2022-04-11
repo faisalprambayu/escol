@@ -21,6 +21,7 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
+        // dd(auth());
         $events = Event::orderBy('updated_at', 'DESC')->get();
 
         return new EventCollection($events);
@@ -33,6 +34,9 @@ class EventController extends Controller
     public function store(Request $request)
     {
         // dd(time());
+        // if ($request->get('_token') == null) {
+        //     abort(403);
+        // }
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
@@ -97,6 +101,10 @@ class EventController extends Controller
      */
     public function update(Request $request)
     {
+        // dd($request->session());
+        // if ($request->get('_token') == null) {
+        //     abort(403);
+        // }
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
             // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
@@ -118,10 +126,16 @@ class EventController extends Controller
                 Event::where('id', $request->get('id'))->update([
                     'Name' => $request->get('Name'),
                     'Image' => $name,
+                    'Description' => $request->get('Description'),
+                    'EventDate' => $request->get('EventDate'),
+                    'Link' => $request->get('Link'),
                 ]);
             } else {
                 Event::where('id', $request->get('id'))->update([
                     'Name' => $request->get('Name'),
+                    'Description' => $request->get('Description'),
+                    'EventDate' => $request->get('EventDate'),
+                    'Link' => $request->get('Link'),
                 ]);
             }
             // $save->save();

@@ -18,8 +18,15 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+        // $token = auth()->guard('api')->attempt($credential);
+
+        // if (!$token) {
+            //     return response()->json(['error' => 'Unauthorized'], 401);
+            // }
+
         if (Auth::attempt($credential)) {
-            // dd('masul sini', $credential);
+            // dd(auth());
+
             $request->session()->regenerate();
             return redirect()->intended('/admin');
         }

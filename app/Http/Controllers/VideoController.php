@@ -7,7 +7,10 @@ use App\Http\Requests\VideoUpdateRequest;
 use App\Http\Resources\VideoCollection;
 use App\Http\Resources\VideoResource;
 use App\Models\Video;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class VideoController extends Controller
 {
@@ -26,11 +29,44 @@ class VideoController extends Controller
      * @param \App\Http\Requests\VideoStoreRequest $request
      * @return \App\Http\Resources\VideoResource
      */
-    public function store(VideoStoreRequest $request)
+    public function store(Request $request)
     {
-        $video = Video::create($request->validated());
-        return redirect('video');
-        // return new VideoResource($video);
+         // dd(time());
+         $validator = Validator::make($request->all(), [
+            'Title' => ['required'],
+            'Link' => ['required'],
+            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $video = $request->all();
+            // dd($event);
+
+            if ($file = $request->file('Image')) {
+                $name = time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/video', $name);
+                // $path = $file->store('public/files');
+                // $name = $file->getClientOriginalName();
+
+                //store your file into directory and db
+                $save = new Video([
+                    'Title' => $request->get('Title'),
+                    'Link' => $request->get('Link'),
+                    'Image' => $name,
+                ]);
+                $save->save();
+            }
+
+            return redirect('video');
+        } catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**
@@ -48,11 +84,45 @@ class VideoController extends Controller
      * @param \App\Models\Video $video
      * @return \App\Http\Resources\VideoResource
      */
-    public function update(VideoUpdateRequest $request, Video $video)
+    public function update(Request $request)
     {
-        $video->update($request->validated());
-        return redirect('video');
-        return new VideoResource($video);
+        $validator = Validator::make($request->all(), [
+            'Title' => ['required'],
+            'Link' => ['required'],
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $video = $request->all();
+            // dd($file = $request->file('Image'));
+
+            if ($file = $request->file('Image')) {
+                $name = time() . '-' . $file->getClientOriginalName();
+                $file->move('resource/video', $name);
+
+                //store your file into directory and db
+                Video::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
+                    'Link' => $request->get('Link'),
+                    'Image' => $name,
+                ]);
+            } else {
+                Video::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
+                    'Link' => $request->get('Link'),
+                ]);
+            }
+            // $save->save();
+            return redirect('video');
+        } catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
     }
 
     /**

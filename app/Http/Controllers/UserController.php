@@ -20,6 +20,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        // dd($request->session());
+        if ($request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d') == null) {
+            abort(403);
+        }
         $users = User::orderBy('updated_at', 'DESC')->get();
         // dd($users);
         return new UserCollection($users);

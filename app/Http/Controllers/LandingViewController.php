@@ -45,6 +45,9 @@ class LandingViewController extends Controller
         $icon = Request::create('api/r_icon', 'GET');
         $response_icon = Route::dispatch($icon);
 
+        $video = Request::create('api/video', 'GET');
+        $response_video = Route::dispatch($video);
+
         $data = [
             'registration' => json_decode($responseRegistration->content(), true)['data'],
             'package' => json_decode($responsePackage->content(), true)['data'],
@@ -58,6 +61,8 @@ class LandingViewController extends Controller
             'banner' => json_decode($response_banner->content(), true)['data'],
             'why' => json_decode($response_why->content(), true)['data'],
             'icon' => json_decode($response_icon->content(), true)['data'],
+            'video' => json_decode($response_video->content(), true)['data'],
+
         ];
         // dd($data);
         return view('lan_index', compact('data'));

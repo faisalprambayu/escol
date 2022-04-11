@@ -88,6 +88,7 @@
 
                             <!-- General Form Elements -->
                             <form name="add-r_class" id="add-r_class" method="post" action="{{url('api/r_icon')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
@@ -148,6 +149,7 @@
                             <!-- General Form Elements -->
                             {{-- <form name="edit-major" id="edit-major" method="post" action="{{url('api/r_major/'.$datas['id'])}}"> --}}
                             <form name="edit-class" id="edit-class" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">

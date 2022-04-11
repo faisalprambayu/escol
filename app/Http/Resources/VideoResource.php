@@ -17,10 +17,11 @@ class VideoResource extends JsonResource
         return [
             'id' => $this->id,
             'Title' => $this->Title,
-            'Video' => $this->Video,
+            // 'Video' => $this->Video,
             'Link' => $this->Link,
-            'Text1' => $this->Text1,
-            'Text2' => $this->Text2,
+            // 'Text1' => $this->Text1,
+            // 'Text2' => $this->Text2,
+            'Image' => $this->Image,
         ];
     }
 }

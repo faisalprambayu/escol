@@ -15,6 +15,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         {{-- <form action="{{ url('api/'.$target.'/'.$datas['id'])}}" method="POST"> --}}
             <form  method="POST" id="delete">
+            @csrf
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>

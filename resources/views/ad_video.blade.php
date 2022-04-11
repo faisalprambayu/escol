@@ -19,7 +19,7 @@
               <h5 class="card-title">Table with hoverable rows</h5>
 
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button>
+              {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button> --}}
 
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover" id="tableData">
@@ -30,15 +30,16 @@
                         <th scope="col">Judul</th>
                         <th scope="col">Link</th>
                         <th scope="col">Video</th>
-                        <th scope="col">Text1</th>
-                        <th scope="col">Text2</th>
+                        {{-- <th scope="col">Text1</th>
+                        <th scope="col">Text2</th> --}}
+                        <th style="width: 20%">Thumbnail</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                     $no = 0;
                     foreach ($data as  $datas) { ?>
-
+                    {{-- <?= dd($datas);?> --}}
                     <tr>
                         <td class="id" style="display: none">{{$datas['id']}}</td>
                         <td>
@@ -63,8 +64,9 @@
                         }
                         ?>
                         <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-                        <td><?= $datas['Text1'] ?></td>
-                        <td><?= $datas['Text2'] ?></td>
+                        {{-- <td><?= $datas['Text1'] ?></td>
+                        <td><?= $datas['Text2'] ?></td> --}}
+                        <td class="space"><img class="d-block w-75" src="{{url('resource/video/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';
@@ -85,7 +87,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Video</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -96,7 +98,8 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form name="add-video" id="add-video" method="post" action="{{url('api/video')}}">
+                            <form enctype="multipart/form-data"  name="add-video" id="add-video" method="post" action="{{url('api/video')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Judul</label>
                                 <div class="col-sm-9">
@@ -115,7 +118,7 @@
                                   <input type="text" class="form-control" name="Video">
                                 </div>
                               </div>
-                              <div class="row mb-3">
+                              {{-- <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Text1</label>
                                 <div class="col-sm-9">
                                   <input type="text" class="form-control" name="Text1">
@@ -125,6 +128,17 @@
                                 <label for="inputText" class="col-sm-3 col-form-label">Text2</label>
                                 <div class="col-sm-9">
                                   <input type="text" class="form-control" name="Text2">
+                                </div>
+                              </div> --}}
+                              <div class="row mb-3">
+                                <label for="inputNumber" class="col-sm-3 col-form-label">Gambar</label>
+                                <div class="col-sm-9">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <div class="col-sm-3 col-form-label"></div>
+                                <div class="col-sm-9" id="newImage">
                                 </div>
                               </div>
                               <div class="modal-footer">
@@ -164,7 +178,8 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form name="edit-video" id="edit-video" method="post">
+                            <form enctype="multipart/form-data"  name="edit-video" id="edit-video" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">
@@ -185,7 +200,7 @@
                                     <textarea class="form-control" id="Video" rows="5"disabled></textarea>
                                 </div>
                               </div>
-                              <div class="row mb-3">
+                              {{-- <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Text1</label>
                                 <div class="col-sm-9">
                                   <input type="text" class="form-control" name="Text1" id="Text1">
@@ -195,6 +210,17 @@
                                 <label for="inputText" class="col-sm-3 col-form-label">Text2</label>
                                 <div class="col-sm-9">
                                   <input type="text" class="form-control" name="Text2" id="Text2">
+                                </div>
+                              </div> --}}
+                              <div class="row mb-3">
+                                <label for="formFile" class="col-sm-3 col-form-label">Gambar</label>
+                                <div class="col-sm-9">
+                                  <input class="form-control" type="file" id="formFile" name="Image">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <div class="col-sm-3 col-form-label"></div>
+                                <div class="col-sm-9" id="oldImage">
                                 </div>
                               </div>
                               <div class="modal-footer">
@@ -243,16 +269,32 @@
             document.querySelector('#editModal').querySelector('#Link').value = Link;
             let Video = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
             document.querySelector('#editModal').querySelector('#Video').innerHTML = Video;
-            let Text1 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
-            document.querySelector('#editModal').querySelector('#Text1').value = Text1;
-            let Text2 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
-            document.querySelector('#editModal').querySelector('#Text2').value = Text2;
+            // let Text1 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            // document.querySelector('#editModal').querySelector('#Text1').value = Text1;
+            // let Text2 = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
+            // document.querySelector('#editModal').querySelector('#Text2').value = Text2;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
             document.querySelector('#edit-video').setAttribute("action", base_url+'/api/video/'+id);
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }
     })
+    document.querySelector('#editModal').querySelector('#formFile').addEventListener('change', function (e) {
+        let oldImage = document.querySelector('#editModal').querySelector('#oldImage');
+        let linkImage = URL.createObjectURL(event.target.files[0]);
+        // console.log(linkImage);
+            let img = '<img class="d-block w-100" src="' + linkImage + '">';
+        oldImage.innerHTML = img;
+    })
+    document.querySelector('#createModal').querySelector('#formFile').addEventListener('change', function (e) {
+        let newImage = document.querySelector('#createModal').querySelector('#newImage');
+        let linkImage = URL.createObjectURL(event.target.files[0]);
+        let img = '<img class="d-block w-100" src="' + linkImage + '">';
+        newImage.innerHTML = img;
+    })
+
 
 </script>
 </body>

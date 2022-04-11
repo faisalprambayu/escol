@@ -37,6 +37,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+/* tambahan */
+.lan-video{
+    width: 630px;
+    height: 355px;
+}
+@media (max-width: 767px) {
+    .lan-video {
+        width: 330px;
+        height: 200px;
+    }
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/

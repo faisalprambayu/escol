@@ -356,34 +356,40 @@
 
     <!-- ======= Trainers Section ======= -->
     <section id="trainers" class="trainers">
-      <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <?php
-            foreach ($data['team'] as  $datas) { ?>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="member">
-                    <img src="{{url('resource/team/'.$datas['Image'])}}" class="img-fluid" alt="">
-                    <div class="member-content">
-                        <h4><?= $datas['Name'] ?></h4>
-                        <span><?= $datas['Title'] ?></span>
-                        <p>
-                            <?= $datas['Description'] ?>
-                        </p>
-                        {{-- <div class="social">
-                        <a href=""><i class="bi bi-twitter"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div> --}}
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                <div class="my-swiper swiper " data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                    <?php
+                    foreach ($data['team'] as  $datas) { ?>
+                        <div class="swiper-slide">
+                            {{-- <div class="col-lg-4 col-md-6 d-flex justify-content-center"> --}}
+                                <div class="member">
+                                    <img src="{{url('resource/team/'.$datas['Image'])}}" class="img-fluid" alt="">
+                                    <div class="member-content">
+                                        <h4><?= $datas['Name'] ?></h4>
+                                        <span><?= $datas['Title'] ?></span>
+                                        <p>
+                                            <?= $datas['Description'] ?>
+                                        </p>
+                                        {{-- <div class="social">
+                                        <a href=""><i class="bi bi-twitter"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            {{-- </div> --}}
+                        </div>
+                    <?php }?>
                     </div>
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-            <?php }?>
-        </div>
+            </div>
 
-      </div>
+        </div>
     </section><!-- End Trainers Section -->
 
     <!-- ======= Video Section ======= -->
@@ -396,8 +402,20 @@
                 {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Launch demo modal
                 </button> --}}
+                {{-- <div class="card">
+                    <div class="card-body"  style="margin: auto; padding: 10px;">
+                        <?= $data['video'][0]['Text1'] ?>
+                    </div>
+                </div> --}}
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-flex justify-content-center align-items-center">
+                    <img  style="width: 60%;" loading="lazy" src="{{url('resource/video/'.$data['video'][0]['Image'])}}" alt="{{str_replace('public/files/', '', $data['video'][0]['Image'])}}" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
+                </a>
+                {{-- <div class="card" >
+                    <div class="card-body" style="margin: auto; padding: 10px;">
+                        <?= $data['video'][0]['Text2'] ?>
+                    </div>
+                </div> --}}
 
-                <img data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 60%;" loading="lazy" src="https://www.ruangguru.com/hubfs/00%20-%20Homepage%20Ruangguru%202022/Section%20Kejar%20Cita-cita%20mu%20Testimoni%20Pengguna/video_banner_thumbnail.jpg" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -408,8 +426,17 @@
                             {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                             {{-- </div> --}}
                             {{-- <div class="modal-body  d-flex justify-content-center align-items-center"> --}}
-                                <iframe style="width: 630px; height: 355px; "  src="https://www.youtube.com/embed/6Ge_ezzlo6g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
+                                <?php
+                                    $urlall = strstr( $data['video'][0]['Link'], 'http');
+                                    $url1 = str_replace('"></oembed></figure>', '', $urlall);
+                                    $url2 = str_replace('youtu.be', 'www.youtube.com', $url1);
+                                    $url = str_replace('m/', 'm/embed/', $url2);
+                                    // dd($url);
+                                ?>
+                                @if ($urlall)
+                                    <iframe class="lan-video"  src="<?= $url ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                    </iframe>
+                                @endif
                             {{-- </div> --}}
                             {{-- <div class="modal-footer"> --}}
                             {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
@@ -418,6 +445,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
           </div>
 
@@ -504,6 +532,35 @@
   @include('components.footer')
 
   <!-- End Footer -->
+    {{-- <script>
+        const swiper = new Swiper( '.my-swiper', {
+            slidesPerView: 4,
+            slidesPerGroup: 1,
+            centeredSlides: false,
+            loop: true,
+            slideToClickedSlide: true,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        } );
+    </script> --}}
+
+    {{-- <script>
+        const swiper = new Swiper('.my-swiper', {
+            speed: 400,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            loop: true,
+        });
+    </script> --}}
+
 </body>
 
 </html>

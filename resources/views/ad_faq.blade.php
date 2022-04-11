@@ -81,6 +81,7 @@
 
                             <!-- General Form Elements -->
                             <form name="add-faq" id="add-faq" method="post" action="{{url('api/faq')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Pertanyaan</label>
                                 <div class="col-sm-10">

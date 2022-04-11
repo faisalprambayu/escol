@@ -80,6 +80,7 @@
 
                             <!-- General Form Elements -->
                             <form name="add-r_package" id="add-r_package" method="post" action="{{url('api/r_package')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Paket</label>
                                 <div class="col-sm-9">
@@ -120,6 +121,7 @@
                             <!-- General Form Elements -->
                             {{-- <form name="edit-major" id="edit-major" method="post" action="{{url('api/r_major/'.$datas['id'])}}"> --}}
                             <form name="edit-package" id="edit-package" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">

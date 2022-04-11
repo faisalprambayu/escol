@@ -83,6 +83,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/testimonial')}}" >
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
@@ -133,7 +134,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Testimonial</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -145,6 +146,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="edit-event" id="edit-event" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">

@@ -84,6 +84,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="add-team" id="add-team" method="post" action="{{url('api/team')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nama</label>
                                 <div class="col-sm-9">
@@ -146,6 +147,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="edit-team" id="edit-team" method="post" action="{{url('api/team')}}">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">

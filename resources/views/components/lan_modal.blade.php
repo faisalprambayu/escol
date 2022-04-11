@@ -15,6 +15,7 @@
 
                     <!-- General Form Elements -->
                     <form name="add-registration" id="add-registration" method="post" action="{{url('api/registration')}}">
+                        @csrf
                     <div class="row mb-3">
                         <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">

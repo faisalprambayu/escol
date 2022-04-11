@@ -5,6 +5,7 @@
 use App\Http\Controllers\ArticleViewController;
 use App\Http\Controllers\BannerViewController;
 use App\Http\Controllers\CareerViewController;
+use App\Http\Controllers\DashboardViewController;
 use App\Http\Controllers\PackageViewController;
 use App\Http\Controllers\EventViewController;
 use App\Http\Controllers\ServiceViewController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\RPackageViewController;
 use App\Http\Controllers\FaqViewController;
 use App\Http\Controllers\FooterViewController;
 use App\Http\Controllers\FriendViewController;
+use App\Http\Controllers\LandingAboutViewController;
 use App\Http\Controllers\LandingArticleViewController;
 use App\Http\Controllers\LandingCareerViewController;
 use App\Http\Controllers\LandingEssclusiveViewController;
@@ -80,9 +82,7 @@ Route::get('/fitur', function () {
 //     return view('lan_sahabat');
 // });
 
-Route::get('/admin', function () {
-    return view('ad_dashboard');
-})->middleware('auth');
+
 
 // Route::get('/essclusive/admin', function () {
 //     return view('ad_dashboard');
@@ -109,7 +109,10 @@ Route::get('/admin', function () {
 //     return view('ad_ref_major');
 // });
 
-
+// Route::get('/admin', function () {
+//     return view('ad_dashboard');
+// })->middleware('auth');
+Route::get('/admin', [DashboardViewController::class, 'index'])->middleware('auth');
 Route::get('/footer', [FooterViewController::class, 'index'])->middleware('auth');
 Route::get('/faq', [FaqViewController::class, 'index'])->middleware('auth');
 Route::get('/ref_package', [RPackageViewController::class, 'index'])->middleware('auth');
@@ -166,6 +169,8 @@ Route::get('/syarat', [TextViewController::class, 'landing']);
 Route::get('/privasi', [TextViewController::class, 'privasi']);
 Route::get('/beasiswa', [LandingScholarshipViewController::class, 'index']);
 Route::get('/beasiswa/{id}', [LandingScholarshipViewController::class, 'detail']);
+Route::get('/tentang', [LandingAboutViewController::class, 'index']);
+
 
 // Route::get('/registration', function () {
 //     return view('ad_registration');

@@ -37,48 +37,6 @@
                     $no = 0;
                     foreach ($data as  $datas) { ?>
 
-                     <div class="modal fade" id="editModal{{$datas['id']}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Package</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="col-lg-12">
-
-                                    <div class="card">
-                                      <div class="card-body">
-                                        <h5 class="card-title">General Form Elements</h5>
-
-                                        <!-- General Form Elements -->
-                                        <form enctype="multipart/form-data" name="add-package" id="add-package" method="post" action="{{url('api/r_major/'.$datas['id'])}}">
-                                            <input type="hidden" name="id" value="{{$datas['id']}}">
-                                            <input type="hidden" name="_method" value="PUT">
-                                          <div class="row mb-3">
-                                            <label for="inputText" class="col-sm-3 col-form-label">Nama Jurusan</label>
-                                            <div class="col-sm-9">
-                                              <input type="text" class="form-control" name="Name" value="{{$datas['Name']}}">
-                                            </div>
-                                          </div>
-
-
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </div>
-
-                                        </form><!-- End General Form Elements -->
-
-                                      </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        </div>
-                    </div>
                     <tr>
                         <td class="id" style="display: none">{{$datas['id']}}</td>
                         <td>
@@ -126,6 +84,7 @@
 
                             <!-- General Form Elements -->
                             <form name="add-r_marjor" id="add-r_marjor" method="post" action="{{url('api/r_major')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Jurusan</label>
                                 <div class="col-sm-9">
@@ -165,6 +124,7 @@
                             <!-- General Form Elements -->
                             {{-- <form name="edit-major" id="edit-major" method="post" action="{{url('api/r_major/'.$datas['id'])}}"> --}}
                             <form name="edit-major" id="edit-major" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">

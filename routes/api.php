@@ -41,6 +41,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Route::resource('/registration', RegistrationController::class)->except(['create', 'edit']);
+// Route::group(['middleware' => ['auth']  ], function () {
+//     Route::apiResource('event', EventController::class);
+// });
 
 Route::apiResource('event', EventController::class);
 // Route::get('event', [EventController::class,'index'])->middleware('guest');

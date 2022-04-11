@@ -52,7 +52,7 @@
                         <td class="space"><?= $datas['EventDate'] ?></td>
                         <td class="space"><a href="<?= $datas['Link'] ?>"><?= $datas['Link'] ?></a></td>
                         <td class="space"><img class="d-block w-75" src="{{url('resource/event/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
-                        {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
+                        <td class="space" style="display: none;"><?= $datas['Link'] ?></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';
@@ -85,6 +85,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/event')}}" >
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama Event</label>
                                 <div class="col-sm-10">
@@ -153,13 +154,34 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="edit-event" id="edit-event" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
+
+                                {{-- <input type="hidden" name="tokenan" value="mantabjiwa" id="id"> --}}
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nama Event</label>
                                 <div class="col-sm-10">
                                   <input type="text" class="form-control" name="Name" id="Name">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="Description" id="Description">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Tanggal Event</label>
+                                <div class="col-sm-10">
+                                  <input type="date" class="form-control" name="EventDate" id="EventDate">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Link</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="Link" id="Link">
                                 </div>
                               </div>
                               <div class="row mb-3">
@@ -208,7 +230,13 @@
             document.querySelector('#editModal').querySelector('#id').value = id;
             let Name = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
             document.querySelector('#editModal').querySelector('#Name').value = Name;
-            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            document.querySelector('#editModal').querySelector('#Description').value = Description;
+            let EventDate = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
+            document.querySelector('#editModal').querySelector('#EventDate').value = EventDate;
+            let Link = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[7].innerHTML;
+            document.querySelector('#editModal').querySelector('#Link').value = Link;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
             document.querySelector('#edit-event').setAttribute("action", base_url+'/api/event/update/');

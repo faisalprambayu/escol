@@ -81,6 +81,7 @@
 
                             <!-- General Form Elements -->
                             <form name="add-footer" id="add-footer" method="post" action="{{url('api/footer')}}">
+                                @csrf
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label">Logo</label>
                                     <div class="col-sm-10">

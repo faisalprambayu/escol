@@ -95,6 +95,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="add-package" id="add-package" method="post" action="{{url('api/package')}}">
+                                @csrf
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Nama Package</label>
                                 <div class="col-sm-9">
@@ -169,6 +170,7 @@
 
                             <!-- General Form Elements -->
                             <form enctype="multipart/form-data" name="edit-package" id="edit-package" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">

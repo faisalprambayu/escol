@@ -25,10 +25,10 @@ class VideoUpdateRequest extends FormRequest
     {
         return [
             'Title' => ['required', 'string'],
-            'Video' => ['required', 'string'],
+            // 'Video' => ['required', 'string'],
             'Link' => ['required', 'string'],
-            'Text1' => ['required', 'string'],
-            'Text2' => ['required', 'string'],
+            // 'Text1' => ['required', 'string'],
+            // 'Text2' => ['required', 'string'],
         ];
     }
 }

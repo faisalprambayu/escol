@@ -9,6 +9,7 @@ class EventViewController extends Controller
 {
     public function index()
     {
+        // dd(auth()->check());
         $request = Request::create('api/event', 'GET');
         $response = Route::dispatch($request);
         $data = json_decode($response->content(), true)['data'];
