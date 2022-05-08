@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProgramCollection;
-use App\Http\Resources\ProgramResource;
-use App\Models\Program;
+use App\Http\Resources\ModalCollection;
+use App\Http\Resources\ModalResource;
+use App\Models\Modal;
 use App\Models\File;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProgramController extends Controller
+class ModalController extends Controller
 {
     /**
      * @param \Illuminate\Http\Request $request
-     * @return \App\Http\Resources\ProgramCollection
+     * @return \App\Http\Resources\ModalCollection
      */
     public function index(Request $request)
     {
-        $programs = Program::orderBy('updated_at', 'DESC')->get();
-        // dd($programs);
-        return new ProgramCollection($programs);
+        $modals = Modal::orderBy('updated_at', 'DESC')->get();
+
+        return new ModalCollection($modals);
     }
 
     /**
@@ -32,9 +32,7 @@ class ProgramController extends Controller
     {
         // dd(time());
         $validator = Validator::make($request->all(), [
-            'Name' => ['required'],
-            'Description' => ['required'],
-            'Text' => ['required'],
+            'Title' => ['required'],
             'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -43,32 +41,21 @@ class ProgramController extends Controller
         }
 
         try {
-            $programs = $request->all();
-            // dd($event);
-
+            $modals = $request->all();
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/program', $name);
-                // $path = $file->store('public/files');
-                // $name = $file->getClientOriginalName();
+                $file->move('resource/modal', $name);
 
                 //store your file into directory and db
-                $save = new Program([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
+                $save = new Modal([
+                    'Title' => $request->get('Title'),
                     'Image' => $name,
-                    'Text' => $request->get('Text'),
                 ]);
+                // dd($save);
                 $save->save();
             }
 
-            // $response = [
-            //     'message' => 'Event Created',
-            //     'data' => $event
-            // ];
-
-            // return response()->json($response, Response::HTTP_CREATED);
-            return redirect('programs');
+                return redirect('modal');
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -81,9 +68,9 @@ class ProgramController extends Controller
      * @param \App\Models\Event $event
      * @return \App\Http\Resources\EventResource
      */
-    public function show(Request $request, Program $program)
+    public function show(Request $request, Modal $modal)
     {
-        return new ProgramResource($program);
+        return new ModalResource($modal);
     }
 
     /**
@@ -95,9 +82,7 @@ class ProgramController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'Name' => ['required'],
-            'Description' => ['required'],
-            'Text' => ['required'],
+            'Title' => ['required'],
             // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -106,30 +91,25 @@ class ProgramController extends Controller
         }
 
         try {
-            $program = $request->all();
-            // dd($package);
+            $modal = $request->all();
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/program', $name);
+                $file->move('resource/modal', $name);
 
                 //store your file into directory and db
-                Program::where('id', $request->get('id'))->update([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
+                Modal::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
                     'Image' => $name,
-                    'Text' => $request->get('Text'),
                 ]);
             } else {
                 // dd("masuk");
-                Program::where('id', $request->get('id'))->update([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
-                    'Text' => $request->get('Text'),
+                Modal::where('id', $request->get('id'))->update([
+                    'Title' => $request->get('Title'),
                 ]);
             }
-            // $save->save();
-            return redirect('programs');
+
+            return redirect('modal');
         } catch (QueryException $e) {
             return response()->json([
                 'message' => 'Failed' . $e->errorInfo
@@ -142,10 +122,10 @@ class ProgramController extends Controller
      * @param \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Program $program)
+    public function destroy(Request $request, Modal $modal)
     {
-        $program->delete();
-        return redirect('programs');
-        // return response()->noContent();
+        $modal->delete();
+        return redirect('modal');
+
     }
 }

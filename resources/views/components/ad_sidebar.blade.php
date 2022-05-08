@@ -144,6 +144,13 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link <?php if ((Request::segment(1))!="modal"){echo "collapsed";} ?>" href="/modal">
+            <i class="bi bi-person-plus-fill"></i>
+          <span>Modal</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
       <?php } ?>
 
 

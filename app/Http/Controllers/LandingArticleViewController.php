@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -9,11 +10,10 @@ class LandingArticleViewController extends Controller
 {
     public function index()
     {
-        $article = Request::create('api/article', 'GET');
-        $response_article = Route::dispatch($article);
+        $response_article = Article::orderBy('updated_at', 'DESC')->get();
 
         $data = [
-            'article' => json_decode($response_article->content(), true)['data'],
+            'article' => $response_article,
         ];
         // dd($data);
         return view('lan_artikel', compact('data'));
@@ -21,15 +21,13 @@ class LandingArticleViewController extends Controller
 
     public function detail($id)
     {
-        $articleList = Request::create('api/article', 'GET');
-        $response_article = Route::dispatch($articleList);
+        $response_article = Article::orderBy('updated_at', 'DESC')->get();
 
-        $article = Request::create('api/article/'.$id, 'GET');
-        $response_articledetail = Route::dispatch($article);
+        $response_articledetail = Article::findOrFail($id);
 
         $data = [
-            'article' => json_decode($response_articledetail->content(), true)['data'],
-            'list' => json_decode($response_article->content(), true)['data'],
+            'article' => $response_articledetail,
+            'list' => $response_article,
         ];
         // dd($data);
         return view('lan_artikel_detail', compact('data'));

@@ -490,41 +490,26 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    {{-- <section id="faq" class="faq">
-        <div class="es-faq" id="faqs">
-            <div class="container">
-                <div class="section-title">
-                    <h2>FAQ</h2>
-                    <p>Paling sering ditanya</p>
-                  </div>
-
-                <div class="d-flex flex-column" style="height:490px;width:100%;border:0px solid #ccc;overflow:auto;">
-                    <?php
-                    foreach ($data['faq'] as  $datas) { ?>
-
-                    <a data-bs-toggle="collapse" href="#faqs<?= $datas['id'] ?>" role="button" aria-expanded="false" aria-controls="faqs<?= $datas['id'] ?>" class="es-collapse collapsed">
-                        <div class="card border-0 es-card">
-                            <div class="card-body">
-                                <div class="container" style="margin-top: 10px; ">
-                                    <p>
-                                        <?= $datas['Question'] ?>
-                                    </p>
-
-                                    <div class="collapse" id="faqs<?= $datas['id'] ?>">
-                                        <p>
-                                            <?= $datas['Answer'] ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <?php } ?>
-                </div>
+    <div class="modal" tabindex="-1" id="myModal" data-aos="zoom-in" data-aos-delay="100">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><?= $data['modal'][0]['Title'] ?></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+              {{-- <p>Modal body text goes here.</p> --}}
+              <img src="{{url('resource/modal/'.$data['modal'][0]['Image'])}}" class="img-fluid" alt="">
+              {{-- <img src="{{url('resource/testimonial/'.$data['testimonial'][0]['Image'])}}" > --}}
+            </div>
+            {{-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> --}}
+          </div>
         </div>
-    </section> --}}
+    </div>
+
 
   </main><!-- End #main -->
 
@@ -560,6 +545,11 @@
             loop: true,
         });
     </script> --}}
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#myModal').modal('show');
+        });
+    </script>
 
 </body>
 

@@ -30,6 +30,7 @@ use App\Http\Controllers\LandingProgramViewController;
 use App\Http\Controllers\LandingScholarshipViewController;
 use App\Http\Controllers\LandingViewController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ModalViewController;
 use App\Http\Controllers\ProgramViewController;
 use App\Http\Controllers\RIconViewController;
 use App\Http\Controllers\ScholarshipViewController;
@@ -139,6 +140,7 @@ Route::get('/user', [UserViewController::class, 'index'])->middleware('auth');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'aunticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/modal', [ModalViewController::class, 'index'])->middleware('auth');
 
 Route::get('/essclusive/banner', [BannerViewController::class, 'index']);
 Route::get('/esspecial/banner', [BannerViewController::class, 'index']);
@@ -155,6 +157,7 @@ Route::get('/esstream/service', [ServiceViewController::class, 'index']);
 
 Route::get('/', [LandingViewController::class, 'index']);
 Route::get('/program', [LandingProgramViewController::class, 'index']);
+Route::get('/program/{id}', [LandingProgramViewController::class, 'detail']);
 Route::get('/artikel', [LandingArticleViewController::class, 'index']);
 Route::get('/artikel/{id}', [LandingArticleViewController::class, 'detail']);
 Route::get('/karir', [LandingCareerViewController::class, 'index']);

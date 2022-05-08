@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Program;
+use App\Models\Modal;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class ProgramFactory extends Factory
+class ModalFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Program::class;
+    protected $model = Modal::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,8 @@ class ProgramFactory extends Factory
     public function definition()
     {
         return [
-            'Name' => $this->faker->word,
-            'Description' => $this->faker->word,
+            'Title' => $this->faker->word,
             'Image' => $this->faker->word,
-            'Text' => $this->faker->word,
         ];
     }
 }

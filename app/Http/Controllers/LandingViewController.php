@@ -2,67 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Event;
+use App\Models\Faq;
+use App\Models\Modal;
+use App\Models\Package;
+use App\Models\RClass;
+use App\Models\Registration;
+use App\Models\RIcon;
+use App\Models\RMajor;
+use App\Models\Team;
+use App\Models\Testimonial;
+use App\Models\Video;
+use App\Models\Why;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 class LandingViewController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $registration = Request::create('api/registration', 'GET');
-        $responseRegistration = Route::dispatch($registration);
+        // $event = Request::create('api/event', 'GET');
 
-        $package = Request::create('api/r_package', 'GET');
-        $responsePackage = Route::dispatch($package);
+        $responseRegistration = Registration::orderBy('updated_at', 'DESC')->get();
 
-        $major = Request::create('api/r_major', 'GET');
-        $responseMajor = Route::dispatch($major);
+        $responsePackage = app('App\Http\Controllers\PackageController')->index($request);
 
-        $class = Request::create('api/r_class', 'GET');
-        $responseClass = Route::dispatch($class);
+        $responseMajor = RMajor::orderBy('updated_at', 'DESC')->get();
 
-        $event = Request::create('api/event', 'GET');
-        $responseEvent = Route::dispatch($event);
+        $responseClass = RClass::orderBy('updated_at', 'DESC')->get();
 
-        $package = Request::create('api/package', 'GET');
-        $responsePackage = Route::dispatch($package);
+        $responseEvent = Event::orderBy('updated_at', 'DESC')->get();
 
-        $team = Request::create('api/team', 'GET');
-        $responseTeam = Route::dispatch($team);
+        $responseTeam = Team::orderBy('updated_at', 'DESC')->get();
 
-        $testimonial = Request::create('api/testimonial', 'GET');
-        $responseTestimonial = Route::dispatch($testimonial);
+        $responseTestimonial = Testimonial::orderBy('updated_at', 'DESC')->get();
 
-        $faq = Request::create('api/faq', 'GET');
-        $responseFaq = Route::dispatch($faq);
+        $responseFaq = Faq::orderBy('updated_at', 'DESC')->get();
 
-        $banner = Request::create('api/banner', 'GET');
-        $response_banner = Route::dispatch($banner);
+        $response_banner = app('App\Http\Controllers\BannerController')->index($request);
 
-        $why = Request::create('api/why', 'GET');
-        $response_why = Route::dispatch($why);
+        $response_why = app('App\Http\Controllers\WhyController')->index($request);
 
-        $icon = Request::create('api/r_icon', 'GET');
-        $response_icon = Route::dispatch($icon);
+        $response_icon = RIcon::orderBy('updated_at', 'DESC')->get();
 
-        $video = Request::create('api/video', 'GET');
-        $response_video = Route::dispatch($video);
+        $response_video = Video::orderBy('updated_at', 'DESC')->get();
+
+        $response_modal = Modal::orderBy('updated_at', 'DESC')->get();
 
         $data = [
-            'registration' => json_decode($responseRegistration->content(), true)['data'],
-            'package' => json_decode($responsePackage->content(), true)['data'],
-            'major' => json_decode($responseMajor->content(), true)['data'],
-            'class' => json_decode($responseClass->content(), true)['data'],
-            'event' => json_decode($responseEvent->content(), true)['data'],
-            'package' => json_decode($responsePackage->content(), true)['data'],
-            'team' => json_decode($responseTeam->content(), true)['data'],
-            'testimonial' => json_decode($responseTestimonial->content(), true)['data'],
-            'faq' => json_decode($responseFaq->content(), true)['data'],
-            'banner' => json_decode($response_banner->content(), true)['data'],
-            'why' => json_decode($response_why->content(), true)['data'],
-            'icon' => json_decode($response_icon->content(), true)['data'],
-            'video' => json_decode($response_video->content(), true)['data'],
-
+            'registration' => $responseRegistration,
+            'package' => $responsePackage,
+            'major' => $responseMajor,
+            'class' => $responseClass,
+            'event' => $responseEvent,
+            'package' => $responsePackage,
+            'team' => $responseTeam,
+            'testimonial' => $responseTestimonial,
+            'faq' => $responseFaq,
+            'banner' => $response_banner,
+            'why' => $response_why,
+            'icon' => $response_icon,
+            'video' => $response_video,
+            'modal' => $response_modal,
         ];
         // dd($data);
         return view('lan_index', compact('data'));

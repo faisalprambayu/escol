@@ -511,7 +511,7 @@
             </div> --}}
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Registration Graphic</h5>
+              <h5 class="card-title">Registration Package Graphic</h5>
 
               <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 

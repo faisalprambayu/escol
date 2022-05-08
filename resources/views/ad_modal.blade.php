@@ -8,7 +8,7 @@
 
   <main id="main" class="main">
 
-    @include('components.ad_breadcrumb', ['title' => "Program Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Program"])
+    @include('components.ad_breadcrumb', ['title' => "Modal Management" , 'breadcrumb1' => "Pages", 'breadcrumb2' => "Modal"])
 
     <section class="section">
         <div class="row">
@@ -18,16 +18,14 @@
             <div class="card-body" >
               <h5 class="card-title">Table with hoverable rows</h5>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button>
+                {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal"><i class="bi-plus"></i>Create</button> --}}
                 <!-- Table with hoverable rows -->
                 <table class="table table-hover" id="tableData">
                     <thead>
                     <tr>
                         <th class="width-5">#</th>
                         <th class="width-5">No</th>
-                        <th class="space">Nama Program</th>
-                        <th class="space">Deskripsi</th>
-                        <th style="width: 200px;">Isi</th>
+                        <th class="space">Nama Modal</th>
                         <th style="width: 20%">Gambar</th>
                     </tr>
                     </thead>
@@ -46,12 +44,8 @@
                             </ul>
                         </td>
                         <th scope="row"><?=++$no?></th>
-                        <td class="space"><?= $datas['Name'] ?></td>
-                        <td class="space"><?= $datas['Description'] ?></td>
-                        <td class="space"><?= substr($datas['Text'], 0, 100) . '...' ?></td>
-                        <td class="space"><img class="d-block w-75" src="{{url('resource/program/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
-                        <td class="space" style="display:none;"><?= $datas['Text'] ?></td>
-                        {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
+                        <td class="space"><?= $datas['Title'] ?></td>
+                        <td class="space"><img class="d-block w-75" src="{{url('resource/modal/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';
@@ -72,7 +66,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create Program</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Create Modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -83,26 +77,15 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/program')}}" >
+                            <form enctype="multipart/form-data" name="add-event" id="add-event" method="post" action="{{url('api/modal')}}" >
                                 @csrf
                                 <div class="row mb-3">
-                                   <label for="inputText" class="col-sm-2 col-form-label">Nama Program</label>
+                                   <label for="inputText" class="col-sm-2 col-form-label">Nama Modal</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="Name">
+                                    <input type="text" class="form-control" name="Title">
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
-                                    <div class="col-sm-10">
-                                      <input type="text" class="form-control" name="Description">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Isi</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="Text" style="height: 100px"></textarea>
-                                    </div>
-                                </div>
+
                                 <div class="row mb-3">
                                     <label for="inputNumber" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
@@ -135,7 +118,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Program</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -152,23 +135,12 @@
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Nama Program</label>
+                                <label for="inputText" class="col-sm-2 col-form-label">Nama Modal</label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Name" id="Name">
+                                  <input type="text" class="form-control" name="Title" id="Title">
                                 </div>
                               </div>
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Deskripsi</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Description" id="Description">
-                                </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Isi</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" name="Text" id="Text" style="height: 100px"></textarea>
-                                </div>
-                            </div>
+
                               <div class="row mb-3">
                                 <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
@@ -213,16 +185,12 @@
         if (e.target.className == 'dropdown-item edit') {
             let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
             document.querySelector('#editModal').querySelector('#id').value = id;
-            let Name = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
-            document.querySelector('#editModal').querySelector('#Name').value = Name;
-            let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
-            document.querySelector('#editModal').querySelector('#Description').value = Description;
-            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
+            let Title = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
+            document.querySelector('#editModal').querySelector('#Title').value = Title;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
-            let Text = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
-            document.querySelector('#editModal').querySelector('#Text').value = Text;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/program/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/modal/update/');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

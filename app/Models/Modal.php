@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+class Modal extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,8 @@ class Program extends Model
      * @var array
      */
     protected $fillable = [
-        'Name',
-        'Description',
+        'Title',
         'Image',
-        'Text',
     ];
 
     /**

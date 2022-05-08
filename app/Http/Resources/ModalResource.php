@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProgramResource extends JsonResource
+class ModalResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,8 @@ class ProgramResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'Name' => $this->Name,
-            'Description' => $this->Description,
+            'Title' => $this->Title,
             'Image' => $this->Image,
-            'Text' => $this->Text,
         ];
     }
 }

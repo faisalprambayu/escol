@@ -32,7 +32,7 @@
                     <img src="{{url('resource/program/'.$datas['Image'])}}" alt="...">
                     </div>
                     <div class="card-body">
-                    <h5 class="card-title"><a class="stretched-link " href="https://wa.me/6281382673264/?text=Halo esschool.id!"><?= $datas['Name'] ?></a></h5>
+                    <h5 class="card-title"><a class="stretched-link " href="/program/{{$datas['id']}}"><?= $datas['Name'] ?></a></h5>
                     {{-- <p class="fst-italic text-center">Sunday, September 26th at 7:00 pm</p> --}}
                     <p class="card-text"><?= $datas['Description'] ?></p>
                     </div>

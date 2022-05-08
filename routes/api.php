@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\ModalController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RClassController;
@@ -109,4 +110,6 @@ Route::apiResource('scholarship', ScholarshipController::class);
 // Route::get('scholarship', [ScholarshipController::class,'index'])->middleware('guest');
 
 Route::apiResource('user', UserController::class);
+
+Route::apiResource('modal', ModalController::class);
 
