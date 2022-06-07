@@ -185,9 +185,9 @@
                 <?php
                 $no = 0;
                 foreach ($data['event'] as $datas) { ?>
-              <div class="swiper-slide">
+              <div class="swiper-slide" >
                 {{-- <div class="col-md-3" style="float:left"> --}}
-                    <div class="card" style="border-radius: 20px" >
+                    <div class="card" style="border-radius: 20px;">
                         <img class="card-img-top"  src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $datas['Name'] ?></h5>

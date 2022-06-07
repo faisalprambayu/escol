@@ -237,7 +237,7 @@
             document.querySelector('#editModal').querySelector('#Text').value = Text;
             let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/friend/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/friend/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

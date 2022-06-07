@@ -45,7 +45,7 @@ class BannerController extends Controller
         $validator = Validator::make($request->all(), [
             'Name' => ['required'],
             'Description' => ['required'],
-            'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            // 'Image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'Background' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -143,37 +143,41 @@ class BannerController extends Controller
             // dd($request->server()["HTTP_ORIGIN"]);
             // dd($request->server()['HTTP_REFERER']);
             //beda banner tiap page
-            // dd($request->url());
+            // dd($request);
+            $data = [
+                'Name' => $request->get('Name'),
+                'Description' => $request->get('Description'),
+            ];
+            if ($request->get('value_hapus') == 1) {
+                $data['Image'] = null;
+            }
 
             if ($fileb = $request->file('Background')) {
                 $nameb = time() . '-' . $fileb->getClientOriginalName();
                 $fileb->move('resource/banner', $nameb);
-
-                Banner::where('id', $request->get('id'))->update([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
-                    'Background' => $nameb,
-                ]);
+                $data['Background'] = $nameb;
+                // Banner::where('id', $request->get('id'))->update([
+                //     'Name' => $request->get('Name'),
+                //     'Description' => $request->get('Description'),
+                //     'Background' => $nameb,
+                // ]);
             }
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
                 $file->move('resource/banner', $name);
-
+                $data['Image'] = $name;
 
                 //store your file into directory and db
-                Banner::where('id', $request->get('id'))->update([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
-                    'Image' => $name,
-                ]);
-            } else {
-                // dd("masuk");
-                Banner::where('id', $request->get('id'))->update([
-                    'Name' => $request->get('Name'),
-                    'Description' => $request->get('Description'),
-                ]);
+                // Banner::where('id', $request->get('id'))->update([
+                //     'Name' => $request->get('Name'),
+                //     'Description' => $request->get('Description'),
+                //     'Image' => $name,
+                // ]);
             }
+            // dd($data);
+            Banner::where('id', $request->get('id'))->update($data);
+
             // $save->save();
             if ($referer == "/essclusive/banner") {
                 return redirect('essclusive/banner');

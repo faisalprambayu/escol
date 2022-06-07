@@ -193,7 +193,7 @@
             let email = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
             document.querySelector('#editModal').querySelector('#email').value = email;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/user/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/user/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

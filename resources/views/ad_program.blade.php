@@ -222,7 +222,7 @@
             let Text = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
             document.querySelector('#editModal').querySelector('#Text').value = Text;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/program/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/program/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

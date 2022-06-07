@@ -138,7 +138,7 @@
             document.querySelector('#editModal').querySelector('#Title').value = Title;
             let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
             document.querySelector('#editModal').querySelector('#Description').value = Description;
-            document.querySelector('#edit-footer').setAttribute("action", base_url+'/api/footer/update/');
+            document.querySelector('#edit-footer').setAttribute("action", base_url+'/api/footer/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

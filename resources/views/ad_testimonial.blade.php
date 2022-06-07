@@ -150,26 +150,38 @@
                                 <input type="hidden" name="id" value="" id="id">
                                 {{-- @csrf --}}
                                 <input type="hidden" name="_method" value="PUT">
-                              <div class="row mb-3">
-                                <label for="inputText" class="col-sm-2 col-form-label">Nama Event</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="Name" id="Name">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="Name" id="Name">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
-                                <div class="col-sm-10">
-                                  <input class="form-control" type="file" id="formFile" name="Image">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Title</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="Title" id="Title">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="row mb-3">
-                                <div class="col-sm-2 col-form-label"></div>
-                                <div class="col-sm-10" id="oldImage">
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Testimoni</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" name="Testimonial" id="Testimonial">
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <div class="row mb-3">
+                                    <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
+                                    <div class="col-sm-10">
+                                    <input class="form-control" type="file" id="formFile" name="Image">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-2 col-form-label"></div>
+                                    <div class="col-sm-10" id="oldImage">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
 
                             </form><!-- End General Form Elements -->
@@ -202,10 +214,14 @@
             document.querySelector('#editModal').querySelector('#id').value = id;
             let Name = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
             document.querySelector('#editModal').querySelector('#Name').value = Name;
-            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            let Title = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            document.querySelector('#editModal').querySelector('#Title').value = Title;
+            let Testimonial = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
+            document.querySelector('#editModal').querySelector('#Testimonial').value = Testimonial;
+            let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/event/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/testimonial/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

@@ -101,7 +101,7 @@ class EventController extends Controller
      */
     public function update(Request $request)
     {
-        // dd($request->session());
+        // dd($request);
         // if ($request->get('_token') == null) {
         //     abort(403);
         // }

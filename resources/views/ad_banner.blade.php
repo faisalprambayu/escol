@@ -168,14 +168,19 @@
                               </div>
                               <div class="row mb-3">
                                 <label for="formFile" class="col-sm-2 col-form-label">Gambar</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                   <input class="form-control" type="file" id="formFile" name="Image">
                                 </div>
-                              </div>
-                              <div class="row mb-3">
+                                <input type="hidden" name="value_hapus" id="value_hapus">
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-danger" id="hapus-gambar"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <div class="col-sm-2 col-form-label"></div>
                                 <div class="col-sm-5" id="oldImage">
                                 </div>
+
                               </div>
 
                               <div class="row mb-3">
@@ -216,6 +221,14 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <script>
+    let button_hapus = document.querySelector("#hapus-gambar");
+    button_hapus.addEventListener('click', function(e){
+        document.querySelector('#editModal').querySelector('#value_hapus').value = 1;
+        document.querySelector('#editModal').querySelector('#oldImage').innerHTML = null;
+        document.querySelector('#editModal').querySelector('#formFile').value = null;
+    });
+
+
     let tableData = document.querySelector('#tableData');
     tableData.addEventListener('click', function (e) {
 
@@ -231,7 +244,7 @@
             let oldImageb = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
             document.querySelector('#editModal').querySelector('#oldImageb').innerHTML = oldImageb;
 
-            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/banner/update/');
+            document.querySelector('#edit-event').setAttribute("action", base_url+'/api/banner/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

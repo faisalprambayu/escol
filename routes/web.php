@@ -6,6 +6,7 @@ use App\Http\Controllers\ArticleViewController;
 use App\Http\Controllers\BannerViewController;
 use App\Http\Controllers\CareerViewController;
 use App\Http\Controllers\DashboardViewController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\PackageViewController;
 use App\Http\Controllers\EventViewController;
 use App\Http\Controllers\ServiceViewController;

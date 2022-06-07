@@ -235,7 +235,7 @@
             // let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
             // document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
 
-            document.querySelector('#edit-service').setAttribute("action", base_url+'/api/service/update/');
+            document.querySelector('#edit-service').setAttribute("action", base_url+'/api/service/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

@@ -16,9 +16,7 @@
                     <div class="row">
                         <a href="/essclusive">
                             <div class="col-3">
-                                <img src="<?= url('img/logo_produk/essclusive.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
-                                max-width: 70px;
-                                height: auto;">
+                                <img src="<?= url('img/logo_produk/essclusive.png'); ?>" style="margin-right: 10px;  width: 100%; max-width: 70px; height: auto;">
                             </div>
                             <div class="col">
                                 <div style="margin-left: -10px;">Essclusive</div>
@@ -36,9 +34,7 @@
                     <div class="row">
                         <a href="/esspecial">
                             <div class="col-3">
-                                <img src="<?= url('img/logo_produk/esspecial.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
-                                max-width: 70px;
-                                height: auto;">
+                                <img src="<?= url('img/logo_produk/esspecial.png'); ?>" style="margin-right: 10px;  width: 100%; max-width: 70px; height: auto;">
                             </div>
                             <div class="col">
                                 <div style="margin-left: -10px;">
@@ -51,17 +47,15 @@
                         <div class="col-3">
                             {{-- <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p> --}}
                         </div>
-                        <div class="col" style="margin-top: -7%;">
+                        <div class="col" style="margin-top: -10px;">
                             <p style="font-size: 13px;">coba deskripsnya dibawah sini ga ya cuman harus disesuaikan si</p>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" style="margin-top: -30px;">
                         <a href="/esstream">
                             <div class="col-3">
-                                <img src="<?= url('img/logo_produk/esstream.jpeg'); ?>" style="margin-right: 10px;  width: 100%;
-                                max-width: 70px;
-                                height: auto;">
+                                <img src="<?= url('img/logo_produk/esstream.png'); ?>" style="margin-right: 10px;  width: 100%; max-width: 70px; height: auto;">
                             </div>
                             <div class="col">
                                 <div style="margin-left: -10px;">

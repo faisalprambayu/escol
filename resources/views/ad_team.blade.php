@@ -213,7 +213,7 @@
                     document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
                     let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
                     document.querySelector('#editModal').querySelector('#Description').value = Description;
-                    document.querySelector('#edit-team').setAttribute("action", base_url+'/api/team/update/');
+                    document.querySelector('#edit-team').setAttribute("action", base_url+'/api/team/update');
                     var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
                     myModal.show()
                 }
