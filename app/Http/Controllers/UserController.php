@@ -83,7 +83,7 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => ['required','max:255'],
-            'email' => ['required', 'min:3', 'max:255', 'email:dns' , 'unique:users'],
+            // 'email' => ['required', 'min:3', 'max:255', 'email:dns' , 'unique:users'],
             'password' => ['required', 'min:5', 'max:255'],
         ]);
 
@@ -98,7 +98,7 @@ class UserController extends Controller
 
             User::where('id', $request->get('id'))->update([
                 'name' => $request->get('name'),
-                'email' => $request->get('email'),
+                // 'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
             ]);
             // $save->save();

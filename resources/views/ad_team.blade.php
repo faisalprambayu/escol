@@ -49,7 +49,10 @@
                         <th scope="row"><?= ++$no;?></th>
                         <td><?= $datas['Name'] ?></td>
                         <td><?= $datas['Title'] ?></td>
-                        <td><?= $datas['Description'] ?></td>
+                        <td style="display: none;"><?= $datas['Description'] ?></td>
+                        <td>
+                            <?= nl2br($datas['Description'])  ?>
+                        </td>
                         <td><img class="d-block w-75" src="{{url('resource/team/'.$datas['Image'])}}"></td>
                         {{-- <td class="text-center"><img src="<?= url('img/'.$datas['Image'])?>" width="125px" alt="<?= $datas['Name'] ?>"></td> --}}
                     </tr>
@@ -100,7 +103,8 @@
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="Description">
+                                    <textarea class="form-control" name="Description" style="height: 100px"></textarea>
+                                    <small class="text-danger">Maximal 3 baris untuk penyesuaian tampilan</small>
                                 </div>
                               </div>
                               <div class="row mb-3">
@@ -166,7 +170,7 @@
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="Description" id="Description">
+                                    <textarea class="form-control" name="Description" id="Description" style="height: 100px"></textarea>
                                 </div>
                               </div>
                               <div class="row mb-3">
@@ -209,10 +213,10 @@
                     document.querySelector('#editModal').querySelector('#Name').value = Name;
                     let Title = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
                     document.querySelector('#editModal').querySelector('#Title').value = Title;
-                    let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[5].innerHTML;
-                    document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
                     let Description = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[4].innerHTML;
                     document.querySelector('#editModal').querySelector('#Description').value = Description;
+                    let oldImage = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[6].innerHTML;
+                    document.querySelector('#editModal').querySelector('#oldImage').innerHTML = oldImage;
                     document.querySelector('#edit-team').setAttribute("action", base_url+'/api/team/update');
                     var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
                     myModal.show()

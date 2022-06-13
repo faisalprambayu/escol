@@ -128,6 +128,7 @@
 
                             <!-- General Form Elements -->
                             <form name="edit-faq" id="edit-faq" method="post">
+                                @csrf
                                 <input type="hidden" name="id" value="" id="id">
                                 <input type="hidden" name="_method" value="PUT">
                               <div class="row mb-3">
@@ -177,9 +178,11 @@
             let id = e.target.parentNode.parentNode.parentNode.parentNode.querySelector('td.id').innerHTML;
             let Question = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[2].innerHTML;
             let Answer = e.target.parentNode.parentNode.parentNode.parentNode.querySelectorAll('td')[3].innerHTML;
+            document.querySelector('#editModal').querySelector('#id').value = id;
             document.querySelector('#editModal').querySelector('#Question').value = Question;
             document.querySelector('#editModal').querySelector('#Answer').value = Answer;
-            document.querySelector('#edit-faq').setAttribute("action", base_url+'/api/faq/'+id);
+
+            document.querySelector('#edit-faq').setAttribute("action", base_url+'/api/faq/update');
             var myModal = new bootstrap.Modal(document.getElementById('editModal'), {})
             myModal.show()
         }

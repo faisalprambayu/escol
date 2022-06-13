@@ -19,8 +19,8 @@ class Video extends Model
         // 'Video',
         'Link',
         'Image',
-        // 'Text1',
-        // 'Text2',
+        'Text1',
+        'Text2',
     ];
 
     /**

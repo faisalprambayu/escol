@@ -29,15 +29,16 @@
                         <th scope="col">No</th>
                         <th scope="col">Judul</th>
                         <th scope="col">Link</th>
-                        <th scope="col">Video</th>
-                        {{-- <th scope="col">Text1</th>
-                        <th scope="col">Text2</th> --}}
-                        <th style="width: 20%">Thumbnail</th>
+                        <th scope="col">Text1</th>
+                        <th scope="col">Text2</th>
+                        <th style="width: 200px;">Video</th>
+                        <th style="width: 200px;">Thumbnail</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
                     $no = 0;
+                    // dd($data);
                     foreach ($data as  $datas) { ?>
                     {{-- <?= dd($datas);?> --}}
                     <tr>
@@ -63,10 +64,11 @@
                             $link = explode("=",$PecahLink[3])[1];
                         }
                         ?>
+                        <td><?= $datas['Text1'] ?></td>
+                        <td><?= $datas['Text2'] ?></td>
                         <td><iframe width="320" height="180" src="https://www.youtube.com/embed/<?=$link?>" title="<?=$datas['Title']?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-                        {{-- <td><?= $datas['Text1'] ?></td>
-                        <td><?= $datas['Text2'] ?></td> --}}
-                        <td class="space"><img class="d-block w-75" src="{{url('resource/video/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
+                        {{-- class="d-block w-75" ini yang membuat gambar tidak mau besar --}}
+                        <td class="space"><img style="width: 300px;;" src="{{url('resource/video/'.$datas['Image'])}}" alt="{{str_replace('public/files/', '', $datas['Image'])}}"></td>
                     </tr>
                     <?php } if ($no == 0) {
                         echo ' <tr><th colspan="7" class="text-center" > Tidak Ada Data</th></tr>';

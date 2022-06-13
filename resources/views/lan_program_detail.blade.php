@@ -21,7 +21,7 @@
                     <img style="border-radius: 10px;" src="{{url('resource/program/'.$data['program']['Image'])}}" class="img-fluid" alt="">
                     <h3><?= $data['program']['Name'] ?></h3>
                     <p>
-                        <?= $data['program']['Text'] ?>
+                        <?= nl2br($data['program']['Text'])  ?>
                     </p>
                     </div>
                     <div class="col-lg-4">

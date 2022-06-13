@@ -321,8 +321,16 @@
                         <div class="course-content">
                         <div class="d-flex justify-content-between align-items-right mb-3">
                             {{-- <h4>Web Development</h4> --}}
-                            <h4>Harga Paket</h4>
-                            <p class="price">{{ str_replace(' ','.',Rupiah($datas['Price'])) }}</p>
+                            <h4 style="display: flex;
+                            justify-content: center; align-items: center;">Harga Paket</h4>
+                            <div>
+                                <p class="price" style="font-weight: 100; float: right;">
+                                    <strike>
+                                        {{ str_replace(' ','.',Rupiah($datas['Discount'])) }}
+                                    </strike>
+                                </p>
+                                <p class="price">{{ str_replace(' ','.',Rupiah($datas['Price'])) }}</p>
+                            </div>
                         </div>
 
                         <h3><a href="course-details.html">{{$datas["Name"]}}</a></h3>
@@ -365,13 +373,13 @@
                     foreach ($data['team'] as  $datas) { ?>
                         <div class="swiper-slide">
                             {{-- <div class="col-lg-4 col-md-6 d-flex justify-content-center"> --}}
-                                <div class="member">
+                                <div class="member"  style="height: 95%;">
                                     <img src="{{url('resource/team/'.$datas['Image'])}}" class="img-fluid" alt="">
                                     <div class="member-content">
                                         <h4><?= $datas['Name'] ?></h4>
                                         <span><?= $datas['Title'] ?></span>
                                         <p>
-                                            <?= $datas['Description'] ?>
+                                            <?= nl2br($datas['Description'])  ?>
                                         </p>
                                         {{-- <div class="social">
                                         <a href=""><i class="bi bi-twitter"></i></a>
@@ -396,58 +404,67 @@
     <section id="trainers" class="trainers">
         <div class="container">
 
-          <div class="row">
-            <div class="col-lg-12 col-md-6 d-flex justify-content-center align-items-center">
-                <!-- Button trigger modal -->
-                {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                </button> --}}
-                {{-- <div class="card">
-                    <div class="card-body"  style="margin: auto; padding: 10px;">
-                        <?= $data['video'][0]['Text1'] ?>
-                    </div>
-                </div> --}}
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-flex justify-content-center align-items-center">
-                    <img  style="width: 60%;" loading="lazy" src="{{url('resource/video/'.$data['video'][0]['Image'])}}" alt="{{str_replace('public/files/', '', $data['video'][0]['Image'])}}" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
-                </a>
-                {{-- <div class="card" >
-                    <div class="card-body" style="margin: auto; padding: 10px;">
-                        <?= $data['video'][0]['Text2'] ?>
-                    </div>
-                </div> --}}
+            <div class="section-title">
+                <p style="text-align: center; font-size: 200%; text-transform: none;"><?= $data['video'][0]['Title'] ?></p>
+            </div>
+
+            <div class="row" style="margin-bottom: 1%;">
+                <div class="col-lg-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <!-- Button trigger modal -->
+                    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                    </button> --}}
+                    {{-- <div class="card">
+                        <div class="card-body"  style="margin: auto; padding: 10px;">
+                            <?= $data['video'][0]['Text1'] ?>
+                        </div>
+                    </div> --}}
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-flex justify-content-center align-items-center">
+                        <img loading="lazy" src="{{url('resource/video/'.$data['video'][0]['Image'])}}" alt="{{str_replace('public/files/', '', $data['video'][0]['Image'])}}" class="video_p" alt="Kejar cita-citamu bersama ruangguru">
+                    </a>
+                    {{-- <div class="card" >
+                        <div class="card-body" style="margin: auto; padding: 10px;">
+                            <?= $data['video'][0]['Text2'] ?>
+                        </div>
+                    </div> --}}
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-md">
-                        <div class="modal-content d-flex justify-content-center align-items-center">
-                            {{-- <div class="modal-header"> --}}
-                            {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
-                            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-                            {{-- </div> --}}
-                            {{-- <div class="modal-body  d-flex justify-content-center align-items-center"> --}}
-                                <?php
-                                    $urlall = strstr( $data['video'][0]['Link'], 'http');
-                                    $url1 = str_replace('"></oembed></figure>', '', $urlall);
-                                    $url2 = str_replace('youtu.be', 'www.youtube.com', $url1);
-                                    $url = str_replace('m/', 'm/embed/', $url2);
-                                    // dd($url);
-                                ?>
-                                @if ($urlall)
-                                    <iframe class="lan-video"  src="<?= $url ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                    </iframe>
-                                @endif
-                            {{-- </div> --}}
-                            {{-- <div class="modal-footer"> --}}
-                            {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                            {{-- </div> --}}
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content d-flex justify-content-center align-items-center">
+                                {{-- <div class="modal-header"> --}}
+                                {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
+                                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                                {{-- </div> --}}
+                                {{-- <div class="modal-body  d-flex justify-content-center align-items-center"> --}}
+                                    <?php
+                                        $urlall = strstr( $data['video'][0]['Link'], 'http');
+                                        $url1 = str_replace('"></oembed></figure>', '', $urlall);
+                                        $url2 = str_replace('youtu.be', 'www.youtube.com', $url1);
+                                        $url = str_replace('m/', 'm/embed/', $url2);
+                                        // dd($url);
+                                    ?>
+                                    @if ($urlall)
+                                        <iframe class="lan-video"  src="<?= $url ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                        </iframe>
+                                    @endif
+                                {{-- </div> --}}
+                                {{-- <div class="modal-footer"> --}}
+                                {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                                {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                                {{-- </div> --}}
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-          </div>
+
+            <div class="section-title">
+                <p style="text-align: center; font-size: 150%; text-transform: none;"><?= $data['video'][0]['Text1'] ?></p>
+                <p style="text-align: center; font-size: 130%; font-weight: 100; text-transform: none;"><?= $data['video'][0]['Text2'] ?></p>
+            </div>
 
         </div>
     </section><!-- End Trainers Section -->

@@ -105,13 +105,13 @@
                               <div class="row mb-3">
                                 <label for="inputText" class="col-sm-3 col-form-label">Harga</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="Price">
+                                  <input type="number" min="0" class="form-control" name="Price">
                                 </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="inputText" class="col-sm-3 col-form-label">Diskon</label>
+                                <label for="inputText" class="col-sm-3 col-form-label">Harga Awal</label>
                                 <div class="col-sm-9">
-                                  <input type="text" class="form-control" name="Discount">
+                                  <input type="number" min="0" class="form-control" name="Discount">
                                 </div>
                               </div>
                               <div class="row mb-3">
@@ -181,15 +181,15 @@
                                     </div>
                                   </div>
                                   <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-3 col-form-label">Harga</label>
+                                    <label for="inputnumber" class="col-sm-3 col-form-label">Harga</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="Price" value="" id="Price">
+                                      <input type="number" min="0" class="form-control" name="Price" value="" id="Price">
                                     </div>
                                   </div>
                                   <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-3 col-form-label">Diskon</label>
+                                    <label for="inputnumber" class="col-sm-3 col-form-label">Harga Awal</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="Discount" value="" id="Discount">
+                                      <input type="number" min="0" class="form-control" name="Discount" value="" id="Discount">
                                     </div>
                                   </div>
                                   <div class="row mb-3">

@@ -37,17 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
-/* tambahan */
-.lan-video{
-    width: 630px;
-    height: 355px;
-}
-@media (max-width: 767px) {
-    .lan-video {
-        width: 330px;
-        height: 200px;
-    }
-}
+
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -1870,4 +1860,25 @@ background-color: rgba(255, 255, 255, 0.6);
 .es-card-p {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+/* video */
+.video_p {
+    width: 70%;
+}
+
+/* tambahan */
+.lan-video{
+    width: 630px;
+    height: 355px;
+}
+@media (max-width: 767px) {
+    .video_p {
+        width: 100%;
+    }
+
+    .lan-video {
+        width: 330px;
+        height: 200px;
+    }
 }

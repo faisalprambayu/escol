@@ -27,7 +27,7 @@ class PackageController extends Controller
         }else if($request->path() == "esstream/package" || $request->path() == "esstream"){
             $packages = Package::where('filter_page',4)->orderBy('updated_at', 'DESC')->get();
         }else{
-            $packages = Package::orderBy('updated_at', 'DESC')->get();
+            $packages = Package::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
         }
 
         $data = new PackageCollection($packages);

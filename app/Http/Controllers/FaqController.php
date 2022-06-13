@@ -7,7 +7,10 @@ use App\Http\Requests\FaqUpdateRequest;
 use App\Http\Resources\FaqCollection;
 use App\Http\Resources\FaqResource;
 use App\Models\Faq;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\Response;
 
 class FaqController extends Controller
 {
@@ -48,10 +51,34 @@ class FaqController extends Controller
      * @param \App\Models\Faq $faq
      * @return \App\Http\Resources\FaqResource
      */
-    public function update(FaqUpdateRequest $request, Faq $faq)
+    public function update(Request $request)
     {
-        $faq->update($request->validated());
-        return redirect('faq');
+        // dd("masuk faqw update");
+        $validator = Validator::make($request->all(), [
+            'Question' => ['required'],
+            'Answer' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        try {
+            $friend = $request->all();
+
+            // dd($request);
+            //store your file into directory and db
+            Faq::where('id', $request->get('id'))->update([
+                'Question' => $request->get('Question'),
+                'Answer' => $request->get('Answer'),
+            ]);
+            // $save->save();
+            return redirect('faq');
+        } catch (QueryException $e) {
+            return response()->json([
+                'message' => 'Failed' . $e->errorInfo
+            ]);
+        }
 
         // return new FaqResource($faq);
     }
