@@ -128,8 +128,13 @@ Route::get('/video', [VideoViewController::class, 'index'])->middleware('auth');
 Route::get('/registration', [RegistrationViewController::class, 'index'])->middleware('auth');
 Route::get('/testimonial', [TestimonialViewController::class, 'index'])->middleware('auth');
 Route::get('/programs', [ProgramViewController::class, 'index'])->middleware('auth');
+
 Route::get('/career', [CareerViewController::class, 'index'])->middleware('auth');
+Route::get('/career/banner', [BannerViewController::class, 'index']);
+
 Route::get('/friend', [FriendViewController::class, 'index'])->middleware('auth');
+Route::get('/friend/banner', [BannerViewController::class, 'index']);
+
 Route::get('/article', [ArticleViewController::class, 'index'])->middleware('auth');
 Route::get('/banner', [BannerViewController::class, 'index'])->middleware('auth');
 Route::get('/ref_icon', [RIconViewController::class, 'index'])->middleware('auth');

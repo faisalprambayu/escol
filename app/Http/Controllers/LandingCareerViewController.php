@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 class LandingCareerViewController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $career = Request::create('api/career', 'GET');
-        $response_career = Route::dispatch($career);
+        $response_career = Career::orderBy('updated_at', 'DESC')->get();
+
+        $response_banner = app('App\Http\Controllers\BannerController')->index($request);
 
         $data = [
-            'career' => json_decode($response_career->content(), true)['data'],
+            'career' => $response_career,
+            'banner' => $response_banner,
         ];
         // dd($data);
         return view('lan_karir', compact('data'));

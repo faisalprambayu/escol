@@ -6,32 +6,40 @@
     @include('components/header')
 
 
-  <!-- ======= Hero Section ======= -->
-  <?php
-  foreach ($data['banner'] as $datas) { ?>
-  <section id="hero" class="d-flex justify-content-center align-items-center" style=" width: 100%;
-  height: 80vh; background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
-  background-size: cover;
-  position: relative;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 d-flex flex-column justify-content-center">
-                <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
-                    <h1><?= $datas['Name'] ?></h1>
-                    <h2><?= $datas['Description'] ?></h2>
-                  <a href="" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
+    <!-- ======= Hero Section ======= -->
+    <?php
+    foreach ($data['banner'] as $datas) { ?>
+    <section id="hero" class="d-flex justify-content-center align-items-center" style=" width: 100%;
+    height: 80vh; background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
+    background-size: cover;
+    position: relative;">
+        <div class="container">
+            <div class="row">
+                @if ($datas['Image'] != null)
+                @endif
+                <div class="col-lg-7  mx-auto d-flex flex-column justify-content-center">
+                    <div class="position-relative
+                    @if ($datas['Image'] == null)
+                        text-center
+                    @endif
+                    " data-aos="zoom-in" data-aos-delay="100">
+                        <h1><?= $datas['Name'] ?></h1>
+                        <h2><?= $datas['Description'] ?></h2>
+                    <a href="" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
-             <img src="{{url('resource/banner/'.$datas['Image'])}}" class="img-fluid" alt="">
+                @if ($datas['Image'] != null)
+                    <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{url('resource/banner/'.$datas['Image'])}}" class="img-fluid" alt="">
+                    </div>
+                @endif
             </div>
         </div>
-    </div>
 
-  </section><!-- End Hero -->
-  <?php } ?>
+    </section><!-- End Hero -->
+    <?php } ?>
 
-   @include('components.lan_modal')
+    @include('components.lan_modal')
 </div>
 <!-- ======= End Modal Registration ======= -->
   <main id="main">
@@ -174,42 +182,73 @@
     <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
 
-          <div class="section-title">
+        <div class="section-title">
             <h2>Event</h2>
             <p>Event Seru Esschool.id</p>
-          </div>
+        </div>
 
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        @if (count($data['event'])  == 1)
+
+        <div class="row">
+            <?php
+            $no = 0;
+            foreach ($data['event'] as $datas) { ?>
+            <div class="col-6">
+                <div class="card" style="border-radius: 20px;">
+                    <img class="card-img-top"  src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $datas['Name'] ?></h5>
+                        <p class="card-text"><?= $datas['Description'] ?></p>
+                        <div style="font-weight: 600; margin-bottom: 10px">
+                            <i class="bi-calendar-check" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                            <?= $datas['EventDate'] ?>
+                        </div>
+                        <div style="font-weight: 600; margin-bottom: 20px">
+                            <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                            <?= $datas['Link'] ?>
+                        </div>
+                        <a href="https://wa.me/6281382673264/?text=Halo esschool.id! Saya ingin tahu tentang Event <?= $datas['Name'] ?> yang dilaksanakan pada <?= $datas['EventDate'] ?>" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
+        </div>
+
+        @else
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
             <div class="swiper-wrapper">
-
                 <?php
                 $no = 0;
                 foreach ($data['event'] as $datas) { ?>
-              <div class="swiper-slide" >
-                {{-- <div class="col-md-3" style="float:left"> --}}
-                    <div class="card" style="border-radius: 20px;">
-                        <img class="card-img-top"  src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $datas['Name'] ?></h5>
-                            <p class="card-text"><?= $datas['Description'] ?></p>
-                            <div style="font-weight: 600; margin-bottom: 10px">
-                                <i class="bi-calendar-check" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
-                                <?= $datas['EventDate'] ?>
+                <div class="swiper-slide" >
+                    {{-- <div class="col-md-3" style="float:left"> --}}
+                        <div class="card" style="border-radius: 20px;">
+                            <img class="card-img-top"  src="{{url('resource/event/'.$datas['Image'])}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $datas['Name'] ?></h5>
+                                <p class="card-text d-flex align-items-stretch" style="height: 90px;"><?= $datas['Description'] ?></p>
+                                <div style="font-weight: 600; margin-bottom: 10px">
+                                    <i class="bi-calendar-check" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                                    <?= $datas['EventDate'] ?>
+                                </div>
+                                <div style="font-weight: 600; margin-bottom: 20px">
+                                    <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+                                    <?= $datas['Link'] ?>
+                                </div>
+                                <a href="https://wa.me/6281382673264/?text=Halo esschool.id! Saya ingin tahu tentang Event <?= $datas['Name'] ?> yang dilaksanakan pada <?= $datas['EventDate'] ?>" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
                             </div>
-                            <div style="font-weight: 600; margin-bottom: 20px">
-                                <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
-                                <?= $datas['Link'] ?>
-                            </div>
-                            <a href="https://wa.me/6281382673264/?text=Halo esschool.id! Saya ingin tahu tentang Event <?= $datas['Name'] ?> yang dilaksanakan pada <?= $datas['EventDate'] ?>" class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
-                        </div>
 
-                    </div>
-                {{-- </div> --}}
-              </div><!-- End testimonial item -->
-              <?php }?>
+                        </div>
+                    {{-- </div> --}}
+                </div><!-- End testimonial item -->
+                <?php }?>
             </div>
             <div class="swiper-pagination"></div>
-          </div>
+        </div>
+
+        @endif
+
 
         </div>
     </section><!-- End Testimonials Section -->

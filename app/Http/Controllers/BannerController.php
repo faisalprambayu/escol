@@ -27,6 +27,10 @@ class BannerController extends Controller
             $banners = Banner::where('filter_page',3)->orderBy('updated_at', 'DESC')->get();
         }else if($request->path() == "esstream/banner" || $request->path() == "esstream"){
             $banners = Banner::where('filter_page',4)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "friend/banner" || $request->path() == "sahabat"){
+            $banners = Banner::where('filter_page',5)->orderBy('updated_at', 'DESC')->get();
+        }else if($request->path() == "career/banner" || $request->path() == "karir"){
+            $banners = Banner::where('filter_page',6)->orderBy('updated_at', 'DESC')->get();
         }else{
             $banners = Banner::where('filter_page',1)->orderBy('updated_at', 'DESC')->get();
         }
@@ -185,6 +189,10 @@ class BannerController extends Controller
                 return redirect('esspecial/banner');
             }else if($referer == "/esstream/banner"){
                 return redirect('esstream/banner');
+            }else if($referer == "/friend/banner"){
+                return redirect('friend/banner');
+            }else if($referer == "/career/banner"){
+                return redirect('career/banner');
             }else{
                 return redirect('banner');
             }
