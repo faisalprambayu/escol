@@ -9,8 +9,7 @@
     <!-- ======= Hero Section ======= -->
     <?php
     foreach ($data['banner'] as $datas) { ?>
-    <section id="hero" class="d-flex justify-content-center align-items-center" style=" width: 100%;
-    height: 80vh; background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
+    <section id="hero" class="d-flex justify-content-center align-items-center" style=" background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
     background-size: cover;
     position: relative;">
         <div class="container">
@@ -104,7 +103,7 @@
     </section><!-- End Counts Section --> --}}
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
+    {{-- <section id="why-us" class="why-us">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -174,7 +173,132 @@
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+    </section><!-- End Why Us Section --> --}}
+
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+
+            <div class="row ml-4">
+                <div class="col-md-5 kenapa1">
+                    {{-- <div style="height: 200; width: 350; background-image: url('{{url('img/PISAH-07.png')}}');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-size: cover;"> --}}
+                    <div class="tulisan-kenapa1">
+                        <div style="color: white;">
+                            <h5>
+                                <b>
+                                    Lorem ipsum dolor sit amet,<br>
+                                </b>
+                            </h5>
+                            Lorem ipsum dolor
+                            sit amet,
+                            consectetuer
+                            adipiscing elit, sed<br>
+                        </div>
+                        </div>
+                    {{-- </div> --}}
+                    {{-- <div class="card" style="border-radius: 20px;">
+                        <img class="card-img-top"  src="" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
+                            <div style="font-weight: 600; margin-bottom: 10px">
+                                <i class="bi-calendar-check" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+
+                            </div>
+                            <div style="font-weight: 600; margin-bottom: 20px">
+                                <i class="bi-link" style="font-size: 1.5rem; color: cornflowerblue; margin-right: 10px"></i>
+
+                            </div>
+                            <a href="https://wa.me/6281382673264/?text=Halo esschool.id! Saya ingin tahu tentang Event  yang dilaksanakan pada " class="btn btn-outline-primary" style="border-radius: 30px; width: 100%;">Lihat Detail</a>
+                        </div>
+                    </div> --}}
+                </div>
+                <div class="col-md-7 kenapa2">
+                    <div class="tulisan-kenapa2">
+                        <div style="color: white;">
+                            <h5>
+                                <b>
+                                    Lorem ipsum dolor sit amet,<br>
+                                </b>
+                            </h5>
+                            Lorem ipsum dolor
+                            sit amet,<br>
+                            consectetuer
+                            adipiscing elit, sed<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 mt-5 kenapa3" >
+                    <div class="tulisan-kenapa3">
+                        <div style="color: white;">
+                            <h5>
+                                <b>
+                                    Lorem ipsum dolor sit amet,<br>
+                                </b>
+                            </h5>
+                            Lorem ipsum dolor
+                            sit amet,
+                            consectetuer
+                            adipiscing elit, sed<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 mt-5 kenapa4" >
+                    <div class="tulisan-kenapa4">
+                        <div style="color: white;">
+                            <h5>
+                                <b>
+                                    Lorem ipsum dolor sit amet,<br>
+                                </b>
+                            </h5>
+                            Lorem ipsum dolor
+                            sit amet,
+                            consectetuer
+                            adipiscing elit, sed<br>
+                        </div>
+                        </div>
+                </div>
+            </div>
+
+
+        {{-- <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="swiper-pagination"></div>
+        </div> --}}
+
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+    {{-- <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-5" style="background-color: black;">
+
+                </div>
+                <div class="col-2">
+
+                </div>
+                <div class="col-5" style="">
+
+                </div>
+
+                    <div class="col-5" style="">
+
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-5" style="">
+
+                    </div>
+            </div>
+        </div>
+    </section> --}}
 
 
     {{-- event --}}

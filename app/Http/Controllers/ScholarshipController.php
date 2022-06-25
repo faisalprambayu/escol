@@ -114,7 +114,7 @@ class ScholarshipController extends Controller
 
             if ($file = $request->file('Image')) {
                 $name = time() . '-' . $file->getClientOriginalName();
-                $file->move('resource/program', $name);
+                $file->move('resource/scholarship', $name);
 
                 //store your file into directory and db
                 Scholarship::where('id', $request->get('id'))->update([
