@@ -1,4 +1,4 @@
-<section>
+
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top">
@@ -108,4 +108,4 @@
 
         </div>
     </header><!-- End Header -->
-</section>
+

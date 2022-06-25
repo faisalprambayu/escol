@@ -9,7 +9,8 @@
     <!-- ======= Hero Section ======= -->
     <?php
     foreach ($data['banner'] as $datas) { ?>
-    <section id="hero" class="d-flex justify-content-center align-items-center" style=" background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
+    <section id="hero" class="d-flex justify-content-center align-items-center" style=" background: url('../resource/banner/<?= $datas['Background'] ?>') top center;
+    /* background-color: var(--es-danger); */
     background-size: cover;
     position: relative;">
         <div class="container">
@@ -24,7 +25,7 @@
                     " data-aos="zoom-in" data-aos-delay="100">
                         <h1><?= $datas['Name'] ?></h1>
                         <h2><?= $datas['Description'] ?></h2>
-                    <a href="" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
+                    <a href="" class="btn-get-started" style="margin-bottom: 65px;" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
                     </div>
                 </div>
                 @if ($datas['Image'] != null)

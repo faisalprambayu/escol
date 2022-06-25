@@ -307,7 +307,7 @@
 
       <?php } ?>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link <?php if ((Request::segment(1))!="why" && (Request::route()->uri()) != "essclusive/why" && (Request::route()->uri()) != "esspecial/why"  && (Request::route()->uri()) != "esstream/why"){echo "collapsed";} ?>"
             <?php if ((Request::segment(1))=="essclusive") { ?>
                 href="/essclusive/why"
@@ -322,7 +322,7 @@
             <i class="bi bi-card-heading"></i>
           <span>Why Choose Us</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li><!-- End Profile Page Nav --> --}}
 
     </ul>
 

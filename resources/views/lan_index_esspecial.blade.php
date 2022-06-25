@@ -6,30 +6,35 @@
     @include('components/header')
 
 
-  <!-- ======= Hero Section ======= -->
-  <?php
-  foreach ($data['banner'] as $datas) { ?>
-  <section id="hero" class="d-flex justify-content-center align-items-center" style=" width: 100%;
-  height: 80vh; background: url('../resource/banner/<?= $datas['Background'] ?>') top center; background-color: var(--es-danger);
-  background-size: cover;
-  position: relative;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 d-flex flex-column justify-content-center">
-                <div class="position-relative" data-aos="zoom-in" data-aos-delay="100">
-                    <h1><?= $datas['Name'] ?></h1>
-                    <h2><?= $datas['Description'] ?></h2>
-                  <a href="" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
-                </div>
-            </div>
-            <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
-             <img src="{{url('resource/banner/'.$datas['Image'])}}" class="img-fluid" alt="">
-            </div>
-        </div>
-    </div>
+ <!-- ======= Hero Section ======= -->
+ <?php
+ foreach ($data['banner'] as $datas) { ?>
+ <section id="hero" class="d-flex justify-content-center align-items-center" style=" background: url('../resource/banner/<?= $datas['Background'] ?>') top center;
+ /* background-color: var(--es-danger); */
+ background-size: cover;
+ position: relative;">
+     <div class="container">
+         <div class="row">
+             @if ($datas['Image'] != null)
+             @endif
+             <div class="col-lg-7 d-flex flex-column justify-content-center">
+                 <div class="position-relative
+                 " data-aos="zoom-in" data-aos-delay="100">
+                     <h1><?= $datas['Name'] ?></h1>
+                     <h2><?= $datas['Description'] ?></h2>
+                 <a href="" class="btn-get-started" style="margin-bottom: 65px;" data-bs-toggle="modal" data-bs-target="#createModal">Get Started</a>
+                 </div>
+             </div>
+             @if ($datas['Image'] != null)
+                 <div class="col-lg-5 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                     <img src="{{url('resource/banner/'.$datas['Image'])}}" class="img-fluid" alt="">
+                 </div>
+             @endif
+         </div>
+     </div>
 
-  </section><!-- End Hero -->
-  <?php } ?>
+ </section><!-- End Hero -->
+ <?php } ?>
 
    @include('components.lan_modal')
 </div>
@@ -38,7 +43,7 @@
 
 
     <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
+    {{-- <section id="why-us" class="why-us">
         <div class="container" data-aos="fade-up">
 
           <div class="row">
@@ -108,7 +113,7 @@
           </div>
 
         </div>
-    </section><!-- End Why Us Section -->
+    </section><!-- End Why Us Section --> --}}
 
    <!-- ======= Features Section ======= -->
    <section id="features" class="features">
@@ -151,7 +156,6 @@
       <div class="container" data-aos="fade-up">
 
         <?php if ($data['package'] != null) { ?>
-            # code...
 
 
         <div class="section-title">

@@ -2,7 +2,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="<?= url('index');?>" class="logo d-flex align-items-center">
+      <a href="<?= url('admin');?>" class="logo d-flex align-items-center">
         <img src="<?= url('assets/img/esschool.png');?>" alt="">
         {{-- <span class="d-none d-lg-block">NiceAdmin</span> --}}
       </a>
