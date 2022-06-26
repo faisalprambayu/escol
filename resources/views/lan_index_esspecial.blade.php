@@ -133,16 +133,23 @@
           <?php
           foreach ($data['service'] as  $datas) { ?>
 
-          <div class="col-lg-3 col-md-4">
-              <div class="icon-box">
-                  <?php foreach ($data['icon'] as $icons) { if($datas['Icon'] == $icons['id']) {?>
-                      <div style="color: <?= $icons['Color'] ?>;">
-                          <?= $icons['Icon'] ?>
-                      </div>
-                  <?php }} ?>
-                  <h3><?= $datas['Title'] ?></h3>
-              </div>
-          </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="icon-box">
+                    <div class="dalam">
+                        <?php foreach ($data['icon'] as $icons) { if($datas['Icon'] == $icons['id']) {?>
+                            <div style="color: <?= $icons['Color'] ?>;">
+                                <?= $icons['Icon'] ?>
+                            </div>
+                        <?php }} ?>
+                        <h3><?= $datas['Title'] ?></h3>
+                    </div>
+                    <div class="luar">
+                        @if ($datas['Description'])
+                            <p style="padding-top: 30px;"><?= $datas['Description'] ?></p>
+                        @endif
+                    </div>
+                </div>
+            </div>
 
 
           <?php } ?>
